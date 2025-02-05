@@ -1,0 +1,317 @@
+## 1.202 Demand Modeling
+
+## Recitation 2
+
+Kexin (Sally)Chen
+
+February 17,2023
+
+## Outline
+
+·Estimators
+
+·Overview
+
+·Sample Properties
+
+·MLE
+
+·Hypothesis Testing
+
+·Appendix
+
+• Estimators are any function of a random sample whose objective is to approximate a parameter
+
+• Estimators are random variables
+
+• Estimators’ distributions are called sampling distributions
+
+• When an estimator is evaluated on a particular sample, the resulting number is called an estimate
+
+• Using estimators implicitly assumes that:
+
+• There exists a true model of the data generation process that fully controls what we see in the data, and it is parameterized by a set of parameters
+
+• We know the structure of the true model, and are only missing the parameter values
+
+# Intuitively, what is a good estimator?
+
+• If we average estimates based on infinitely many samples, on average we should get the true parameter values
+
+• Estimates based on different samples from the population should not vary too much, otherwise luck plays a huge role
+
+Formally, what is a good estimator?
+
+·We can measure the quality of an estimator by its mean squared error
+
+$M S E ( \hat { \theta } ) = E [ ( \hat { \theta } - \theta ) ^ { 2 } ]$
+
+$= E [ \hat { \theta } ^ { 2 } - 2 \hat { \theta } \theta + \theta ^ { 2 } ]$
+
+$= E [ \hat { \theta } ^ { 2 } ] - 2 \theta E [ \hat { \theta } ] + \theta ^ { 2 }$
+
+$= V a r ( \hat { \theta } ) + ( 距 [ \hat { \theta } ] - \theta ) ^ { 2 }$
+
+Bias
+
+·The expectation and variance are all taken over the sampling distribution of estimator θ
+
+# Sampling Distribution:
+
+# Coin Flip Example
+
+• Toss a coin two times
+
+• 푝: probability of coming up head
+
+• Sample space: S = {HH,HT,TH,TT}
+
+• Consider two estimators:
+
+$\hat { p } = \frac { k } { 2 }$where 푘 is the number of heads
+
+•푝= 1 if the first toss is head otherwise 0
+
+## Sampling Distribution:
+
+## Coin Flip Example
+
+·Toss a coin two times
+
+·p: probability of coming up head
+
+·Sample space: S ={HH,HT,TH,TT}
+
+·Sampling distribution of estimator p (MLE):
+
+$\cdot P ( \hat { p } = 0 ) = P ( T T ) = 1 / 4$
+
+$\cdot P ( \hat { p } = 0 . 5 ) = P ( H T o r T H ) = 1 / 2$
+
+$\cdot P ( \hat { p } = 1 ) = P ( H H ) = 1 / 4$
+
+·The sampling distribution of p (All-In):
+
+⋅P(p=0)=P(p=1)=1/2
+
+## Outline
+
+·Hypothesis Testing
+
+·Estimators
+
+·Overview
+
+·Sample Properties
+
+·MLE
+
+·Appendix
+
+# Small Sample Properties
+
+
+| Unbiasedness  | An estimator is unbiased if the estimator’s expected value is equal to the true value  |
+| -- | -- |
+|  | 피There may be multiple unbiased estimators. The most efficient estimator additionally has the  |
+| Efficiency  | smallest variance •Absolute: unbiased + smallest variance •Relative |
+| Consistency  | An efficient estimator “collapses” on the true value as 푁→∞ |
+| Asymptotic Normality  | Can be asymptotically approximated by a normal distribution  |
+| Asymptotic Variance / Efficiency  | Variance of approximated normal distribution  |
+
+
+## Outline
+
+·Hypothesis Testing
+
+·Estimators
+
+·Overview
+
+·Sample Properties
+
+·MLE
+
+·Appendix
+
+# Maximum Likelihood Estimators:
+
+## Coin Flip Example
+
+·What is the maximum likelihood estimator of 3coin flips?
+
+·We get a sample: HHT. What we can say about p?
+
+·Joint probability of having k heads in a sequence of n tosses:.$p ^ { } ( 1 - p ) ^ { ( - ) }$
+
+·To find the value of p that maximizes the above likelihood we work out the derivative with respect to p
+
+$0 = \frac { \partial } { \partial p } p ^ { k } ( 1 - p ) ^ { ( n - k ) }$
+
+$= p ^ { ( k - 1 ) } ( 1 - p ) ^ { ( n - k - 1 ) } ( k - n p )$
+
+$p = \frac { k } { n }$
+
+# Maximum Likelihood Estimators:
+
+## Properties
+
+• MLEs are consistent, asymptotically normal, and asymptotically efficient
+
+• They are not necessarily unbiased or efficient
+
+# Cramér-Rao Lower Bound
+
+• How good an estimator ෠휃 relative to the infinitely many other unbiased estimators for 휃?
+
+• If the variance of a given ෠휃 is equal to the Cramér-Rao lower bound, we know that estimator is optimal in the sense that no unbiased ෠휃 can estimate 휃 with greater precision
+
+$V a r ( \hat { \theta } ) \geq - E$ $[ \frac { \partial ^ { 2 } L } { \partial \theta ^ { 2 } } ] ^ { - 1 }$ Inverse Information Matrix
+
+·Estimators
+
+·Hypothesis Testing
+
+# Hypothesis Testing
+
+
+| Define Hypotheses  | (Null: Fair coin is heads 50% of the time) (Alternate: Fair coin is not heads 50% of the time)  |
+| -- | -- |
+| Consider Data  | Each flip is independent of previous and subsequent flips  |
+| Choose Test Statistic & Significance Level  |  |
+| Accept or Reject Null  | Reject , otherwise fail to reject  |
+
+
+z-Test $Z = \frac { \overline { X } - \mu _ { 0 } } { \sigma / \sqrt { N } }$
+
+when population variance is known $\sigma ^ { 2 } = V a r ( x _ { i } ) ,$ $\frac { \sigma ^ { 2 } } { N } = V a r ( \overline { X } )$
+
+t-Test One-sample:$t = \frac { \overline { X } - \mu _ { 0 } } { s / \sqrt { N } }$when population variance is unknown $t : t = \frac { \overline { X } _ { 1 } - \overline { X } _ { 2 } } { \sqrt { \frac { s _ { 1 } ^ { 2 } } { N _ { 1 } } + \frac { s _ { 2 } ^ { 2 } } { N _ { 2 } } }$·Paired & independent:
+
+· Paired & correlated:$t = \frac { \overline { X } _ { 1 } - \overline { X } _ { 2 } } { \sqrt { \frac { s _ { 1 } ^ { 2 } } { N _ { 1 } } + \frac { s _ { 2 } ^ { 2 } } { N _ { 2 } } } - 2 r ( \frac { s _ { 1 } } { \sqrt { N _ { 1 } } } ) ( \frac { s _ { 2 } } { \sqrt$
+
+# Hypothesis Testing:
+
+## Coin Flip Example
+
+## ·Flip a coin 100 times
+
+·63 Heads, 37 Tails
+
+·Is this coin fair?
+
+·Let's define the problem:
+
+$H _ { 0 } : p = 0 . 5 0$
+
+· $H _ { 1 } : p \neq 0 . 5 0$
+
+· $Z = \frac { \overline { X } - \mu _ { 0 } } { \sigma / \sqrt { n } }$
+
+·α=0.05
+
+## Hypothesis Testing:
+
+## Coin Flip Example
+
+$\cdot \overline { X } = 0 . 6 3$
+
+$\mu _ { 0 } = 0 . 5 0$
+
+$\cdot \sigma / \sqrt { n } = \sqrt { p \times ( 1 - p ) / n } = \sqrt { 0 . 5 \times 0 . 5 / 1 0 0 } =$0.05
+
+$\cdot Z = \frac { \overline { X } - \mu _ { 0 } } { \sigma / \sqrt { n } } = 2 . 6$
+
+⋅p-∇alue=P(z&lt;-2.6orZ&gt;2.6)
+
+## Hypothesis Testing:
+
+## Coin Flip Example
+
+
+| 2  | 0.00  | 0.01  | 0.02  | 0.03  | 0.04  | 0.05  | 0.06  | 0.07  | 0.08  | 0.09  |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| -3.6  | .0002  | .0002  | .0001  | .0001  | .0001  | .0001  | .0001  | .0001  | .0001  | .0001  |
+| -3.5  | .0002  | .0002  | .0002  | .0002  | .0002  | .0002  | .0002  | .0002  | .0002  | .0002  |
+| -3.4  | .0003  | .0003  | .0003  | .0003  | .0003  | .0003  | .0003  | .0003  | .0003  | .0002  |
+| -3.3  | .0005  | .0005  | .0005  | .0004  | .0004  | .0004  | .0004  | .0004  | .0004  | .0003  |
+| -3.2  | .0007  | .0007  | .0006  | .0006  | .0006  | .0006  | .0006  | .0005  | .0005  | .0005  |
+| -3.1  | .0010  | .0009  | .0009  | .0009  | .0008  | .0008  | .0008  | .0008  | .0007  | .0007  |
+| -3.0  | .0013  | .0013  | .0013  | .0012  | .0012  | .0011  | .0011  | .0011  | .0010  | .0010  |
+| -29  | .0019  | .0018  | .0018  | .0017  | .0016  | .0016  | .0015  | .0015  | 0014  | .0014  |
+| -28  | .0026  | .0025  | .0024  | .0023  | .0023  | .0022  | .0021  | .0021  | .0020  | .0019  |
+| -2.7  | 0035  | .0034  | .0033  | .0032  | .0031  | .0030  | .0029  | .0028  | .0027  | .0026  |
+| -2.6  | 0047  | .0045  | .0044  | .0043  | .0041  | .0040  | .0039  | .0038  | .0037  | 0036  |
+| -25  | .0062  | .0060  | .0059  | .0057  | .0055  | .0054  | .0052  | .0051  | .0049  | .0048  |
+| -24  | .0082  | .0080  | .0078  | .0075  | .0073  | .0071  | .0069  | .0068  | .0066  | .0064  |
+| -2.3  | .0107  | .0104  | .0102  | .0099  | .0096  | .0094  | .0091  | .0089  | .0087  | .0084  |
+| -2.2  | .0139  | .0136  | .0132  | ,0129  | .0125  | .0122  | .0119  | .0116  | 0113  | .0110  |
+| -2.1  | .0179  | .0174  | .0170  | .0166  | .0162  | .0158  | .0154  | .0150  | .0146  | .0143  |
+| -20  | 0228  | .0222  | .0217  | ,0212  | .0207  | .0202  | .0197  | .0192  | .0188  | .0183  |
+| -1.9  | ,0287  | .0281  | .0274  | .0268  | ,0262  | ,0256  | .0250  | ,0244  | .0239  | 0233  |
+| -1.8  | .0359  | .0351  | .0344  | .0336  | .0329  | .0322  | 0314  | .0307  | .0301  | 0294  |
+| -1.7  | .0446  | .0436  | .0427  | ,0418  | .0409  | ,0401  | .0392  | .0384  | .0375  | .0367  |
+| -1.6  | .0548  | .0537  | .0526  | ,0516  | .0505  | .0495  | .0485  | .0475  | .0465  | .0455  |
+| -1.5  | .0668  | .0655  | .0643  | .0630  | .0618  | .0606  | .0594  | .0582  | .0571  | .0559  |
+| -1.4  | 0808  | .0793  | .0778  | .0764  | .0749  | ,0735  | .0721  | .0708  | .0694  | 0681  |
+| -1.3  | .0968  | .0951  | .0934  | ,0918  | .0901  | .0885  | .0869  | .0853  | .0838  | .0823  |
+| -1.2  | .1151  | .1131  | .1112  | .1093  | .1075  | .1056  | .1038  | .1020  | .1003  | .0985  |
+| -1.1  | .1357  | ,1335  | .1314  | ,1292  | ,1271  | .1251  | .1230  | .1210  | .1190  | 1170  |
+| -1.0  | .1587  | .1562  | .1539  | ,1515  | .1492  | .1469  | .1446  | .1423  | .1401  | .1379  |
+| -0.9  | .1841  | .1814  | .1788  | .1762  | .1736  | .1711  | .1685  | .1660  | .1635  | .1611  |
+| -0.8  | .2119  | .2090  | .2061  | .2033  | .2005  | .1977  | .1949  | .1922  | .1894  | .1867  |
+| -0.7  | .2420  | .2389  | .2358  | .2327  | .2296  | .2266  | .2236  | .2206  | 2177  | .2148  |
+| -0.6  | .2743  | .2709  | .2676  | .2643  | ,2611  | ,2578  | .2546  | 2514  | .2483  | 2451  |
+| -0.5  | .3085  | 3050  | .3015  | .2981  | .2946  | .2912  | .2877  | .2843  | .2810  | .2776  |
+| -0.4  | ,3446  | .3409  | 3372  | 3336  | .3300  | 3264  | 3228  | 3192  | 3156  | 3121  |
+| -0.3  | .3821  | .3783  | .3745  | .3707  | .3669  | .3632  | 3594  | 3557  | 3520  | 3483  |
+| -0.2  | ,4207  | ,4168  | .4129  | ,4090  | 4052  | 4013  | 3974  | 3936  | 3897  | 3859  |
+| -0.1  | .4602  | .4562  | .4522  | .4483  | ,4443  | .4404  | .4364  | ,4325  | .4286  | 4247  |
+| -0.0  | .5000  | ,4960  | ,4920  | ,4880  | .4840  | ,4801  | ,4761  | ,4721  | 4681  | ,4641  |
+
+
+<!-- Number in the table represents P(Z≤z) z 0  -->
+![](https://web-api.textin.com/ocr_image/external/e8d906bf0b0b4334.jpg)
+
+# Hypothesis Testing:
+
+## Coin Flip Example
+
+$\cdot \overline { X } = 0 . 6 3$
+
+$\mu _ { 0 } = 0 . 5 0$
+
+$\cdot \sigma / \sqrt { n } = \sqrt { p \times ( 1 - p ) / n } = \sqrt { 0 . 5 \times 0 . 5 / 1 0 0 } =$0.05
+
+$\cdot Z = \frac { \overline { X } - \mu _ { 0 } } { \sigma / \sqrt { n } } = 2 . 6$
+
+⋅p-∇alue=P(z&lt;-2.6orZ&gt;2.6)
+
+=2×0.0047=0.0094&lt;α
+
+·We can reject the null hypothesis that this coin is a fair coin at the 5% significance level.
+
+### TABLE A.1
+
+## Cumulative Standardized Normal Distribution
+
+<!-- A(z) -4 -3 -2 -1 0 1 Z 2 3 4  -->
+![](https://web-api.textin.com/ocr_image/external/b584de1e5f0928d0.jpg)
+
+A(z) is the integral of the standardized normal distribution from-∞to z(in other words,the area under the curve to the left of z). It gives the probability of a normal random variable not being more than z standard deviations above its mean. Values of z of particular importance:
+
+
+| Z  | A(z)  |  |
+| -- | -- | -- |
+| 1.645  | 0.9500  | Lower limit of right 5% tail  |
+| 1.960  | 0.9750  | Lower limit of right 2.5% tail  |
+| 2.326  | 0.9900  | Lower limit of right 1% tail  |
+| 2.576  | 0.9950  | Lower limit of right 0.5% tail  |
+| 3.090  | 0.9990  | Lower limit of right 0.1% tail  |
+| 3.291  | 0.9995  | Lower limit of right 0.05% tail  |
+
+
+川ir Massachusetts Institute of Technology been computed to accompany the text C. Dougherty Introduction to © C. Dougherty 2001,2002(c.dougherty@lse.ac.uk).These tables have Econometrics (second edition 2002, Oxford University Press,Oxford),They may be reproduced freely provided that this attribution is retained.
+
+
+

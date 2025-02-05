@@ -1,0 +1,374 @@
+## 1.202 Demand Modeling
+
+## Recitation 1
+
+Angie Moon
+
+February 7,2025
+
+## Outline
+
+·Housekeeping
+
+·Case Study 0
+
+·Review of Probability and Statistics
+
+# Housekeeping
+
+• Recitation: Friday 11am – 12pm, room 5-217
+
+• Midterm: take-home exam, 19-Mar 2:30pm ~ 21-Mar 11am
+
+• Recitation structure
+
+• Case study structure
+
+• My email: kexinc@mit.edu
+
+## Outline
+
+·Housekeeping
+
+·Case Study 0
+
+·Review of Probability and Statistics
+
+Case Study 0: Statistics Review
+
+• Part 1: Model and analyze daily expenditure of people travelling for summer vacation
+
+• Generate synthetic data
+
+• Analyze the data
+
+• Summary statistics
+
+• Visualization
+
+• Hypothesis testing
+
+### • Part 2: Supplemental problems
+
+• Probability functions
+
+• Estimators, maximum likelihood
+
+• Variance, covariance
+
+## Case Study 0: Submission
+
+• Use any software: Excel, R, Matlab, Python
+
+• Submission:
+
+• PDF with outputs and discussions from Part 1, exercises from Part 2
+
+• The electronic files used to generate Part 1 results
+
+• Deadline: February 24
+
+## Outline
+
+• Housekeeping
+
+• Case Study 0
+
+• Review of Probability and Statistics
+
+• Probability
+
+• Random variables
+
+Experiment Flipping a coin three times
+
+Outcome
+
+Each flip can be heads (H) or tails (T)
+
+result of experiment
+
+Sample Space S = {HHH,HHT,HTH,THH,HTT,THT,TTH,TTT}
+
+set of possible outcomes
+
+Event Event A: more heads than tails subset of outcomes A={HHH,HHT,HTH,THH}
+
+Probability P(A)=∑P(clements in A)
+
+assigned to events
+
+$= \frac { e l e m e t \sin A } { e l e m e t \sin a m p l e p }$ace
+
+## Properties of Probability
+
+Probability of Event range for any event
+
+Probability of Complement
+
+Probability of Union
+
+Mutual Exclusivity
+
+Joint Probability
+
+0≤P(A)≤1
+
+$P ( A ^ { c } ) = 1 - P ( A )$
+
+P(A∪B)=P(A)+P(B)-P(A∩B)
+
+If A and B are mutually exclusive:
+
+P(A∩B)=0
+
+P(A∪B)=P(A)+P(B)
+
+If A and B are independent:
+
+P(A∩B)=P(A)×P(B)
+
+Conditional Probability $P ( A \vert B ) = \frac { P ( A \cap B ) } { P ( B ) }$
+
+Multiplication Rule P(A∩B∩C)=P(A)P(B|A)P(C|A∩B)
+
+Law of Total Probability $P ( A ) = \sum _ { n } P ( A \vert B _ { n } ) P ( B _ { n } )$
+
+Bayes' Rule $P ( A \vert B ) = \frac { P ( B \vert A ) P ( A ) } { P ( B ) }$
+
+# Bayes’ Rule: Rare Disease Example
+
+• Free testing for rare disease
+
+• Test has 99% accuracy
+
+• Disease only occurs in 1% of population
+
+• You went for a test and it came positive
+
+• Do you have the disease?
+
+• Let’s define the events:
+
+$\cdot A _ { 1 } :$ State of having the disease
+
+• A2: State of being healthy
+
+• B: Positive test result
+
+Bayes' Rule: Rare Disease Example
+
+$\cdot P ( d i s e a s e ) = P ( A _ { 1 } ) = 0 . 0 1$
+
+$\cdot P ( h e a l t h y ) = P ( A _ { 2 } ) = 0 . 9 9$
+
+$\cdot P ( p o s i t i v e \vert d i s e a s e ) = P ( B \vert A _ { 1 } ) = 0 . 9 9$
+
+$\cdot P ( p o s i t i v e \vert h e a l t h y ) = P ( B \vert A _ { 2 } ) = 0 . 0 1$
+
+$\cdot P ( d i s e a s e \vert p o s i t i v e t e s t ) = P ( A _ { 1 } \vert B )$
+
+$\cdot B a y e s : P ( A _ { 1 } \vert B ) = \frac { P ( B \vert A _ { 1 } ) P ( A _ { 1 } ) } { P ( B ) }$
+
+$\cdot P ( B ) = P ( B \vert A _ { 1 } ) P ( A _ { 1 } ) + P ( B \vert A _ { 2 } ) P ( A _ { 2 } )$
+
+$\cdot P ( A _ { 1 } \vert B ) = \frac { 0 . 9 9 \times 0 . 0 1 } { 0 . 9 9 \times 0 . 0 1 + 0 . 0 1 \times 0 . 9 9 } = 0 . 5 0$
+
+## Outline
+
+• Housekeeping
+
+• Case Study 0
+
+• Review of Probability and Statistics
+
+• Probability basics
+
+• Random variables
+
+PMF probability that discrete random variable (X) is probability mass equal to some value (x)function $p _ { X } ( x ) = P ( X = x )$
+
+PDF density of probability of continuous random variable (X)
+
+probability density function $f _ { X } ( x ) = \frac { d } { d x } F _ { X } ( x )$
+
+CDF equal to some value (x)probability that random variable (X) is less than or
+
+cumulative distribution function $F _ { X } ( x ) = P ( X \leq x ) = \int _ { - \infty } ^ { \pi } f _ { X } ( t ) d t$
+
+$f ( y ) = \frac { 3 } { 8 } y ^ { 2 } ,$,0≤y≤2
+
+⋅Probabilityof0≤y≤1?
+
+$P ( A ) = \int _ { 0 } ^ { \frac { 1 } { f } } f ( y ) d y = \int _ { 0 } ^ { \frac { 3 } { 8 } } y ^ { 2 } d y = \frac { 3 } { 8 } \times \frac { y ^ { 3 } } { 3 } \vert _ { 0 } ^ { 1 } = \frac { 1 } { 8 } \times ( 1 - 0 )$ $= \frac { 1 } { 8 }$
+
+·Valid pdf?
+
+$\int _ { 0 } ^ { 2 } f ( y ) d y = 1$
+
+$f ( y ) = \frac { 3 } { 8 } y ^ { 2 } ,$,0≤y≤2
+
+$\cdot p d f f o r X = Y ^ { 2 } ?$
+
+$G _ { x } ( x ) = P ( X \leq x ) = P ( Y ^ { 2 } \leq x ) = P ( Y \leq \sqrt { x } ) = \int _ { 0 } ^ { \sqrt { x } } f ( y ) d y$
+
+$= \frac { 3 } { 8 } \times \frac { y ^ { 3 } \sqrt { x } } { 3 } = \frac { x ^ { 3 / 2 } } { 8 }$
+
+$g _ { x } ( x ) = \frac { d G _ { x } ( x ) } { d x } = \frac { d } { d x } ( \frac { x ^ { 3 / 2 } } { 8 } ) = \frac { 3 } { 1 6 } x ^ { 1 / 2 } = \{ \begin{matrix} \frac { 3 } { 1 6 } x ^ { 1 / 2 } i f 0 \leq x \leq 4 \\ 0 t h e r v i s$
+
+# Random Variables: Expectation
+
+·Expectation:
+
+$E [ X ] = \int _ { - \infty } ^ { \infty } x f _ { X } ( x ) d x$
+
+·When it is equal to the sample mean?
+
+·Discrete example: Dice
+
+$E [ X ] = \sum _ { i = 1 } ^ { 6 } i \times P ( i )$
+
+$= 1 \times \frac { 1 } { 6 } + 2 \times \frac { 1 } { 6 } + 3 \times \frac { 1 } { 6 } + 4 \times \frac { 1 } { 6 } + 5 \times \frac { 1 } { 6 } + 6 \times \frac { 1 } { 6 }$
+
+=3.5
+
+·Variance:
+
+$V a r ( X ) = E [ ( X - E [ X ] ) ^ { 2 } ]$
+
+$= E [ X ^ { 2 } ] - ( E [ X ] ) ^ { 2 }$
+
+Bernoulli Example: Unfair Coin Toss
+
+·In Bernoulli trials, repeated trials are independent
+
+·For a coin:
+
+·Heads:X=1with probability p
+
+·Tails: X = 0 with probability 1-p
+
+·If the coin is fair:p=1-p
+
+·Expectation
+
+E[X]=0×(1-p)+1×(p)=p
+
+·Variance
+
+$V a r ( X ) = E [ X ^ { 2 } ] - ( E [ X ] ) ^ { 2 }$
+
+$= ( 0 ^ { 2 } \times ( 1 - p ) + 1 ^ { 2 } \times ( p ) ) - p ^ { 2 }$
+
+$= p - p ^ { 2 } = p ( 1 - p )$
+
+## Properties of Expectation
+
+
+| Discrete Expectation  |  |
+| -- | -- |
+| Continuous Expectation  |  |
+| Linear Combination 피 | 피 |
+| Nonlinear Combination 피 | 피 |
+
+
+### Properties of Variance
+
+
+| Variance  |  |
+| -- | -- |
+| Multiplied by Constant  |  |
+| Variance of Summed Random Variables  | If 푋 and 푌 are independent: |
+
+
+## Covariance
+
+·Covariance: common variation between variables.
+
+Cov(X,Y)=E[(X-E[X])(Y-E[Y])]
+
+=E[XY]-E[X]E[Y]
+
+·If X and Y are independent: IA [XY]=E[X]E[Y]
+
+· Therefore, if X and Y are independent, the covariance is 0
+
+• Correlation Coefficient: $\rho = \frac { C o v ( X , Y ) } { \sqrt { V a r ( X ) V a r ( Y ) } }$
+
+Where:-1≤ρ≤1
+
+• If 푋 and 푌 are independent: ρ=0
+
+• If 푋 and 푌 are perfectly positively correlated: ρ=1
+
+• If 푋 and 푌 are perfectly negatively correlated: ρ=-1
+
+
+![](https://web-api.textin.com/ocr_image/external/745e741207e0f4ac.jpg)
+
+<!-- &gt;0  -->
+![](https://web-api.textin.com/ocr_image/external/90248b9b235a09e2.jpg)
+
+## Covariance and Correlation
+
+·Covariance and Correlation measure linear relationship only
+
+$\cdot e _ { \cdot } g _ { \cdot } \cos i d e r X = \{ \begin{matrix} 1 & P = 1 / 3 \\ 0 & P = 1 / 3 \end{matrix} , ;$ $Y = X ^ { 2 }$
+
+E[X]=0
+
+ov(X,Y)=E[XY]-E[X]E[Y]
+
+$= E [ X ^ { 3 } ] - E [ X ] E [ X ^ { 2 } ] = 0$
+
+·Normal Distribution:
+
+$f _ { Y } ( y ) = \frac { 1 } { \sqrt { 2 \pi \sigma } } e ^ { - \frac { 1 } { 2 } ( \frac { y - \mu } { \sigma } ) ^ { 2 } , - \infty < y < \infty$
+
+·Observed in nature
+
+·Central limit theorem
+
+<!-- 68.26% 95.44% 99.73% -3 -2 -1 0 1 2 3  -->
+![](https://web-api.textin.com/ocr_image/external/aeb732dde17a292e.jpg)
+
+## Distributions (cont.)
+
+·Poisson Distribution
+
+$p _ { X } ( k ) = P ( X = k ) = \frac { e ^ { - \lambda } \lambda ^ { k } } { k ! }$,k=0,1,2,⋯
+
+·Discrete phenomena
+
+·e.g. Arrival of passengers to a system
+
+## ·Exponential Distribution
+
+$f _ { Y } ( y ) = P ( Y = y ) = \lambda e ^ { - \lambda y } , y > 0$
+
+$F _ { Y } ( y ) = 1 - e ^ { - \lambda y } , y > 0$
+
+·Distribution of the time between Poisson Events
+
+·e.g. time between two arrivals
+
+# Distributions (cont.)
+
+·Binomial Distribution
+
+$p _ { X } ( k , n , p ) = P ( X = k \vert n , p ) = ( n ) p ^ { k } ( 1 - p ) ^ { n - k }$
+
+·Number of successes in n trials
+
+·e.g. Number of heads in coin tosses
+
+·Geometric Distribution
+
+$p _ { Y } ( k ) = P ( Y = k ) = ( 1 - p ) ^ { k - 1 } p$
+
+$F _ { Y } ( y ) = 1 - ( 1 - p ) ^ { k }$
+
+·Number of trials until first success
+
+·e.g. Number of coin tosses before first head
+
