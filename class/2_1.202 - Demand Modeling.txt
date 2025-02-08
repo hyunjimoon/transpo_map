@@ -1,0 +1,378 @@
+So today, sequence of four lectures, which is basically you already statistics and something that's what we're trying to do. So it doesn't mean that in three actually, couple of acoustic material in COVID statistics and sampling, but hopefully some of the key concepts that we're going to come to use in this class, and today, I'm going to start with a made up for example, a trivial numerical example I'm going to make up about the example, and I will use this example and today later in this Brief material, and so very simple example of data defined, define some mobility concept,
+
+and remember the steps of modern development that we talked about, maybe, If we don't begin by reviewing the independent theory, then you connect data, then it will statistically apply. I'm going to demonstrate these stages, which means using this example, so model apply the model, and in order to do that, I will also
+
+explain what
+
+it is special plan for today. And so here's my example. Assume that we are doing again.
+
+And so the assume that very simple questionnaire, and it's a random sample of, say, resident of Metroid Boston area. And so we sample annually, 600 announced. And in the questionnaires are two questions. First question, Do you own a tablet? Do possible answer yes or no? And somebody can say, I don't know, but that doesn't qualify. And then what's your level of education? And we specify in terms of yields of school, low, medium and high. So those three categories. And so every observation which is like an experiment, we go to the population. Rather we do an independent and this individual will fall into one of these six cells. So this was false the first question, W fellowship, yes or no. We denotes either i. So i equal to one means yes. I equal to two means no. And education, law, medium, I and so we denoted by small k, k equal 123, so the outcome, therefore is the L, i and k. And so normally, when you get data from a survey, or you get records, you get like a rectangular kind of data. Well, the whole is a record, and the column will be variable. And so you get the records, and then you can calculate all kind of statistics. But in our case, all the variables are discrete. So without and since every individual, every outcome, falls into this one of these six cells, we need to summarize, which is count, how many in the sample of 600 how many fold into each cell? So we can represent that there's no loss of information in representative our survey using this kind of table, and we also calculated some four totals and column totals, and even calculated Some percentages. But these six numbers is all data,
+
+so now what are we going to do with this data? Well, first we're going to focus this survey is designed to find out about the penetration of tablet. And so we calculate the penetration of tablets. We estimate it by the shell of the sample. That answer i equal to one. So there were 200 so the total of four, first of all, is 200 total 600 so one cell, and of course, the shell of i root, the two is two cells. Now we denoted with p hat, and so P is denotes the probability. So p of i root, one is a shell of people, of adults owning tablet in the population. When we put a head on it, you mean we are estimating it, and this is a share in the sample. So it's an estimate. We create p hat, and similarly, P i equal to two. Similarly, we have another two questions. We can look at the distribution by level of education, and this distribution of the level of education, we call it t of k equal to 1k 2k equal to three, and we calculate these shares in the sample and there are estimates of the share in the population, and these are called marginal distribution. So we have your 200 variables, doublet, ownership, yes or no, level of education, Low, Medium y. And the distribution of each variable, just by itself, is called the marginal distribution. So it's irrespective of the value of the other variable. When we look at just one and we look at the probability distribution of that angle variable, we call it a marginal distribution. So we have here this distribution, this denote for the distribution of targetology, and is a distribution of level of education. This discrete distribution, if this were a continuous variable, we will get maybe some sort of a continuous distribution, like an over distribution, exponential distribution, gamma distributions are all kind of distribution, but basically we have something continuous, and here we have discrete, OK, then we can but then we have two random variables that happen together, and So the probability of the tail i and k. We call it a joint probability. So it's a joint probability of tablet ownership and education and and without it, is p of i equal to 124, 2k, equal to 123, so probability of i comma k is the joint probability of i equal to one or k equal to two. So, for example, i equal to one, it started on the sheet. K equal to two is level of education, two. So it's this cell. The probability of this cell happening in the population is t of i equal to one and k equal to two, and the share of that cell, our estimate of this probability is one six. So these are joint probability. So you can see here calculation of the six joint probability denoted as P of I, comma k, and if we sum it over all the possible values of k and I, it's equal to one. These are joint probability, and this table just shows that the joint probability and marginal probability are related. The formula is given here in the bottle. Previously, we calculated p of i and p of k, and then we calculated the joint probability pi over k, and so if we take the joint probability and sum it over k, we get the marginal probability of i, and if we take the joint probability and sum it up i, we get, if this will continue to under variable, then insert the summation so you have The joint probability. And you ask yourself, say, for two other variable, and you want to know marginal probability, you have to integrate over the other variable that you are living unspecified.
+
+So sometimes, when talking about distribution, if you have one random variable, we call it univariate. If you have two random variables, multivariate, et cetera. So this is an example of a bivariate discrete distribution. And then we calculate the two margins and they are related by using this formula. So we calculate this drawing probability, we separately calculate the marginal probability, but you can check that if we just sum these drawing probability, we get the marginal probability, but focus this course is about something called the conditional probability. And the modeling we're going to do, or any kind of model, is usually a conditional probability. And so in our particular example, we can calculate two condition probability that's defined by what's known as base the one. It says that the joint probability can be decomposed in two different ways in this case, and the conditional probability times the marginal probability was, the marginal the conditioning event is I tablet ownership. So this is called the conditional probability distribution of education given a tablet ownership. And this is the marginal distribution that you know. So this defines a conditional probability of education given tabletology and the other possible way is to write the joint probability as a product of the other potential conditional probability, p of i, given k times P of k. So from this, we can write the conditional probability as equal to the joint probability divided by the marginal probability of the conditioning event. So this is i is a conditioning event. So this is joint the conditional probability of k given I, and it's a joint probability of i and k divided by the marginal probability of I now you know that this is a sum. It's a sum of joint probability. So if we substitute here these equations, you can see how we can go from the joint probability to marginal probability from this group. And now from the joint probabilities, we can also calculate this conditional probability. And the conditional probability in our case, are two kinds, and these for the conditional probability to exist, and the marginal probability cannot be zero. So that's you know, otherwise it does not exist. So now, example, if you want to calculate the conditional probability of education equal to two given tablet ownership, we have here the joint probability that we calculate which is one six, and there's a marginal probability that we also calculate 1/3 or it's one half. But basically what you've done here in terms of numbers, you can calculate it directly from the table. If you go to our original table, we are calculating the distribution of education, given that standard fellowship is yes, meaning that we look at the law, right? And so it's 100 divided by 200 we say, given the tabletology, we are looking at this sub population, the population that own tablet. And we say, how many? What fraction of them have level of education, two which is 100 divided by 200 to one half. And that's something calculated here.
+
+So this is just an example of this conditional probability, and we can calculate the conditional probability row wise, which is what we've done here. We fix the wall and look at the distribution across the wall, but we can also calculate it by column right. And once we have done this, once we have any conditional probability. There is one case that is a special case in which the 200 variables are independently distributed, in which these conditional probabilities, whether it is this one, will be column wise, like we fix the column K, and we look at the distribution across the two different values of i. And so when this conditional probability is equal to the marginal probability, it means that it's essentially K. Does not matter, right? So when we look at different value of k, we find that the column wise distribution is the same across different value of k. And similarly, if we fix the row and look for the distribution across the row, you may find this condition of independence mean a or may not, of course, usually don't, and we find this conditional independence such that this conditional probability is the same for whether it's i equal to one or i equal to two, so p of k given i is equal to p of k, and in this case, the joint probability is a product of marginal probability. So that's a special case, right? So in general, basically the joint probability is basically the sequence of if we have two variables, it's a conditional probability times the marginal probability. But if the two random variables are independent, independently distributed, then the joint probability is just a product of marginal probability. So in our example, if we look at the joint probability of i equal to one double tunnel Shift K equal to one member of education, and we know it's equal to 160 but if we multiply one over 60, if you multiply the marginal probability, we get one over 21 so clearly, all the now data, education and double dollarship, are not independently distributed. I made up the data, of course, maybe it isn't the in reality it is. We don't know what it is, but in real data, that's what we can find out. So we've calculated so far this conditional probability of education given the example that we did was member of education two given WTO, so we calculated this on the previous slide.
+
+And the other kind of conditional probability, well, when the conditioning will be if i, u of k, sort of the column wise distribution. So, so this conditional probability of capital equal to one given level of education, middle so if you can calculate it again, it takes the same joint probability of one six divided by the marginal probability of the conditioning event k, k into two, which is one half. And we can say that is equal to one cell. So what are meaning of these conditional probabilities? What do they represent? And as I said, this course is about conditional probability. In this course, it is in the conditional probability the conditioning event, or the conditioning variables, will be the explanatory variable, and the variable that was distribution we are seeking, like the first one Here, will be our dependent variable that's what conditional probability is. Well, the order conditional probability created this course, it is a model that explain dependent variable, that its dependencies on an independent variable or explanatory variable, which are the conditional depend so for example, if you have a model where the dependent variable is y and independent variable called x, the model will be the conditional probability of y given X, that's that's what we are going to model. So so why would we, whatever we do, whatever is the focus of our prediction, what time to predict, what the outcome of time to predict, and x of explanatory measurement, and so most specifically in our example, the element of meaningful model in mind, we selected the variable y was target ownership, and the assumption is that it is a function of level of education. Basically, the field as your level of education is higher, you're more likely to own a tablet. That's a hypothesis that we are trying to measure using our survey. So you may ask. So this is the conditional probability p of i given k. So we had two. We had p of k given I and Q of i given k. So now I say this particular, this conditional probability of i given k is our behavioral model. That's what we are focusing on. So what, what is the other 1p of K, given I, it's not, it's not a behavioral model. And now to say, if you want, what do we mean by something being a behavioral model? So I'd say, a few words about behavioral model, and then we can come back to give k given I, and say, what does it mean? Okay, so say, behavioral model, in this case, explaining double dimension to the file as a function of mutation, is a relationship between two variables that we think of some stability properties, meaning that you can then estimate it from some data and then apply it to other data. That's a model. Model means that you can estimate it from data and then, as I said last time, intervene in the system, meaning manipulate X. So X, for example, could be pi, so at the returns itself is good quality, etc, and find out why the usage of the system changes. That's That's a behavioral model, meaning you look at data trying to find the relationship that we can be used to not just calculate, but extrapolate or apply where the variables are when there is an intervention that change value to that time. So that's therefore we call it the eight point model. We will estimate it from our sample, and then maybe apply it for future yield for future scenario, applied difficulty time, or apply it in a different area. And because this is fine, we like to discover stable relationships that can be applied. So for this particular model, can take on three different values in our example, where I can be equal one or two or previous two, given the same k is always just one minus p of one right, P of 1p, of two is sum one. So, so these three values denote the deal is pi one, pi two, and pi three, and the only three plus 11 values because the other potential probability guys for i equal to two would just be one minus pi, one minus one minus pi, two, one minus pi, three. So these are the unknown parameters of my of the model. So we postulated a behavioral model, and these behavioral models have three annual parameters. So we take a data, we estimate the size and that will be our model, and then we can apply
+
+so, so we always interpenetration of tablet as a function of education. Education can have three values, and this is a three pies. So from our data, we know the pies, in our case, unconditional probabilities. We know that you have to calculate this conditional probability. So we will calculate them so, and we call this pi one hat, pi two head, and pi three hat. Why? Because this pi is unconditional probabilities. Which probability means the fraction in the population. We calculate fraction in the sample, and you get these values, 115 1/3 and three fifths. So every time you do modeling, it's a behavioral relationship. And so when the behavioral relationship has unknown parameters, you estimate the value of these other parameters, and the first thing you do is saying, do these values make sense? The probability should be between zero and one, good. But what else can you say about these five? What would you expect them? Do you expect any relationship between them? Do
+
+yes, if you're more educated, you probably higher income, you can probably afford a
+
+tablet. But I guess question about this is this variable, K is kind of ordinal, but what happens in this category?
+
+But it is old enough in this case. So in this case, what we would expect, we expect the PIs to to be increased. So we expect this monotonic relationship as pi as verification, increase from one to two, from two to three. That the value phi will increase, pi will increase by hat in this case. And indeed it does. And so that's suppose that it was known. Suppose that this, instead of point six, goes point one.
+
+What would you do say? Why is when level of education go from two to three, where the standard fellowship goes down, it sort of creates our upper human hypothesis. And the question is, can we just reject our hypothesis that capital shift increases education, or is it maybe another sample is too small, or maybe there is some additional variable that explain it, because the high income people in this neighborhood, this area, that explain why they don't something like that. So all kinds of possible explanation. But in this case, I made up the data. So I made up the data so that the hypothesis is reflected in our estimates, so it's consistent with our hypothesis. Often, this is nowadays that the interpretability the parameters, in this case, our relationship between parameter has to be interpreted in terms of some behavioral assumption, behavioral hypothesis. And in this case, we have the hypothesis, and this consistent hypothesis, so the model is acceptable, because if this was point one, and now we would apply this model to predict what will happen to tabatology as level of education is increased, we may predict a decrease tab technology, which will be considered to be countering to it, because we believe that education leads to greater ownership. So so that's why this is the first thing you do anytime you do modeling and you estimate the parameter you need to inspect the unknown, the value estimated and say, Is this model? Is it? Will it produce forecast that we can consider is it, is it consistent with our knowledge about the behavior? So this is the key. We haven't touched any we haven't done any statistics. We haven't calculated anything else, just the value of the other arm. So so people tend to watch to look at what comes next, which is standard, oh, goodness of faith. And says the model good or bad based on this, but this is, this is all secondary. This is finally looking at this and say, does it make sense? Okay, yeah,
+
+yes. Can you comment
+
+for a minute on how this would look if the variable is continuous instead of having categorical or an ordinal. Yeah. How would you change the conditional probability formulation?
+
+Suppose that the conditional probability is normal distribution. Normal distribution has two parameters, mean and variance, and now these parameters, one say the mean could be a function of education. So we'll have three means, maybe one variance and three means, and there will be expositive variance is the same. It will be a function of level of education. So mean, one, u2, u3, and I expect them to be equal. So assuming that education is continuous, and look the distribution of K lower distribution for k as a function of education, but the mean will be different. So this one becomes degree, I can have also maybe different variance, so I'll have more parameters. The model can be a lot more complicated. But anyhow, so we have a very simple model. The dependent variable is binary, like yes or no, I thought one or two, so two possible outcomes. So in choice, this binary choice, we have only two possible outcomes, and the independent variable was just three categories. So anyhow, and it happens to be ordinal. We did not use the fact that it's ordinal in any way. We do not force it. We do not have the model education. Silly level is ordinal. We checked that the order makes sense. So this is we define the hypothesis on the dependent variable, independent behavioral hypothesis, we collect the data, and then we estimated the behavioral modeling. Now suppose from our data, we also calculated this conditional probability, p of k given I, what do you expect? The same kind of property of stability that we assume to involve them? Because what is this? This is it makes sense. If I'm the vendor of tablets, I can look at my customers so i equal to one, right? People who want my customers, they bought a tablet for me, and I looked at their income distribution. So I investigate the properties of my customers. And so it's very useful information sometimes, as a population model, it's a model that describes the distribution of the population, but it's not the behavioral model. It's and it can change. It can change depending on s different location. The behavioral model can be the same, but the the this conditional probability can be different because it will depend on the distribution of education in the population, for example, as a distribution of this, then the conditional distribution will change as well. So anyhow, so this is useful kind of probability, conditional probability, and it's often being calculated when we want to say, again, study, how will the population? The population is divided according to the dependent variable, then we get this p of k given, so it has a meaning. It can be doesn't be an application, but we cannot use it for any kind of forecasting. Just use it to describe a population. So Angie
+
+COVID. So
+
+how do you know how stable your behavioral model is? For instance, some people think vaccine is helpful for mortality, but some people disagree. So is there any heuristics to know how stable it is mortal?
+
+Surveys? Conduct multiple surveys at different points in time, maybe to find the data into for example, if this 600 came from the post mental poly that area, and you think that Cambridge is different from the rest will take the Cambridge. Check for other parameters, the same kind of tests. So the question is, how good is our estimates and our variety of tests that can be done before, before tests are done. Remember that we are this estimate is based on sample. And so I said, there's a difference between probability and the estimated probability is a shared in the population, the estimate in the probability is a shell sample. So if I were to collect, repeat again the same procedure that I used so far, which is to collect, I'm going to be a sample of six samples. Suppose that I did it again. Will I get the same estimate? Pi, one, hat, pi, two, head. The answer is no, there would be why don't we distribute them? What's the shape of this distribution? We don't know yet. That's what we want to determine. And this is called the sampling distribution. So if I instead of a sample, I conducted the census, meaning I interviewed everybody in the Boston area, then I calculate the share in my data, and it's a sharing the population, and that's there is no sampling. So because we do a sample, then the estimate that we produce a random variable, or the statistics they calculated from the sample. This class of fundamental variables from sample statistics, and the statistics will have a distribution that indicates the fact that if I repeat the same process over and over again, added distribution. This distribution is called sampling distribution. But we don't know this distribution, because we're not going to do something over and over again. If we have money to do it, then we will have a lot of sampling, because then we have a better estimate. So in practice, it will never be done. So how do we know about the summing this measure two ways? One is a theoretical by making assumption and deriving the information about dissolution like a common properties that we know about sampling distribution is, if you you know, if you collect the statistics, income, age, or whatever it is, and and as the sample size become larger and larger and larger, there's something called the central limit theorem. I assume you've come across it in one way or another, that says that this sampling distribution becomes more and more well approximated by normal distribution. So so you can calculate a sample for, say, one line of memory, calculate an average, and you ask yourself, What's the shape of the sampling distribution of this average? As the sample size becomes larger and larger, it becomes more and more looking like normally irrespective of what's the sample of the entities that you're sampling for, it may not be normally distributed, but the statistics, this case, average, will become normally distributed for very large sample. This is called an asymptotic property. Properties that we know about the sampling distribution, but only when the sample becomes very large, is called an asymptotic property. So what we how? What would we put? What are the desirable property from the sampling distribution. We want it to be centered on the draw value. We don't know what it is the total value, the total value to find it, we have to conduct the Census so there is a total value of pi two. Just to take part of the parameters, we have pi two ahead, which vary from sample to sample. We want the distribution of the difference if we do it many times, we want the distribution to be centered on the total value. This is called biasness. And we want the spread of this distribution to be as tight as possible. So the variance of this distribution when you take the square root of it, you get something which, for some distribution, is known as standard at all. So the spread of this distribution is measured by standard L, which is
+
+so for every distribution we have a variance we can take always the square root of this is the particular distribution, is the sampling distribution. So therefore the square root of the variance, we call it standard. And so what did you want to do? What are the desirable property of a sampling distribution, that it is centered on the draw value. Sometimes, if we can prove it for any sample size, we're saying that our estimate is unbiased. So not having a bias means that the expected value of pi 2n is a draw value. That means that our estimate, the way we collect the data and estimated the value pi two, this pi two head estimator that we had is unbiased, if we cannot prove unbiasedness, but sometimes we can prove that as a sample size become larger and larger and larger, this distribution can become tighter and tighter, and eventually it will collapse on the draw value. This is called the property of consistency. So, so this is an example, again, of an asymptotic property. Unbiasedness is a finite sample property. You can say that any sample size, the expected value, meaning the center of this distribution, will be the total value. That's unbiasness, that's in Philly, equivalent to the consistency, meaning the distribution collapses on the total value, so that values and fills the in the center, the center, the center of this distribution. The second is the spread. The spine of this distribution will fill the efficiency. And we say, as an estimate of is efficient, if you give us the title, the tightest possible distribution. So for example, if I had 600 observations, 300 of them, well for level of education too. So to calculate is by two I use 300 observations. Suppose that they say, I'm not going to use those 300 I'm so away 200 years, only 100 is enough, I said, then what are the properties of I have two possible estimator one in which I use all the data and another one in which I use only one cell of my data. Both of them may be unbiased, but the one in which I saw a way to solve my data, it's less efficient. I will use efficiency, which means that this distribution will be spread out. And so that's the concept of efficiency. And so every time we make inference from the influence is from a sampling distribution. And the property that involves something distribution is set value is a finite sample asymptotically, and that it is as tight as possible. And for special cases, we mentioned the fuel theorems that says this distribution is efficient or not efficient, and it turns out that sometimes there is a low power, how tight it can be. And we'll talk about that this way. There is one cell property. So we talked about the centrality of the distribution and biasness of consistency. We talked about the spread efficiency and the last one, the third one, is the shape of this distribution. Why do we need the shape of this distribution? Because if you know the shape of this distribution, then we can produce confidence interval. We can say, what's the probability that the value of pi two, maybe the total around the estimated value is to capture 95% of the positive outcomes. That would be an example of the confidence interval. So for that to calculate sort of the balance for which we can get 95% of the distribution, we need to know, we need to calculate an integral under this distribution. And so that's would be useful to know what's the shape of this distribution, and sometimes the only thing we know is it for our sample can be approximated by normality.
+
+So we say, for finite sample, we don't we don't know what's the shape of distribution, but we can rely on something called the central limit theorem sometimes, and say it's asymptotically known. So these are the properties of distance of distribution. So first I said, we can make inference about this theoretically. We can theoretically say bias can pull the can, if we have a model
+
+that we are using here, and sometimes we can theoretically derive the distribution. So for example, for our case, we have this very simple experiment, instead of one or two yes or no, it's called the donor experiment, the binary outcome. And so we know the distribution of the dependent variable. And for this distribution, we can calculate the variance and and then we have a formula. And I'm sure that you've seen the formula like this, the variance of a boundary distribution is given by pi times one minus pi. And we have a n1 observation of level of education, one and two is how many observation we have a flavor of education, two. And on the 50 is forever, authentication, three. And for each for each level, we have a different by one head, and where we can use a formula based on theory and to calculate the standard bill, we get this standard bills. And so that's, that's, you know, based on our model, that a the outcome is done and so forth is given by this formula. And to that, the PI is essentially, we calculated how much, because it's an average of the outcome being zero or one, and therefore we divide by n to get the variance of square root to get the standard zero. So it's based on knowledge, what you have to do. Distribution tools, if you're calculating average and that the observations are independent, suppose that you don't know these things, so you don't want to use this formula. Is another option. The other option is simple option to the other option, there's bootstrapping, which is so these are the sound of those. And you know, sometimes we look at this relationship to the estimated value, so we say, well, we've estimated this three value. Let's focus on this one. So it's points basically three, and now you know that it's estimated with the standard level, point 0273, so if you want to calculate like a two sigma interval, then two sigma would be approximately point 054,
+
+and we get point 73.33, plus or minus point 5.054, so that's how you can use the standard film. And now suppose that we do not want to use this formula with another formula, and we can use bootstrapping, so that's what's come up next.
+
+So what if we don't know the sampling distribution and laser empirical method in which we essentially mimic what I described, something that we will not do in reality, which is to connect a new sample. We will create essentially multiple circles using the following approach. So we have a sample size, we have data on 600 observation so we pretend as if the 600 is is the population, and we sample from it with replacement. What does it mean? It means we sample from the 600 we picked up probably one item, put it in our sample, but also put it back in the 600 and then sample again. And we do it 600 times, and the results, we call it, well, we do not do this with like small m, and we call it M equal to one. We have a sample. And then we do it again and again and again, capital M times. And then from so now we have multiple samples. We have multiple samples. What can you say about these samples? Is they are? They look the same as the original 600 i i accepted in in terms of the original sample. Each of these samples can have duplicates, like and I'm the same because we can sample because we're sampling with replacement, meaning that we can clean up again. So, that's the six samples are different and are different from the original sample, in the fact that there are duplicates. And so we for each of these samples, we will calculate pi two hat, but we'll put an asterisk next to it, meaning that if we calculated now, if we did it m times, we have m as estimate, so we repeated m times. So what do we now? Have we now, if we did it m times, we have an estimate of i 2m 2m. M estimate of pi two. So that's
+
+and this M estimate of pi two, we will use them to make inference about the sampling distribution. So for example, if you want to calculate the standard error of i Two using boot stuffing, we'll take this m, pi two, hence the asterisk, and calculate the variance. This just a program for variance that you're familiar with. And if we calculate the average for all of them, it will be the same as original approximate. And so we substitute our original estimate. And each one of them, we take the difference square it summed over m divided by n minus one and m would be capital N would be large, say 100 so let's do it one other time. I'll get you questions again. So we did it. Oh, sorry, 1000 times. It's just simple calculation. So we get 1000 values of pi two heads, and we calculate the variance, and then the square root, and we get the same point of two step one. So you can see we get exactly the same value that we had from the formula the theoretical approach, we now have an empirical approach, a sampling approach, that can allow us to estimate this value without using any theoretical assumption or having to know The phone. Now when we plot the volume, remember, we generated 1000 estimate of pi two, and we can plot it. And the way to plot it, the way not to plot it, is to use a Microsoft Excel and use bins. Don't do that. I see it done over and over and over and over again. You take your beans like and you create a histogram, and you can make the beans smaller, you know what I mean by that? So you get beans or values, and then you count the number of each one, and you have a histogram, right? You have like this, bars for each value, and it will look it will look something like that, but that's not what I've done here. Don't use this bin because discontinuous. Use bins or histogram when the variable that you're plotting is discrete, if it is continuous, using means is wrong, it's done. I can tell you how many times you see all the time because, because it's available in the software. So What? What? What should you do? Or what was done? Here you you have one, 1005 year M, capital M values of pi, two salted, small to large with a salt. You start from the smallest to the largest, and then, and then you have a conservative number of number from one to 600 you divide these numbers sequence to sequence numbers. And so the vertical axis is the sequence number divided by 600 and you plot the values. So for each values, you brought the sequence number divided by 600 and you get this red What is this? This is the cumulative distribution function. So when you have a continuous distribution, a continuous distribution, the sampling distribution. This is a typical shape, continuous distribution. Now, what is a cumulative distribution function is when I integrate the area under such a distribution starting from minus infinity, so up to from minus infinity, up to any value. This is called the cumulative distribution function. So this is called the PDF, the probability distribution function, probability density function. And when you calculate the integral under the PDF, minus infinity to a given value, you get the sequence of values which are monotonically increasing. At infinity, it will reach one, because the area under this PDF is one. The integral from minus infinity to plus infinity under this distribution is one. So what do you get? You get a CDF here.
+
+So this is what you get. You get, let's say empirically, the empirical CDF of pi two hat
+
+is captured by bootstrapping with 1000 replications. So this is cdf, and that's what for the continuous variable. That's sufficient plot.
+
+And now suppose that they want to look at the PDF. The PDF is, you take every point you have your 1000 points, for every point you have an average ahead and the average below, the change between total ratio, we calculate the average, and then you probably get this. Thing. So it's erratic, but if you can smooth it, you can smooth it and it will be more smooth. So you can either smooth it like I just described, or just increase it from 1000 to 100,000 that's a significant amount of time, and you can see the same this is a CDF that you plot directly from your data, and then from the CDF you can calculate these averages as they describe the slope. The PDF is just the slope of the CDF. That's a definition. So if the CDF is an integral minus infinity to a value x, if you differentiate it, you get the PDF. So that's what you need to know about continuous distribution. But so far, you need a distribution so, so and just plotting data. So if you have a data distribution, you plot the CDF and then create so this all empirical. There's no theory here. There's no functions. Is just bootstrapping same results. So we change from 1000 200,000 we get the same results. So this is original from, came from the original sample. So we use this boot sample only to calculate the sample. And if you want to see how it looks, that's that's the way it looks. You have a question. Sorry, it was answered that it was a good question
+
+for the application. So I think we've basically done this estimation. I'm skipping one step that we may want to do some text. You may have some hypothesis. So, for example, I don't know if you noticed. Did anybody notice this level? Sum up one. Has anybody noticed it? You did. Why did you say something? I Hmm,
+
+so those are all the three
+
+possibilities. So should we sum up the one?
+
+These? Basically, when I made up the data, I made up the data, and then we did this assessment, and it looks like one. Is it really necessity? Who thinks Yes? Who thinks no? Who doesn't say Well, think about it, what is this unconditional probability? Suppose MIT and everybody, no matter well, you know, whatever value of k is has established, then this will be 111,
+
+it can be three.
+
+So it can be 000, so each one of them has to be between zero and one. They have to be. We expect them to be monotonic, because this education is only expect the behavior to be such that these are monotonic, but they don't need to set them to add up to one. It's just just happen, just your chance. I just made up the data, and I didn't tell you, because I was trying to trick you, which I did to some of you. And so this is just two charts, but apoyo, we said, when supported supported level of education does not affect capital. It's another manipulative and if level of mutation is not the third capital machine, then this value should be the same. So that's, you know, a hypothesis that can be tested. So you may want to do some tests, because we have already started in a hypothesis. We check that it is consistent in our own hypothesis. But does the data really is it? I mean, evidence? How strong is this evidence that education matters, and to see if it matters or not, you want to test it against the neuro hypothesis that these were the same. We'll come back to it. Next question. Okay, so, so we when we talk about statistical influence, we'll talk first, we'll talk about estimation. So next time we'll talk about estimation, we'll talk about maximum likelihood estimation. And I use this example as well. But it turns out, what I'm doing the estimation that we did here, I just calculated averages right or just calculated these shells and which ratio of shells, but these are also maximum likelihood estimated this example, more complicated model. The likelihood function will be more complicated. The estimation will become more complicated. But in this case, what I calculated here, I calculated the natural estimate. I gave you the formula, and to calculate the formula, just calculate the chills, and I got this estimate. Next time we're going to estimation for one process of estimating the value final parameter, and then we'll come back to tests. So we'll come to it later. So let's estimate an unknown parameter, perform any tests that you may want to say like you make some assumption about theory, is a theory justified by the data? Our theory here was greater education means greater logic. Does the data justify Well, yes, but it is statistically significant for that. We do a test. Okay, now we calculate the sum of the rules, the evidence, statistical estimate. Next we want to apply the model. So how do we apply them? On them? What kind of an application we change the scenario. We have a different scenario in terms of language education. So the existing scenario, the situation with education now, is represented by this distribution, if you remember the table that we started with, we had this 153 150 level of education. Suppose that the application that we want to do will be to a nuisance situation where level of education is different. When what we've done, we've increased the level three, decrease level one, so from 600 so usually this will not be represented out of 600 600 just happen to be of sample size. Since you remember these 600 years, we do it also out of 600 normally, we do it out of the 100. Just divide everything by six. So that's the existing scenario, existing situation in terms of education, and this hypothesized potential future situation well, and the question would be, how would tablet ownership respond to this change in the distribution of education? So we take the unknown parameters. These are the conditional probabilities, multiply them by the number in each category. So because that's the probability, is that if your level of education is one that you know on a tablet, and you get that expected value here will be three. The expected value here will be other. 300 will be 100 and the expected value here will be 255, in this category, times point six. So these are the estimated parameter rules just to the formula that we're using. Oh, excuse me, is this like we say? We are now predicting what will be the value, the penetration of tablet ownership. And so we go to each level of education, we have the probability of this level of education, and we multiply it by the unknown parameter that we estimated, by the estimated value of the unknown parameter for that level of education. And we're going to sum it over, excuse me, and you're going to sum it over the three level of education, and you get 256 right, and it was before it was 200 right. So no worries, just of course, one minus this or 600 micro so that's a key prediction. So the prediction is that the W channel in the new scenario will be four disciples, as opposed to cell disciples, and in the existing scenario, and every time. So this is, this was a statistic, you know, sample, but now from the sample, we calculated the value function parameter by one, by two, by three heads, and we are using them to using this program to calculate to predict double ownership, and so, because this distribution of education is PK, is Independent, we have no correlation here. Then we can calculate, given this distribution, this condition will depend on how good the estimated pi 2n Well, the PI two head, the uncertainty in the PI two head is captured by the standard error. So we have this formula again, we make an assumption, and based on an assumption, and you get the formula for standard error of this focus, and you get that it is 1.75% so this means you want to calculate two sigma to the focus. They say 43% plus or minus three and a half percent, twice this 1.75 so, but suppose that I don't know how to calculate this formula. You can do boot, stopping again. I'm not doing it here, but we can do the boot stopping by simply. We have, remember, we have the 100,000 by two hands. We have 100 1000s by one heads, by two, three hands. So we can do this 100,000 times, and we can get the dissolution of this value. So given PK is given, we can apply it multiple times for each of the sample of pi that we have on the ghost plotting, and we can get the distribution of that. And if we do that, we get the same result. Constant calculation. So we can, every time we need to calculate the standard level, we can again use bootstrapping. The same bootstrapping before this is just a function of the different size. So any questions about what I've done here. I mean, basically I've just a conclusion slide, so I would kind of get myself go ahead a
+
+question regards to the last the last portion there, when you're discussing the standard error forecast. So this, in this situation, we're considering the PI hats to be the model, and then this would be, if there was the new distribution, that would be, if there was an intervention change in the population, how the model would predict that the dependent variable changes in my understanding. Yeah.
+
+So the input is a distribution of education, and the output is a distribution of double shot by taking the distribution of education, fitting it to the model, the PI, the PI heads, and getting an output, because if I had statistics that are distributed, then this, the output is also distributed, and this capturing the distribution. So, yeah, I'm thinking what you said. I guess, yeah,
+
+for whom this was just totally unnecessary.
+
+I see good refresh.
+
+It's a good refresh,
+
+okay, so to see that, here's a conclusion, all right? So that's what we did today. We cover all stages of modeling. So I gather the whole course, theory, data collection, estimation, testing, testing, and then forecasting, operation, analysis, and this is the process that I mentioned last time, and that was the idea of this kind of single example to develop a language that we're going to use language from probability and statistical inference, but we're going to continue so getting more into the statistical influence and conclude with some
+
+any questions? I have a question, just
+
+to go back to this point about whether the P hat should add up to one. So I understand that, like at least one situation where they wouldn't add up to one, right? Let's see. So they're all zero, but is it I couldn't, right? They're all the same
+
+value, or one? Yeah, exactly. Everybody is around it. But that
+
+just make sure I have this correctly. That would be a situation where there is no relationship between Tableau, ownership and education, right? The Violet, the hypothesis, but, but if, like, if the two conditions are met, which is that there is a relationship and that, you know, K equals 123, is like an exhaustive list of states. Like, those are all the things that kids need, right then, then they would add up to one. Is that true or no, no. Okay.
+
+So, so then each one of them, you can think about it on its own. This is for some group of the population, yeah, what is a function of that sample defined by education, but define it could be defined in other ways that only tablet. So in some group, the Angie could be zero, right? Or could be 100% or somewhere in between zero, yeah, okay, so now I have three goals in this case. So, right? They can all be zero, they could all be 100% they could all be the same percentage, so it's all the same percentage, then they will conclude education has no effect, or the verb is a definable had no effect on Yeah. So the question that is of interest to us is not some we may be interested in, but we are interested we could be interested in weighted average, the probability of given level of education. That's our prediction. But when we observe this, we could be interested in how different are they? Yeah, that's what we focused on. And the possible test would be to test the null hypothesis that they are equal. We tested Yes. How is that related to this
+
+forecasting part that you had at the end, where we were looking at the standard error and you were summing up all these possibilities two months.
+
+this is the way, if you're interested, you can handle addiction of tablet ownership for given level of education, or you went to calculate ownership across all levels of education. That's what this formula calculates, and this is for a new
+
+population. New population. This is for any population.
+
+This says, given a population, given the distribution of k in the population, okay, what will be the distribution of I in that population? This is the model so this is the model. The model that we have is to say, is a conditional probability. But the way we use this conditional probability is using this formula, because you want to predict what we do with market penetration. Say, of them,
+
+yes. Is it more general to say education and tablet ownership is independent. This is more general than education doesn't affect tablet, right? So if the three estimation were the same, I thought maybe it's the same, then I
+
+would conclude that tablet ownership is independently distributed for education, meaning that conditional probability of damage,
+
+ownership, even education, is equal to
+
+the marginal probability
+
+of So I was Just checking doesn't affect that word is same. Was independent.
+
+Independent, the condition difference.
+
+of this will be distribution does not depend.
+
+Thank you very much.
+
+Thank you. Oh. She. Oh,
+
+it's really good.
+
+Very insight. Are you good COVID? It.
+
+Maybe bring a computer? Yeah, I'm trying to teach the portal. Have you used the portal? Yeah, so it's like a platform where you can use both Python and R, yeah, so bring a computer so that I can teach. I think some of them I already know, but it wasn't on the recitation list last year. Yeah, I have to get permission from
+
+Yeah, Q, U, A, R, T, O, yeah, like all The
+
+PIP. So, I really like today's
+
+class. I have never thought about p of i given k and p of k given I distance. Like I like your explanation that the first one is helpful for vendors and the second one is just like for scientists perhaps right. optimize.
+
+Thank you.
+
+So questions. Can I ask some questions from the recitation and from today's lecture as we look like May I ask some questions,
+
+Oh be useful Porto, which is where you can use both Python and R. a like science communication documentation. So, like, the reason is, I was going through the different case studies, and there were Excel based and Python based and R based.
+
+And
+
+yes, yes, yes. Some, some of them was using R as well. So maybe it might be easier for students like I'm happy to get your feedback on it, but if we use the same platform or that documentation format is The same, it might be easier to communicate. Thank you.
+
+Every time I go to Starbucks, I think of the example you mentioned, last class, every time I go to Starbucks, your example, last class that comes to my mind, but can you have countably infinite or Does it have to be finite? The choice set? Okay?
+
+I'm good.
+
+Thanks for asking.
+
+The I don't feel, I don't think I
+
+you okay?
+
+So I have an hour 40 minutes
+
+product to talk about. Minutes product to talk about any questions.
+
+So I guess on the Friday I want to publish the case study before the recitation it's out, so you want me to explain? How much would you prefer if I explain the case study?
+
+As much as possible? Case studies, zero, we don't grade, right? Oh, we don't grade. I think so. Oh,
+
+zero, union, oh, okay, you got it? Got it zero, we don't grade.
+
+Yeah, each. Okay, we have a very diversified class in terms of background. A lot of planning students. I noticed a lot of management students haven't looked at the list recently. If you look at the list and singing. This this one. I'm concerned that this is two trillions student it's on the trivial side. But for planning and management students, definitely not so. I student, definitely not so, but kind of being useful
+
+got it. But for me, bootstrapping was not like what other class usually covers. So it was bootstrapping, yeah, and the testing part.
+
+Testing, yeah,
+
+yeah. I'm most excited about testing.
+
+If you want to get credit for this
+
+class, okay,
+
+somebody else will have to check your assignment. I don't know. Perhaps, assignment for the exams. Pardon me if you want to get credit? Oh,
+
+I'm okay. I finished the course. No, no, no. I satisfied all my course, yeah, but what I'm learning here is most, I think, valuable, yeah, so I was reading through Sally's last year presentation slides, and she had a part about like,
+
+different distributions, yeah, okay, probabilities,
+
+yeah, yeah. Is there any distributions you think would be useful for covering next like, for instance, like hyper geometric and multinomial that might be useful for, like, nasty logit or,
+
+do you know what I mean? I mean binomial and multinomial. Always very useful. Binomial, multinomial, yeah, normal. This is, of course. So, yeah, this is good. This
+
+is, this is Silas one. But I wanted to add, like, the hyper geometric and multinomial.
+
+Like multinomial, yes, micro geometry. Geometric notes.
+
+If this is I want to get some feedback on, there is my personal interest and some thing that students need. So I need your feedback.
+
+Okay, yeah, because, I mean, I know that there's a lot of material on the slides that the TA is in the past of you, yeah, but I just want to make sure. I don't want to condition the students to expect the lecture at every recitation part. Pardon me, I don't want the students, I don't want the recitations to become lectures. Definitely got it should be so even if you give a lecture like this, leave time for questions. Got it so essential to live time for questions in every situation that makes sense, yeah. But this material, of course, it will be useful for them to know.
+
+I prefer getting questions more, to be honest. So maybe would you feel comfortable if I just upload this slide and then get questions during your recitation?
+
+That's That's okay,
+
+got it. And preferably you would want some question taking from the previous two classes, right? Like class one, class two and the case study. Case study Got it. Got it. Okay, so, yeah.
+
+So basically, you get questions about
+
+the classes and case studies got
+
+it
+
+okay.
+
+I think I'm good at with this week's one, so I'm gonna move on to, I think I am fairly comfortable with Friday recitation. So I'll move on to the textbook questions I had so I didn't understand what you mean in the last chapter. Sorry. Paragraph. I
+
+So when I talk about logic model, I'll talk about, I'll cover it later. Don't worry about, I'll explain. This will be in my lecture. I'll explain it, got it. Got it. Yeah, that's coming up when we get after the regression. Remember, we have a broke off, we have this review of probability and statistics.
+
+Then we
+
+have linear regression and this logic lecture will be talking about what three, 710, lectures from them. So this can come up five weeks ago.
+
+Got it? I'm this
+
+is, this is what Kathy Wu made. Is in her class for 1200 so she mapped the boss Cambridge Metro with one of her lectures. So I tried this for your lecture as well. So introduce modeling and probably to review statistics for a psychologist. So yeah, I reckon several, like at least five of the students in that taking our course, took this course. They were they took this with me. Yeah, one 200 Yeah, one 200 and we all really enjoyed this Kathy's mapping. So maybe I was gonna try to, she covered a lot of statistics. Oh no, no, this is for your class. Oh so for Kathy's class. It was Hold on. It was, Do I have a new one? Sorry, I don't think I have a new one, but it was four things. One was like uncertainty, Poisson, process, queuing. Model, time space diagram, cumulative diagram, traffic flow, vehicle diagram, and also that's only the mid term and the half term was like reinforcement learning, dynamic programming, Markov decision process, so and so. Yeah, I really enjoyed it. And also optimization simplex to the branch and bound. And I found having every like modules of the class in one diagram really helpful like for me when I was preparing like exam. So I think perhaps making this for this class as well might help students. I made the four columns for our class. So this is what we, I'm sorry, bring to, this is the whole thing for our class. So I tried to, but I don't know whether this grouping like what would be the optimal grouping? Maybe, because I have to group to four things, but you have six modules right
+
+combined too, because this great choice combines, because I wanted to get to this particular issues first before going into more advanced material.
+
+So what smoke is kind of, yeah, I was curious about your choice there. Like, why
+
+you just a question, schedule, schedule I see, and kind of sequencing material,
+
+yeah, this intro, the choice behavior. And then you go to the practical parts, the aggregate forecasting, and then come back to the nested
+
+logic, right? Yeah,
+
+got it Okay, so that's on the way, yeah. So like I had to learn what is coming up in order to make the most group, reasonable grouping. So that's where the question comes in.
+
+Yeah, sure. Yeah. Sure.
+
+Oh, yeah, thanks. And I think, like one new kind of black box reasoning, thinking that I wasn't aware of is something you today mentioned as stableness and equilibrium. That concept appeared last time when I asked about estimation and calibration. Can you explain more about that? Like, equilibrium? Like, how do you think about that concept? Equilibrium? Yeah,
+
+supply, demand, so
+
+what? But do you believe in society there is actually equilibrium?
+
+Oh, of course, not, but, but it is all kind of supply, demand interactions. So I mean or any games. I mean any game can, may or may not have an equilibrium. And so is an equilibrium between supply and demand and transportation system, maybe not, but, but you can generalize it to, you know, convergence and distribution, maybe the fluctuations and but the distribution of the fluctuation is stationary. So that's, that's kind of sort of equilibrium in a kind of stochastic sense. So equilibrium
+
+and distribution, distributional invariance.
+
+Yeah, the distribution is invariant over time. That mean
+
+equilibrium,
+
+but, but equilibrium is like, like many other concepts, it's like, it's not exactly right, but it is a very useful concept to understand long term interaction of supply and demand. So so you can say that if I want to predict, make a long term prediction and allow for interactions to buy demand. That's going to be my best approximation, is trying to calculate
+
+some equity. So like, for instance, if price increases, short term the demand may not decrease, but long term
+
+it is increasing, there may be fluctuation. I see overly, got it, got it, got it. But eventually, eventually, it doesn't mean that eventually there'll be one pie fluctuate. The fluctuation will become a good approximation of a long term outcome.
+
+And last time you mentioned you're calibrating against the aggregated data. Like, can you tell me more about what you mean by like? What is aggregated time or space?
+
+Aggregated? Aggregated means, for example, traffic counts. Traffic counts. Give you aggregated data because you don't from a traffic count, you don't have a record for every
+
+vehicle, okay? You just have a count.
+
+So if so, if like, revenue statistics will be aggregated, but a transaction database will give me disaggregated data, because I know so I live Angie motion every day how much money you're spending and what you're buying. So if you have a list of customers and what's the transaction, that will be disaggregated. But if I have, like, revenue statistics by time of by day or by month by product, that will be aggregated data.
+
+Revenue statistics of like, how much I sold, like, what, yeah, yeah. And the Angie Katie Moshe are the customers in this example, I guess, yeah, I see. So last time, the context was, we're comparing the estimation and you explained this as statistical inference procedure, and you mentioned calibration, that's where you have some real data from aggregated,
+
+yeah. So for example, I will use a transaction database to which is a disaggregated data to estimate the model. But then maybe there will be some sort of dashboard with aggregated data that are available in terms of revenue inventory that will be aggregated data and I have maybe analyzed the junction database four months ago, but now I developed a model, and I now will calibrate it against The latest aggregate data. That's a typical situation where you have detailed to develop a model, but then you have more current aggregate data that you want your model to replicate. So that's using that data I usually refer to as calibration.
+
+I Please
+
+correct me if I'm wrong. But can it be understood as like individual parameter and some like population parameter? So like
+
+no no no no, because that's still estimation I see. I see So applying statistical analysis to disaggregate data, so data at the level of the decision maker, that will refer to it as estimation training in machine learning. But once I have developed the behavioral model, and it will be embedded in some sort of forecasting model, right, then I may want to make sure. So for example, let's look at my my tablet.
+
+Yeah. I like that. Yeah, so that's the survey,
+
+and now I want to apply for some situation where I may have some aggregate data, like from the I know how many tablet I sold last month, and so I want my model to replicate the number of targets. So so from this data, from this survey, I obtained this conditional probability, and then I may make some adjustment to the model to make sure that I predict the market properly. So, for example, in my suppose that I have a regression model, I will have an intercept, so I may adjust the intercept, for example,
+
+or I will use
+
+the model to predict the change and apply the change to last month sales, for example, is my prediction. I mean the whole kind of data situation, and
+
+so some parameter value does change during the calibration process,
+
+right? That's possible. Yeah, yeah. Like an intercept,
+
+yeah. So perhaps that was why I had some confusion whether I can interpret the situation as changing the like phi, yeah, like in hierarchical vision, we have this as a phi, and this as, like, individual Boston's situation, and like torrential situation. So maybe this thing can be the intercept.
+
+Yeah, exactly. So in in this great choice model, usually the two kind of parameters that usually change in calibration. And these are the intercept discrete choices, alternative specific constants, like dummy variables and those escape also need to change the fly, oh, I'm going to try to
+
+kill it doesn't land on your cup. Yeah.
+
+Do you want to?
+
+How did it get in?
+
+Did you succeed? Do you mean, a tissue?
+
+Okay, good. Did you drop it? I don't know,
+
+still moving I might have dropped on last Monday, not today. Yeah, I love nuts.
+
+Yeah, thanks
+
+for returning. So the book explains something about scale repairment, tradition, skill, scale reparation. So I thought like the result of the choice is independent of the scale. So what do you mean? No, it does.
+
+It does, okay, yeah. I mean, it affects the probability,
+
+yeah, the rescaling the distribution. That was what I thought. Oh, no, this
+
+is different. Got it?
+
+Yeah, this, this is helpful, like intercept and scale parameter.
+
+It is just a normalization, yeah, yeah. This discussion is normally about normalization. Got it so basically, normalization is anytime you make some adjust parameters in a way that does not change the model, the probability remains the same. So let's say you have alternative specific constant you select, or when you have a categorical variable. And so when you select one category as a base, does not change the model which category is a base for a dummy variable with multiple categories. So that's an arbitrary normalization. So
+
+does the probability or the prediction change depending on what you choose as a base, it doesn't, it doesn't, or it shouldn't.
+
+It shouldn't, it shouldn't. Yeah, got it, yeah. With then you have a category with multiple categories. So you select one category as a base and have a damage variable from the other. So the category that you select as a base should not affect the results got it, whether it is aggression or the spiritual system.
+
+Um,
+
+I don't know whether you might cover this in class, but it's from system of models this part. I
+
+Yeah, no, it says this process. We have a survey data, and that's we use it for this idea estimation, and then we did some tests, and then we have developed an aggregate application procedure which will be different from the disaggregate model. So for example, this will be
+
+supply, supply, and you
+
+predict the aggregate quantities then. So this aggregate prediction tests is where you do the calibration. Doesn't say calibration. That's why, if you make adjustment to parameter, you do it here. And validation, you is just like for other data applied for like to predict it just
+
+describe model development this would be project for some study 78 so this was a study developing, say, model for an urban area. Maybe this was a model for San Francisco from the Bay Area. And so this is what was done. I led a survey, land use data, level of service data, developed a model, then we apply the model, and otherwise the modeling will kind of decide to get prediction to say that the model is behaving properly, but this was just a disaggregate model. Then we both developed the procedure to take into account input for forecasting, for aggregate forecasting. So that's like the way in which the model is applied, and then it is applied and tested against other get data.
+
+And so this is for checking whether this model is this is
+
+applying the model like, for example, in my lecture today, the model predicted by one head by two heads, but then the application was p i, equal to one, equal to the sum over three of the pi times P of K. That's this. That's the way it's going to be used for prediction.
+
+You mean the this one? Yeah, so this is the aggregate you're saying this
+
+problem with the phone. So
+
+yeah, for some reason, yeah,
+
+the sun is an A. It's messed up, yeah? Or the summation become an A.
+
+So yeah, this is summation, yeah,
+
+um, yeah. So
+
+this is aggregated, yeah,
+
+got it. So this is this formula is aggregation procedure. And then you apply this and test it against tablet cells. And here you may do calibration. So if you make adjustments here, see, it's called tests, if you make adjustment to the model here, then it's called calibration.
+
+Is there any like, kind of manual way to do it in this tab?
+
+I mean, this model is not so clear. Yeah, got
+
+it, yeah. Because, like, disaggregate. Aggregate is always a relative concept, right? And it's just a data. It's based on data. Yeah, I see
+
+I mean the idea of disaggregate meaning it's a data at the level of decision making, and aggregate means some sort of like market data, aggregate data. So, so if you talk about the business establishment, this aggregate data will be transaction database. Aggregate data will be from maybe a financial database. You know different. You know sales data will be aggregate from the financial system data, but in the transaction database, exactly what each customer is buying with doing. So that's the designing a database.
+
+Yeah. Like To be honest, it's a little confusing, because different domains have different procedures, like system dynamics, when they observe this transaction data, they will just launch it and build a compartment model, whereas, like agent based modeling, they start from the disaggregate and use this data to test this Model.
+
+Yeah. So I so this is all about agent
+
+based Yeah, yeah, yeah. But I am aware, I don't know how much I should believe that, but I am aware of some criticism of agent based modeling that it is kind of not enough diagnostics and convergence checking, so the quality of model is not as good as the compartment model,
+
+all kinds of agent based models. Yeah. So, I mean, so, I mean, if you talk to people at, like, business schools, I mean, they, they usually, when they think agent based, they think of something else. And what I think by agent based, for me, agent based mainly isn't our behavioral models. Oh, is it a behavior? Yeah, that I identify who the agents are, and for each agent, I have a behavioral model.
+
+So in the tablet example, the agents are those with education level and those who buy the tablet, right
+
+in this example, yeah, the agents are individual, because there is a model that describes the behavior of a person in this application. In this example, the only thing I know about the person is education, yeah, yeah, but usually we know a lot more. So
+
+in this example, it's like a customer, yeah, that behavior will try to model, right? Yeah, you previously mentioned the level. Tell me if I yeah, I need to go, Oh, can I ask one last question? Thank you. So previously, when I asked, like, what is the level of disaggregation, you mentioned decision makers perspective. But is it decision makers observation level or they're like intervention level? Because they like in business school, they people always say the level of observation differs from level of intervention. So that's where always the gap comes in. But how do you define like this desegregation level, observation
+
+or intervention can be at many levels. I mean, for like online marketing, you can intervene. If you do personalization, you intervene at the level of the consumer, yeah, yeah. But in so it's not personalization, and it's intervention at the level of the market, at the level of business. So different levels of intervention nowadays,
+
+but shouldn't, like explain the ability kind of depend on what your final goal is.
+
+Well, I mean, there is an entity, the consumer is an agent, right? Okay, different vendors are different agents as well, but the consumer agent, I want to model the behavior of the consumer, of an individual consumer, independent of what's my intervention, whether my intervention is at the level of the consumer or the level of the market, I want to be able to model the behavior of the entity that makes decision.
+
+Yeah, I'll pick from here next Monday, if I may Okay, good, because I don't think the level of consumer is always set.
+
+Yeah, To be continued. Thank you.
+
