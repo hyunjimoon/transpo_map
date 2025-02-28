@@ -1,0 +1,1112 @@
+---
+title: "Demand Modeling Recitation: Programming Instructions"
+format: html
+jupyter: python3
+---
+```{python}
+"""
+Modular Regression Analysis Framework
+------------------------------------
+This code implements the three-module framework for regression analysis:
+
+MODULE 1: DataExplorer - Form hypotheses based on domain knowledge
+MODULE 2: RegressionModeler - Test hypotheses with statistical models
+MODULE 3: ModelSelector - Select and justify models based on both statistics and domain knowledge
+
+Structure follows the scientific method: Hypothesize → Test → Evaluate
+"""
+
+import xarray as xr
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import seaborn as sns
+import matplotlib.pyplot as plt
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from scipy import stats
+
+# Set plot styling
+plt.rcParams['figure.dpi'] = 100
+plt.style.use('seaborn-v0_8-whitegrid')
+
+#===============================================================================
+# MODULE 1: DataExplorer - "Domain knowledge trumps statistics"
+#===============================================================================
+
+class DataExplorer:
+    """
+    Module 1: DataExplorer
+    
+    Purpose: Explore data and form causal hypotheses about relationships
+    
+    This module embodies Moshe's wisdom that "Domain knowledge trumps statistics" 
+    by encouraging students to form hypotheses based on theoretical understanding
+    before running any regressions.
+    """
+    
+    def __init__(self, data_path, target_col=None):
+        """
+        Initialize DataExplorer with a dataset.
+        
+        Parameters:
+        -----------
+        data_path : str
+            Path to the CSV file
+        target_col : str
+            Name of the target/dependent variable
+        """
+        print("MODULE 1: DataExplorer - Starting data exploration phase")
+        print("Remember: Domain knowledge trumps statistics!\n")
+        
+        self.df = pd.read_csv(data_path)
+        self.target_col = target_col
+        
+        # Define variable descriptions for Chicago dataset
+        self.variable_descriptions = {
+            "TODU": "Trips per Occupied Dwelling Unit: Daily frequency of person-trips",
+            "ACO": "Average Car Ownership: Cars per dwelling unit",
+            "AHS": "Average Household Size: Number of residents per dwelling unit",
+            "SRI": "Social Rank Index: Combines blue-collar proportion and education level",
+            "UI": "Urbanization Index: Combines fertility rate, female labor participation, and single units",
+            "SI": "Segregation Index: Proportion of minority groups in an area"
+        }
+    
+    def describe_data(self):
+        """Print a comprehensive description of the dataset."""
+        print("\n=== Method: describe_data() ===")
+        print("Examining the dataset structure to inform hypothesis formation...")
+        
+        print(f"Dataset contains {len(self.df)} observations and {len(self.df.columns)} variables.")
+        print("\nVariable descriptions:")
+        for var in self.df.columns:
+            desc = self.variable_descriptions.get(var, "No description available")
+            print(f"  {var}: {desc}")
+        
+        print("\nSummary statistics:")
+        summary = self.df.describe().T
+        summary['missing'] = self.df.isna().sum()
+        print(summary)
+        
+        return summary
+    
+    def plot_correlations(self):
+        """Plot correlation matrix to identify potential relationships."""
+        print("\n=== Method: plot_correlations() ===")
+        print("Visualizing correlations to help identify potential cause-effect relationships...")
+        
+        plt.figure(figsize=(10, 8))
+        corr = self.df.corr()
+        sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f")
+        plt.title("Correlation Matrix")
+        plt.show()
+        
+        # Highlight interesting correlations for hypothesis formation
+        print("\nStrong correlations that may inform hypotheses:")
+        for i, var1 in enumerate(corr.columns):
+            for j, var2 in enumerate(corr.columns):
+                if i < j and abs(corr.iloc[i, j]) > 0.5:
+                    print(f"  {var1} and {var2}: r = {corr.iloc[i, j]:.2f}")
+        
+        return corr
+    
+    def plot_scatter_matrix(self, variables=None):
+        """
+        Create a scatter plot matrix for selected variables.
+        
+        Parameters:
+        -----------
+        variables : list or None
+            List of variables to include. If None, uses all variables.
+        """
+        print("\n=== Method: plot_scatter_matrix() ===")
+        print("Creating scatter plot matrix to visualize relationships between multiple variables...")
+        
+        if variables is None:
+            variables = self.df.columns
+        
+        # Create pairplot
+        sns.pairplot(self.df[variables])
+        plt.suptitle("Scatter Plot Matrix", y=1.02)
+        plt.show()
+        
+        print("\nExamine the plots to identify non-linear relationships and potential transformations")
+    
+    def plot_relationship(self, x_var, y_var=None):
+        """
+        Plot relationship between two variables with regression line.
+        
+        Parameters:
+        -----------
+        x_var : str
+            Name of the independent variable
+        y_var : str or None
+            Name of the dependent variable (uses target_col if None)
+        """
+        print(f"\n=== Method: plot_relationship() ===")
+        
+        if y_var is None:
+            if self.target_col is None:
+                raise ValueError("No target variable specified")
+            y_var = self.target_col
+        
+        print(f"Exploring relationship between {x_var} and {y_var}...")
+        
+        plt.figure(figsize=(8, 6))
+        sns.regplot(x=x_var, y=y_var, data=self.df)
+        plt.title(f"Relationship between {x_var} and {y_var}")
+        plt.xlabel(f"{x_var}: {self.variable_descriptions.get(x_var, '')}")
+        plt.ylabel(f"{y_var}: {self.variable_descriptions.get(y_var, '')}")
+        plt.grid(True, alpha=0.3)
+        plt.show()
+        
+        # Calculate and show correlation
+        correlation = self.df[[x_var, y_var]].corr().iloc[0, 1]
+        print(f"Correlation between {x_var} and {y_var}: {correlation:.2f}")
+        
+        # Guide hypothesis formation
+        if abs(correlation) > 0.7:
+            strength = "strong"
+        elif abs(correlation) > 0.4:
+            strength = "moderate"
+        else:
+            strength = "weak"
+            
+        direction = "positive" if correlation > 0 else "negative"
+        print(f"This suggests a {strength} {direction} relationship.")
+    
+    def hypothesize_relationships(self):
+        """
+        Guide for students to formulate hypotheses based on data exploration.
+        
+        This is a template for students to fill out as they explore the data.
+        """
+        print("\n=== Method: hypothesize_relationships() ===")
+        print("STEP 1: FORMULATE HYPOTHESES ABOUT VARIABLE RELATIONSHIPS")
+        print("-------------------------------------------------------")
+        print("Based on your data exploration, complete the following:")
+        print("\n1. Which variables do you expect to have a positive relationship with the target?")
+        print("   Variables: _______")
+        print("   Reasoning: _______")
+        
+        print("\n2. Which variables do you expect to have a negative relationship with the target?")
+        print("   Variables: _______")
+        print("   Reasoning: _______")
+        
+        print("\n3. Which variables might interact with each other?")
+        print("   Variable pairs: _______")
+        print("   Reasoning: _______")
+        
+        print("\n4. What is your primary hypothesis about what drives trip generation?")
+        print("   Hypothesis: _______")
+        print("   Justification based on domain knowledge: _______")
+        
+        print("\nAfter completing these questions, proceed to MODULE 2 to test your hypotheses.")
+        
+        # Return a template dictionary for hypotheses that students can fill out
+        return {
+            "positive_relationships": {
+                "variables": [],
+                "reasoning": ""
+            },
+            "negative_relationships": {
+                "variables": [],
+                "reasoning": ""
+            },
+            "interactions": {
+                "variable_pairs": [],
+                "reasoning": ""
+            },
+            "primary_hypothesis": {
+                "statement": "",
+                "justification": ""
+            }
+        }
+
+
+#===============================================================================
+# MODULE 2: RegressionModeler - "Models are tools for analysis"
+#===============================================================================
+
+class RegressionModeler:
+    """
+    Module 2: RegressionModeler
+    
+    Purpose: Build and test multiple regression models to test hypotheses
+    
+    This module embodies Moshe's wisdom that "Models are tools for analysis, 
+    not just prediction" by focusing on hypothesis testing and understanding
+    the relationships between variables.
+    """
+    
+    def __init__(self, data, target_col):
+        """
+        Initialize RegressionModeler with a dataset.
+        
+        Parameters:
+        -----------
+        data : pandas DataFrame
+            The dataset
+        target_col : str
+            Name of the target/dependent variable
+        """
+        print("\nMODULE 2: RegressionModeler - Building models to test hypotheses")
+        print("Remember: Models are tools for analysis, not just prediction!\n")
+        
+        self.data = data
+        self.target_col = target_col
+        self.y = data[target_col]
+        self.model_specs = {}
+        self.fitted_models = {}
+        
+        # Define evaluation metrics and their directions (higher/lower is better)
+        self.metrics = {
+            "RMSE": {"description": "Root Mean Squared Error", "higher_is_better": False},
+            "R2_adj": {"description": "Adjusted R-squared", "higher_is_better": True},
+            "AIC": {"description": "Akaike Information Criterion", "higher_is_better": False},
+            "BIC": {"description": "Bayesian Information Criterion", "higher_is_better": False},
+            "VIF_max": {"description": "Maximum Variance Inflation Factor", "higher_is_better": False}
+        }
+        
+        # Create a structured xarray for results
+        self._initialize_results_array()
+    
+    def _initialize_results_array(self):
+        """Initialize the xarray structure to store model results."""
+        # Will be populated as models are added
+        self.results = None
+    
+    def add_model_spec(self, name, features, description=None):
+        """
+        Add a model specification to test a specific hypothesis.
+        
+        Parameters:
+        -----------
+        name : str
+            Name of the model
+        features : list
+            List of features to include in the model
+        description : str or None
+            Description of the model or hypothesis it tests
+        """
+        print(f"\n=== Method: add_model_spec() ===")
+        print(f"Creating model '{name}' to test hypothesis about {', '.join(features)}")
+        
+        self.model_specs[name] = {
+            "features": features,
+            "description": description
+        }
+        
+        # Update the results array
+        model_names = list(self.model_specs.keys())
+        if self.results is None:
+            # First model, initialize the array
+            self.results = xr.DataArray(
+                np.zeros((len(model_names), len(self.metrics))),
+                dims=["model", "metric"],
+                coords={
+                    "model": model_names,
+                    "metric": list(self.metrics.keys())
+                }
+            )
+        else:
+            # Update existing array
+            self.results = self.results.reindex(model=model_names)
+        
+        if description:
+            print(f"Hypothesis being tested: {description}")
+        
+        # Guide on model purpose
+        print(f"This model includes {len(features)} variables: {', '.join(features)}")
+        print(f"Purpose: To analyze the relationship between {self.target_col} and these factors")
+    
+    def fit_all_models(self):
+        """Fit all specified models and store results."""
+        print("\n=== Method: fit_all_models() ===")
+        print("Fitting all model specifications to test hypotheses...")
+        
+        for model_name, spec in self.model_specs.items():
+            features = spec["features"]
+            result = self._fit_and_evaluate(features)
+            self.fitted_models[model_name] = result["model"]
+            
+            # Store metrics in the xarray
+            for metric, value in result.items():
+                if metric in self.metrics:
+                    self.results.loc[model_name, metric] = value
+            
+            print(f"  {model_name}: Adj. R² = {result['R2_adj']:.4f}, RMSE = {result['RMSE']:.4f}")
+        
+        print("\nAll models fitted successfully! These models are tools to understand relationships, not just for prediction.")
+        print("Remember to interpret coefficients in terms of your domain knowledge, not just statistical significance.")
+    
+    def _fit_and_evaluate(self, features):
+        """
+        Fit a model and calculate evaluation metrics.
+        
+        Parameters:
+        -----------
+        features : list
+            Features to include in the model
+            
+        Returns:
+        --------
+        dict
+            Dictionary of metrics and fitted model
+        """
+        # Create design matrix with constant
+        X = sm.add_constant(self.data[features])
+        
+        # Fit model
+        model = sm.OLS(self.y, X).fit()
+        
+        # Calculate metrics
+        results = {
+            "RMSE": np.sqrt(np.mean(model.resid**2)),
+            "R2_adj": model.rsquared_adj,
+            "AIC": model.aic,
+            "BIC": model.bic,
+            "model": model
+        }
+        
+        # Calculate VIF if more than one feature
+        if len(features) > 1:
+            vif_values = [variance_inflation_factor(X.values, i) for i in range(1, X.shape[1])]
+            results["VIF_max"] = max(vif_values)
+        else:
+            results["VIF_max"] = 1.0
+        
+        return results
+    
+    def compare_models(self):
+        """
+        Create a table comparing all models to facilitate hypothesis testing.
+        
+        Returns:
+        --------
+        pandas.DataFrame
+            Comparative metrics for all models
+        """
+        print("\n=== Method: compare_models() ===")
+        print("Comparing models to evaluate hypotheses...")
+        
+        # Get core metrics
+        comparison = pd.DataFrame(index=self.model_specs.keys())
+        
+        for metric in self.metrics:
+            comparison[metric] = self.results.sel(metric=metric).values
+        
+        # Add complexity information
+        comparison['n_predictors'] = [len(self.model_specs[model]['features']) for model in comparison.index]
+        comparison['features'] = [', '.join(self.model_specs[model]['features']) for model in comparison.index]
+        
+        print("\nModel comparison table:")
+        print(comparison)
+        print("\nThis comparison helps evaluate which hypotheses are supported by the data.")
+        print("Remember: A higher R² alone doesn't mean a better model - domain knowledge matters!")
+        
+        return comparison
+    
+    def plot_metric_comparison(self, metric="R2_adj"):
+        """
+        Plot a comparison of models based on a specific metric.
+        
+        Parameters:
+        -----------
+        metric : str
+            Metric to compare
+        """
+        print(f"\n=== Method: plot_metric_comparison() ===")
+        print(f"Visualizing model comparison by {metric}...")
+        
+        if metric not in self.metrics:
+            raise ValueError(f"Unknown metric: {metric}")
+        
+        metric_data = self.results.sel(metric=metric)
+        
+        plt.figure(figsize=(10, 6))
+        ax = plt.gca()
+        
+        # Sort models by complexity for better visualization
+        sorted_models = sorted(
+            self.model_specs.keys(), 
+            key=lambda x: len(self.model_specs[x]['features'])
+        )
+        sorted_data = metric_data.sel(model=sorted_models)
+        
+        # Plot data
+        sorted_data.plot.bar(ax=ax)
+        
+        # Customize plot
+        plt.title(f"Model Comparison by {self.metrics[metric]['description']}")
+        plt.ylabel(self.metrics[metric]['description'])
+        plt.xlabel("Model")
+        plt.xticks(rotation=45, ha='right')
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        plt.show()
+        
+        print(f"\nThis visualization helps compare models on the {metric} metric.")
+        print("However, remember that model selection should be based on multiple criteria, not just one metric.")
+    
+    def f_test_models(self, restricted_model, unrestricted_model):
+        """
+        Perform F-test to compare nested models, testing whether additional 
+        variables significantly improve the model.
+        
+        Parameters:
+        -----------
+        restricted_model : str
+            Name of the restricted model
+        unrestricted_model : str
+            Name of the unrestricted model
+            
+        Returns:
+        --------
+        tuple
+            (F-statistic, p-value, result message)
+        """
+        print(f"\n=== Method: f_test_models() ===")
+        print(f"Testing if additional variables in {unrestricted_model} significantly improve upon {restricted_model}...")
+        
+        # Get the fitted models
+        if restricted_model not in self.fitted_models:
+            raise ValueError(f"Model '{restricted_model}' not found")
+        if unrestricted_model not in self.fitted_models:
+            raise ValueError(f"Model '{unrestricted_model}' not found")
+        
+        model_r = self.fitted_models[restricted_model]
+        model_u = self.fitted_models[unrestricted_model]
+        
+        # Check that models are nested
+        r_features = set(self.model_specs[restricted_model]["features"])
+        u_features = set(self.model_specs[unrestricted_model]["features"])
+        
+        if not r_features.issubset(u_features):
+            raise ValueError("Restricted model must be nested within unrestricted model")
+        
+        # Calculate F-statistic
+        ssr_r = sum(model_r.resid**2)
+        ssr_u = sum(model_u.resid**2)
+        df_r = model_r.df_resid
+        df_u = model_u.df_resid
+        
+        q = len(u_features) - len(r_features)  # Number of restrictions
+        
+        f_stat = ((ssr_r - ssr_u) / q) / (ssr_u / df_u)
+        p_val = 1 - stats.f.cdf(f_stat, q, df_u)
+        
+        # Determine result
+        if p_val < 0.05:
+            result = "Reject the null hypothesis. The unrestricted model is preferred."
+        else:
+            result = "Cannot reject the null hypothesis. The restricted model is adequate."
+        
+        # Print detailed output
+        print(f"F-test comparing {restricted_model} (restricted) vs {unrestricted_model} (unrestricted):")
+        print(f"F({q}, {df_u}) = {f_stat:.4f}, p-value = {p_val:.4f}")
+        print(f"Result: {result}")
+        print("\nRemember: Statistical significance doesn't automatically mean practical significance.")
+        print("Consider the effect sizes and domain knowledge when deciding between models.")
+        
+        return f_stat, p_val, result
+    
+    def analyze_model(self, model_name):
+        """
+        Perform a detailed analysis of a single model, focusing on understanding
+        the relationships rather than just prediction.
+        
+        Parameters:
+        -----------
+        model_name : str
+            Name of the model to analyze
+        """
+        print(f"\n=== Method: analyze_model() ===")
+        print(f"Analyzing model '{model_name}' to understand relationships...")
+        
+        if model_name not in self.fitted_models:
+            raise ValueError(f"Model '{model_name}' not found")
+        
+        model = self.fitted_models[model_name]
+        features = self.model_specs[model_name]["features"]
+        
+        print(f"\n===== ANALYSIS OF MODEL: {model_name} =====")
+        print(f"Features: {', '.join(features)}")
+        if self.model_specs[model_name]["description"]:
+            print(f"Hypothesis: {self.model_specs[model_name]['description']}")
+        
+        # Print summary
+        print("\nModel Summary:")
+        print(model.summary())
+        
+        # Interpret coefficients in context
+        print("\nCoefficient Interpretation:")
+        for var, coef in model.params.items():
+            if var == 'const':
+                continue
+            sign = "increase" if coef > 0 else "decrease"
+            print(f"- {var}: A one-unit increase is associated with a {abs(coef):.4f} {sign} in {self.target_col}")
+            sig = "statistically significant" if model.pvalues[var] < 0.05 else "not statistically significant"
+            print(f"  This effect is {sig} (p={model.pvalues[var]:.4f})")
+            
+        # Check residuals
+        self._check_residuals(model, model_name)
+        
+        # Check multicollinearity
+        if len(features) > 1:
+            self._check_multicollinearity(features, model_name)
+            
+        print("\nRemember: This model is a tool for understanding relationships and testing hypotheses,")
+        print("not just for prediction. Interpret the coefficients in the context of your domain knowledge.")
+    
+    def _check_residuals(self, model, model_name):
+        """
+        Check residuals for a model to verify regression assumptions.
+        
+        Parameters:
+        -----------
+        model : statsmodels.regression.linear_model.RegressionResultsWrapper
+            Fitted model
+        model_name : str
+            Name of the model
+        """
+        residuals = model.resid
+        fitted = model.fittedvalues
+        
+        # Create diagnostic plots
+        fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+        fig.suptitle(f"Residual Diagnostics for {model_name}", fontsize=16)
+        
+        # 1. Residuals vs Fitted
+        axes[0, 0].scatter(fitted, residuals)
+        axes[0, 0].axhline(y=0, color='r', linestyle='-')
+        axes[0, 0].set_title("Residuals vs Fitted Values")
+        axes[0, 0].set_xlabel("Fitted Values")
+        axes[0, 0].set_ylabel("Residuals")
+        
+        # 2. QQ Plot
+        sm.qqplot(residuals, line='45', fit=True, ax=axes[0, 1])
+        axes[0, 1].set_title("Normal Q-Q Plot")
+        
+        # 3. Scale-Location Plot
+        sqrt_abs_resid = np.sqrt(np.abs(residuals))
+        axes[1, 0].scatter(fitted, sqrt_abs_resid)
+        axes[1, 0].set_title("Scale-Location Plot")
+        axes[1, 0].set_xlabel("Fitted Values")
+        axes[1, 0].set_ylabel("√|Residuals|")
+        
+        # 4. Residuals vs Leverage
+        from statsmodels.graphics.regressionplots import influence_plot
+        influence_plot(model, ax=axes[1, 1], criterion="cooks")
+        axes[1, 1].set_title("Residuals vs Leverage")
+        
+        plt.tight_layout()
+        plt.subplots_adjust(top=0.9)
+        plt.show()
+    
+    def _check_multicollinearity(self, features, model_name):
+        """
+        Check for multicollinearity in a model, which can affect coefficient interpretation.
+        
+        Parameters:
+        -----------
+        features : list
+            List of features in the model
+        model_name : str
+            Name of the model
+        """
+        X = sm.add_constant(self.data[features])
+        
+        # Calculate VIF
+        vif_data = pd.DataFrame()
+        vif_data["Feature"] = X.columns[1:]  # Skip constant
+        vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(1, X.shape[1])]
+        
+        print("\nVariance Inflation Factors (VIF):")
+        print("VIF > 5 indicates problematic multicollinearity")
+        print("VIF > 10 indicates severe multicollinearity")
+        print(vif_data.sort_values("VIF", ascending=False))
+        
+        # Plot VIF values
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x="Feature", y="VIF", data=vif_data)
+        plt.title(f"Variance Inflation Factors for {model_name}")
+        plt.axhline(y=5, color='orange', linestyle='--', label="Threshold (VIF=5)")
+        plt.axhline(y=10, color='red', linestyle='--', label="Threshold (VIF=10)")
+        plt.xticks(rotation=45, ha='right')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+        
+        # Warning about interpretation
+        high_vif = vif_data[vif_data["VIF"] > 5]["Feature"].tolist()
+        if high_vif:
+            print(f"\nWarning: {', '.join(high_vif)} show{' ' if len(high_vif) == 1 else 's '}")
+            print("elevated multicollinearity. This doesn't invalidate the model, but makes")
+            print("individual coefficient interpretation less reliable. Consider the combined")
+            print("effect of correlated variables when interpreting results.")
+
+
+#===============================================================================
+# MODULE 3: ModelSelector - "Beware the P-hacking trap"
+#===============================================================================
+
+class ModelSelector:
+    """
+    Module 3: ModelSelector
+    
+    Purpose: Select and justify models based on statistics and domain knowledge
+    
+    This module embodies Moshe's wisdom to "Beware the P-hacking trap" by 
+    encouraging systematic model evaluation based on multiple criteria, not 
+    just p-values or R-squared.
+    """
+    
+    def __init__(self, modeler):
+        """
+        Initialize with a RegressionModeler instance.
+        
+        Parameters:
+        -----------
+        modeler : RegressionModeler
+            Initialized and fitted RegressionModeler
+        """
+        print("\nMODULE 3: ModelSelector - Selecting and justifying models")
+        print("Remember: Beware the P-hacking trap!\n")
+        
+        self.modeler = modeler
+        self.metrics = modeler.metrics
+        self.results = modeler.results
+        self.fitted_models = modeler.fitted_models
+        self.model_specs = modeler.model_specs
+        self.target_col = modeler.target_col
+    
+    def find_best_model(self, primary_metric="R2_adj", additional_metrics=None):
+        """
+        Find models that perform well across multiple metrics to avoid 
+        p-hacking and cherry-picking results.
+        
+        Parameters:
+        -----------
+        primary_metric : str
+            Primary metric for ranking models
+        additional_metrics : list or None
+            Additional metrics to consider
+            
+        Returns:
+        --------
+        pandas.DataFrame
+            Results ranked by primary metric with additional context
+        """
+        print(f"\n=== Method: find_best_model() ===")
+        print(f"Systematically evaluating models across multiple metrics...")
+        print(f"Primary metric: {primary_metric}, Additional metrics: {additional_metrics or 'None'}")
+        
+        if additional_metrics is None:
+            additional_metrics = []
+        
+        # Check metrics validity
+        all_metrics = [primary_metric] + additional_metrics
+        for metric in all_metrics:
+            if metric not in self.metrics:
+                raise ValueError(f"Unknown metric: {metric}")
+        
+        # Get all metrics for all models
+        metrics_df = pd.DataFrame()
+        
+        for metric in self.metrics:
+            metric_values = self.results.sel(metric=metric).to_pandas()
+            metrics_df[metric] = metric_values
+        
+        # Sort by primary metric
+        higher_is_better = self.metrics[primary_metric]["higher_is_better"]
+        if higher_is_better:
+            ranked_models = metrics_df.sort_values(primary_metric, ascending=False)
+        else:
+            ranked_models = metrics_df.sort_values(primary_metric, ascending=True)
+        
+        # Add model complexity
+        ranked_models['n_predictors'] = [len(self.model_specs[model]['features']) 
+                                        for model in ranked_models.index]
+        
+        # Add features list
+        ranked_models['features'] = [', '.join(self.model_specs[model]['features']) 
+                                   for model in ranked_models.index]
+        
+        # Convert metrics to ranks
+        rank_df = pd.DataFrame()
+        for metric in self.metrics:
+            if self.metrics[metric]["higher_is_better"]:
+                rank_df[f"{metric}_rank"] = metrics_df[metric].rank(ascending=False)
+            else:
+                rank_df[f"{metric}_rank"] = metrics_df[metric].rank(ascending=True)
+        
+        # Add ranks to the results
+        for col in rank_df.columns:
+            ranked_models[col] = rank_df[col]
+        
+        print(f"\nModels ranked by {primary_metric} "
+              f"({'higher is better' if higher_is_better else 'lower is better'}):")
+        print(ranked_models)
+        
+        print("\nBeware of selecting models solely based on statistical measures!")
+        print("Remember to consider domain knowledge, theoretical expectations,")
+        print("and the intended use of the model in your selection process.")
+        
+        return ranked_models
+    
+    def plot_radar_chart(self, model_names=None, metrics=None):
+        """
+        Create a radar chart comparing models across multiple metrics to
+        provide a balanced view of model performance.
+        
+        Parameters:
+        -----------
+        model_names : list or None
+            Models to include. If None, uses all models.
+        metrics : list or None
+            Metrics to include. If None, uses all metrics.
+        """
+        print(f"\n=== Method: plot_radar_chart() ===")
+        print("Creating radar chart to compare models across multiple dimensions...")
+        
+        if model_names is None:
+            model_names = list(self.model_specs.keys())
+        
+        if metrics is None:
+            metrics = list(self.metrics.keys())
+        
+        # Validate inputs
+        for model in model_names:
+            if model not in self.model_specs:
+                raise ValueError(f"Unknown model: {model}")
+        
+        for metric in metrics:
+            if metric not in self.metrics:
+                raise ValueError(f"Unknown metric: {metric}")
+        
+        # Get metric values and normalize them to [0, 1]
+        normalized_data = {}
+        
+        for metric in metrics:
+            values = self.results.sel(model=model_names, metric=metric).to_pandas()
+            
+            # For metrics where lower is better, invert the values for visualization
+            if not self.metrics[metric]["higher_is_better"]:
+                values = values.max() - values
+            
+            # Normalize to [0, 1]
+            if values.max() == values.min():
+                normalized_data[metric] = pd.Series(1.0, index=values.index)
+            else:
+                normalized_data[metric] = (values - values.min()) / (values.max() - values.min())
+        
+        # Create radar chart
+        num_metrics = len(metrics)
+        angles = np.linspace(0, 2*np.pi, num_metrics, endpoint=False).tolist()
+        angles += angles[:1]  # Close the loop
+        
+        fig, ax = plt.subplots(figsize=(10, 8), subplot_kw=dict(polar=True))
+        
+        # Add metrics to chart
+        extended_metrics = metrics + [metrics[0]]  # Close the loop
+        
+        for model in model_names:
+            values = [normalized_data[metric][model] for metric in metrics]
+            values += values[:1]  # Close the loop
+            ax.plot(angles, values, linewidth=2, label=model)
+            ax.fill(angles, values, alpha=0.1)
+        
+        # Set labels
+        ax.set_xticks(angles[:-1])
+        ax.set_xticklabels(metrics)
+        
+        # Add legend and title
+        plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.0))
+        plt.title('Model Comparison Across Multiple Metrics', y=1.1)
+        
+        plt.tight_layout()
+        plt.show()
+        
+        print("\nThe radar chart shows model performance across multiple dimensions.")
+        print("A balanced model should perform reasonably well across all metrics,")
+        print("not just excel at a single metric at the expense of others.")
+    
+    def create_decision_framework(self):
+        """
+        Create a structured framework for model selection decision that 
+        balances statistical metrics with domain knowledge.
+        """
+        print("\n=== Method: create_decision_framework() ===")
+        print("Building a systematic framework for model selection and justification...\n")
+        
+        print("===== MODEL SELECTION DECISION FRAMEWORK =====")
+        print("Complete the following to document your model selection process:")
+        
+        print("\n1. STATISTICAL CRITERIA")
+        print("   a. Which model has the highest adjusted R-squared?")
+        print("   b. Which model has the lowest RMSE?")
+        print("   c. Which model has the best AIC/BIC?")
+        print("   d. For nested models, what do the F-tests tell you?")
+        
+        print("\n2. THEORETICAL CONSIDERATIONS")
+        print("   a. Which variables must be included based on domain knowledge?")
+        print("   b. Are coefficient signs consistent with theoretical expectations?")
+        print("   c. Are coefficient magnitudes reasonable?")
+        
+        print("\n3. PRACTICAL CONSIDERATIONS")
+        print("   a. Is there evidence of multicollinearity that might affect interpretation?")
+        print("   b. How well does the model satisfy regression assumptions?")
+        print("   c. What is the trade-off between complexity and interpretability?")
+        
+        print("\n4. FINAL DECISION")
+        print("   a. Your chosen model: _______")
+        print("   b. Primary justification: _______")
+        print("   c. Limitations of your chosen model: _______")
+        print("   d. How would you improve this model with additional data? _______")
+        
+        print("\nRemember: Avoid the p-hacking trap! Don't simply choose the model")
+        print("with the highest R-squared or most statistically significant variables.")
+        print("Balance statistical evidence with domain knowledge and practical considerations.")
+    
+    def report_coefficient_interpretations(self, model_name):
+        """
+        Generate plain language interpretations of a model's coefficients
+        with emphasis on practical significance, not just statistical significance.
+        
+        Parameters:
+        -----------
+        model_name : str
+            Name of the model to interpret
+        """
+        print(f"\n=== Method: report_coefficient_interpretations() ===")
+        print(f"Interpreting coefficients from model '{model_name}' in practical terms...")
+        
+        if model_name not in self.fitted_models:
+            raise ValueError(f"Unknown model: {model_name}")
+        
+        model = self.fitted_models[model_name]
+        
+        print(f"\n===== COEFFICIENT INTERPRETATIONS FOR {model_name} =====")
+        
+        # Get coefficients and statistical info
+        coefs = model.params
+        stderr = model.bse
+        pvalues = model.pvalues
+        conf_int = model.conf_int()
+        
+        # Prepare a table with interpretations
+        interp_data = []
+        
+        for var in coefs.index:
+            if var == 'const':
+                interpretation = f"When all predictors are zero, the expected number of {self.target_col} is {coefs[var]:.2f}."
+            else:
+                sign = "increase" if coefs[var] > 0 else "decrease"
+                interpretation = f"A one-unit increase in {var} is associated with a {abs(coefs[var]):.2f} {sign} in {self.target_col}."
+            
+            significance = "Statistically significant" if pvalues[var] < 0.05 else "Not statistically significant"
+            
+            # Determine practical significance
+            if var != 'const':
+                if abs(coefs[var]) < 0.01:
+                    practical_sig = "Negligible practical impact"
+                elif abs(coefs[var]) < 0.1:
+                    practical_sig = "Minor practical impact"
+                elif abs(coefs[var]) < 0.5:
+                    practical_sig = "Moderate practical impact"
+                else:
+                    practical_sig = "Substantial practical impact"
+            else:
+                practical_sig = "N/A (Intercept)"
+            
+            interp_data.append({
+                'Variable': var,
+                'Coefficient': coefs[var],
+                'Std Error': stderr[var],
+                'p-value': pvalues[var],
+                '95% CI Lower': conf_int.iloc[list(coefs.index).index(var), 0],
+                '95% CI Upper': conf_int.iloc[list(coefs.index).index(var), 1],
+                'Statistical Significance': significance,
+                'Practical Significance': practical_sig,
+                'Interpretation': interpretation
+            })
+        
+        # Create DataFrame
+        interp_df = pd.DataFrame(interp_data)
+        pd.set_option('display.max_colwidth', 100)
+        print(interp_df[['Variable', 'Coefficient', 'p-value', 'Statistical Significance', 'Practical Significance']])
+        
+        print("\nDetailed Interpretations:")
+        for var in coefs.index:
+            if var == 'const':
+                print(f"\n• Intercept: {coefs[var]:.2f}")
+                print(f"  When all predictors are at zero, the expected {self.target_col} is {coefs[var]:.2f}.")
+                continue
+            
+            coef = coefs[var]
+            ci_low = conf_int.iloc[list(coefs.index).index(var), 0]
+            ci_high = conf_int.iloc[list(coefs.index).index(var), 1]
+            pval = pvalues[var]
+            
+            print(f"\n• {var}: {coef:.4f} (95% CI: {ci_low:.4f} to {ci_high:.4f}, p={pval:.4f})")
+            
+            # Direction and magnitude
+            if coef > 0:
+                direction = f"increases {self.target_col}"
+            else:
+                direction = f"decreases {self.target_col}"
+                
+            # Practical interpretation
+            if abs(coef) < 0.01:
+                impact = "negligible impact"
+            elif abs(coef) < 0.1:
+                impact = "minor impact"
+            elif abs(coef) < 0.5:
+                impact = "moderate impact"
+            else:
+                impact = "substantial impact"
+                
+            print(f"  A one-unit increase in {var} {direction} by {abs(coef):.4f} units.")
+            print(f"  This represents a {impact} in practical terms.")
+            
+            # Statistical significance
+            if pval < 0.05:
+                print(f"  This effect is statistically significant (p < 0.05).")
+            else:
+                print(f"  This effect is not statistically significant (p > 0.05).")
+                print(f"  However, lack of statistical significance doesn't automatically mean")
+                print(f"  the effect isn't important - consider the confidence interval and effect size.")
+        
+        print("\nRemember: Statistical significance ≠ Practical significance")
+        print("A small p-value doesn't guarantee an important effect, and")
+        print("a large p-value doesn't mean there's no effect.")
+        
+        return interp_df
+
+
+#===============================================================================
+# STUDENT LAB ACTIVITY: IMPLEMENTING THE FULL REGRESSION ANALYSIS FRAMEWORK
+#===============================================================================
+
+def run_student_lab_activity(data_path, target_col="TODU"):
+    """
+    Run the complete regression analysis framework with the Chicago trip generation dataset.
+    This function demonstrates how the three modules work together in sequence.
+    
+    Parameters:
+    -----------
+    data_path : str
+        Path to the dataset CSV file
+    target_col : str
+        Name of the target/dependent variable (default: "TODU")
+    """
+    print("=" * 80)
+    print("REGRESSION ANALYSIS FRAMEWORK: FROM HYPOTHESES TO JUSTIFIED MODELS")
+    print("=" * 80)
+    print("\nThis lab guides you through the complete regression analysis process:")
+    print("1. MODULE 1: Explore data and form hypotheses (Domain knowledge trumps statistics)")
+    print("2. MODULE 2: Build models to test hypotheses (Models are tools for analysis)")
+    print("3. MODULE 3: Select and justify models (Beware the P-hacking trap)")
+    print("\nFollow the framework and complete each module's activities.")
+    print("=" * 80)
+    
+    # Module 1: Data Exploration and Hypothesis Formation
+    print("\nStarting Module 1: Data Exploration...\n")
+    explorer = DataExplorer(data_path, target_col)
+    
+    # Basic data exploration
+    explorer.describe_data()
+    explorer.plot_correlations()
+    explorer.plot_scatter_matrix()
+    
+    # Explore relationships with the target variable
+    for var in ["ACO", "AHS", "UI"]:  # Example variables
+        explorer.plot_relationship(var)
+    
+    # Prompt for hypothesis formation
+    hypotheses = explorer.hypothesize_relationships()
+    
+    # Module 2: Model Building and Testing
+    print("\nMoving to Module 2: Model Building and Testing...\n")
+    data = explorer.df
+    modeler = RegressionModeler(data, target_col)
+    
+    # Add model specifications based on hypotheses
+    # These would normally come from student hypotheses
+    modeler.add_model_spec(
+        "Basic_Mobility", 
+        ["ACO"], 
+        "Car ownership alone drives trip generation"
+    )
+    
+    modeler.add_model_spec(
+        "Urban_Form", 
+        ["ACO", "UI"], 
+        "Both car ownership and urban form affect trip generation"
+    )
+    
+    modeler.add_model_spec(
+        "Household_Dynamics", 
+        ["ACO", "AHS", "UI"], 
+        "Household size adds explanatory power beyond car ownership and urban form"
+    )
+    
+    modeler.add_model_spec(
+        "Full_Socioeconomic", 
+        ["ACO", "AHS", "UI", "SI", "SRI"], 
+        "Socioeconomic factors provide additional explanatory power"
+    )
+    
+    # Fit all models
+    modeler.fit_all_models()
+    
+    # Compare models
+    comparison = modeler.compare_models()
+    modeler.plot_metric_comparison("R2_adj")
+    
+    # Test nested models
+    modeler.f_test_models("Urban_Form", "Household_Dynamics")
+    modeler.f_test_models("Household_Dynamics", "Full_Socioeconomic")
+    
+    # Analyze a specific model in detail
+    modeler.analyze_model("Household_Dynamics")
+    
+    # Module 3: Model Selection and Justification
+    print("\nMoving to Module 3: Model Selection and Justification...\n")
+    selector = ModelSelector(modeler)
+    
+    # Find the best model according to multiple criteria
+    ranked_models = selector.find_best_model(primary_metric="R2_adj", additional_metrics=["RMSE", "AIC"])
+    
+    # Create visual comparison
+    selector.plot_radar_chart(
+        model_names=["Basic_Mobility", "Urban_Form", "Household_Dynamics", "Full_Socioeconomic"],
+        metrics=["R2_adj", "RMSE", "AIC", "BIC"]
+    )
+    
+    # Provide framework for decision making
+    selector.create_decision_framework()
+    
+    # Interpret coefficients for a selected model
+    selector.report_coefficient_interpretations("Household_Dynamics")
+    
+    print("\n" + "=" * 80)
+    print("LAB ACTIVITY COMPLETE")
+    print("=" * 80)
+    print("\nYou've now worked through the entire regression analysis framework.")
+    print("Remember the three key principles:")
+    print("1. Domain knowledge trumps statistics")
+    print("2. Models are tools for analysis, not just prediction")
+    print("3. Beware the P-hacking trap")
+    print("\nUse this framework to approach regression problems systematically,")
+    print("balancing statistical rigor with domain knowledge and practical considerations.")
+
+
+# Example usage
+if __name__ == "__main__":
+    # Replace with the actual path to your dataset
+    data_path = "CS1_data.csv"
+    
+    # Run the full lab activity
+    run_student_lab_activity(data_path, target_col="TODU")
+```
