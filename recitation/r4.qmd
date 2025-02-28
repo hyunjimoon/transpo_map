@@ -434,6 +434,7 @@ class RegressionModeler:
         sorted_data = metric_data.sel(model=sorted_models)
         
         # Plot data
+        sorted_data = sorted_data.to_series()
         sorted_data.plot.bar(ax=ax)
         
         # Customize plot
