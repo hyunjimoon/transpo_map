@@ -1,0 +1,1144 @@
+Speaker 1  0:00  
+That's not independent, uncorrelated, then what do we do? So? So before we talk about this violation of this assumption, let's first of all recall what this assumption gets us and so this assumption and stated here mathematically, is that the expected value of epsilon, epsilon, prime given x, is equal to sigma squared. So we assume that we have exogeneity and but the the variance, covariance matrix of epsilon. Epsilon is a vector of n by one vector, and the variance. Covariance is a matrix. It's an n by n matrix. So this is just the matrix, of course, products of the vector epsilon terms itself. So we have the square terms of the diagonal and the cost term of diagonal, and you can see it's a symmetric it's a square symmetric matrix. Now the expected value of this matrix under this assumption, it says that all the of the expected value of all the off diagonal element given x are zeros and the diagonal element, the expected value of them, is sigma constant, sigma square. So that's is called this assumption is called the homoscedasticity. And the zeros here, and then of diagonal is called no autocorrelation. And so that's the two names. And so, so what we're talking about about this assumption, what does it get us? It gets us this formula. So when we calculate the various covariance, I told you, we use this formula. So this formula is the right here again, for this innovation is in the past, right? And we get the formula that we we've been using. It's part of the output and except that sigma squared is replaced with s squared. So we have an estimator of s squared. And which is SSE, the sum of squared lo divided by n minus k, that's s squared. And that's a substitute for sigma squared, and that's what we use to calculate the variance covariance of beta hat. And what we do is this. We use it to calculate standard bills and to perform tests. And so, for example, we use t test and F test. But if, if this is no longer tools, then the test to be performed on incor, because this is not the variance covariance, and this distribution of the this test statistic is no longer money, because for this we use this formula. And so what do we lose? We lose this formula, and we lose efficiency. We lose the Gauss marker field. So. So what does it mean? It means that if you use if this assumption is violated, the consequence is that the standard error that are pointed out, the T ratios of a T distributed, the f statistic that we calculate are no longer F distributed. And so we we we have a difficulty with calculating the standard deals we can always do, boot, stopping. So we can show the fact that we don't have this folder. You know how to do boot stopping, repeat the question, you know, 1000 times, and get different datas and calculate the stuff at all. So we can calculate it. It doesn't mean that we cannot calculate them. So the only thing we use, we lose efficiency, because the standard cells we can calculate come up with also test statistic using boot stopping and so that's not the big loss, because the parameters the data heads are still unbiased or consistent. So the only thing that we lose is we cannot use this formula, and the Gulf local theorem does not apply. And if we have a very large data set, if you have 1000s, 1000s and 1000s or 10s of 1000s or hundreds of 1000s of ways, we don't really care that much about efficiency. We still care about unbiasedness or consistency. That's most important. But efficiency so it's not the best estimate is a better estimator. So estimator, so that estimator means smaller variance, but it is that this other estimator will also be unbiased, and maybe has smaller variance, covariance matrix in some sense more efficient, but that's all but if we have a large, very large data set, we don't care how much about efficiency. So if this violation happen, you may do nothing, but there is something that can be done. And there's something that can be done is if we have information about these. This is a matrix like, if you have some information, we say that it's we have a violation meaning, meaning that the variance covads matrix is the external this is not this, you know, it's something else, different values here, and maybe different variances. We call it heteroscedasticity, and we can could be off the angular level. It could be covariances, which means there is auto correlation. So if we have information about what this is what's going on here. And then if we know what it is, suppose that somehow we know what the structure of this matrix, we need to know it after scalable because, and if we know what this matrix is, then there is a technique that it's called, that is called generalized least squares. So at the end of this lecture, I will present this method. So this method says, if you know what this is, I mean, you know it's not sigma square. I Well, it's something matrix. I know what it is, then we can use a technique called GLS, and we'll distinguish it from what we've done so far. Just called it V squares. Often we just offer to it as or less for all the memory squares, as opposed to techniques that coming up at the end of this lecture, which is GLS and but where do we have information about this matrix? I will have example. We can discuss it later on. But one of the methods that we will use will be a kind of a two stage method to step step one, you do all this, it gives us the correct betas, right unbiased or consistent beta which means that they can also calculate M consistent estimates of the residual and residuals. So I have n residuals. Epsilon hat, right? One of them, we can do some calculations and, and that's and, so the idea of saying, I don't really have information about what this matrix is. So let me start with OLS. Get some residuals, then do some calculation of those residuals as a way of making what the matrix, this matrix may be, and then apply GLS. So this is called the feasible GLS. We'll talk about it. So that's what's coming up. And to do it, we'll do it kind of one step at a time. Go ahead. Quick question. Can you go back? What does that represent here? I an identity matrix, just one thing with diagonals and zero as well. That's an identity matrix. So a matrix like this. So, so this is a constant sigma squared time, an identity matrix, which is a square matrix with ones on the diagonal. And so we get this matrix. Any other questions?
+
+Speaker 1  9:48  
+Okay, so, so you know what's coming up. And so the first thing we just say, okay, suppose that we have heteroskedasticity. We still assume that there is no autocorrelation, and so the off diagonal element of this matrix are zero, but the diagonal elements are different, sigma one squared, sigma two squared, etc. So the expected value of any epsilon squared for the observation is sigma n squared. It depends on the observation. Some observation is less variance, the observation is smaller and the off diagonal elements are all zero. So this matrix is a diagonal matrix. So we call it the matrix diagonal if there are only non zero elements in the diagonals and zero as well. These are matrices that are very easy to infiltrate. So that's very easy to calculate the determinant. But for us, this means we every I mean, this is a very relevant case, because we, when you, when we are introduced, maximum likelihood, assume that the observations are independent, they have a survey, and then provision are independent. If observations are independent, then in the regression case, I would expect the absolute to be independent. So the assumption of zero of diagonal would apply to an independent set of observations, which I assumed we talked about Maxim gradually you did not question it. And so it's clearly an assumption to make. So but the assumption, I'll give you some examples explaining why the assumption of the constant, the algorithm element may be violated, can be violated in many situations. So because some example I have, I have a lot of examples here, five examples or so, and I'm not going to go through the details of all the examples, because we are going to run out of time and but the slides, the other slides, please go through the slides. So during my lectures, I often have slides that I don't cover in the lecture. I assume that you're going to come out yourself, because pretty clear, and if not, you have engineer me ask questions. Okay, so example one accident in different states. So the vertical axis y, the horizontal axis is some x. And if we may assume the big states may have larger error variance because they have more accidents, more diagonals, and therefore the variance will be the origins, will the cloud of point will so if X relates to the size of the state, suppose that x is the population or the land area or the number of miles driven, then the variance of the residual will then increase with x, and which means that as x is increased, the model has more randomness around the line, and so higher values predict y with less than d. So that's if you if you have observation that come from different states, and you have variable that relates to size, big states, most states, or if you have business establishments, are small consumers, consumer that are regular, high frequency consumers low frequency. So you can get a situation. You can get situations where, for at least for the variable that is related to size, if you plot it against y, you'll see that there is a cloud that fans out. Cloud point that fans out. Another example that is not unusual is multiple databases. And suppose that I conducted a survey in two different locations, but I've used different data collection method for two different two different apps, or two different data collection establishments and but they want to estimate one model. I want to pull the data together, because then I have more data. So suppose that I divided the data into one data set and data set one and data set two, and I'm assuming that the variance Sigma may differ. Data Set all the off diagonal are zero, but the diagonal for data set one on sigma one square, and the diagonal for data set two will be sigma two square. Very common situation that you may encounter, you can divide your data into groups and assume, for some reason, that the variance does not necessarily the same, different data collection method, different areas, different points in time, etc. So So, so when you have such a situation, only the the only violation is among the diagonal of diagonal remain zero. So when you have still no autocorrelation, but you have heteroskedasticity, then special case of GLS. The generalized v square is weighted v square, so just a special case of GLS. So we will call it W and S. And so that's the next group of examples, and so what is weighted least squares? If we know what these sigmas are, sigma n, then we can calculate the least square and weighted least squares, where in the objective function. Each observation is weighted by this weight, one divided by sigma, n squared. So we have that same objective function where we minimize sum of squares or residuals, same objective function, but now for the objective function, the sum over n for every observation there is a weight. That's why it's called weighted v squared. So it makes sense, if an observation have a large variance, then you give it less weight. You give more weight to good observation. Observations have smaller variance along the line, and they give less observation to observation. So if you data was collected, is two different methods, the good method and the bad method. And then you see, can see how the bad data will get less weight. So that's the idea of this weighted v squared and and we essentially decrease the weight of observation without variance. So suppose that we are estimating that this is about and we write it for given observation. So for different observation x, here is a vector. So x n is a vector of observation, n beta is a vector of the parameter, and epsilon is a lucidum. So for this model, we assume that the variance of epsilon n given X is sigma n squared. And I don't know why I've written it here again, but this implies that if we can take this variance and divide it by sigma squared, I get one. So in other words, if I can, instead of estimating this model, I would estimate the model in which I divide it on the left side and the right side by sigma n. Can I do it? Sigma n is just a constant. I don't have it yet, but suppose that I have if I know what sigma n is, I just divide the model on the left and on the right, and now on the right hand side I have epsilon n, original epsilon n divided by sigma n. But what's the variance of that? Well, the variance of epsilon, right of epsilon n is sigma squared, so the variance of epsilon divided by sigma squared is one over sigma squared, sigma n squared times the variance of epsilon, which is sigma squared. So the variance of this is one. So if I know sigma squared, and it turns out, I need to know it only up to some constant multiple, because if it's not one, I want it to be a constant.
+
+Speaker 1  19:40  
+So here I assume, if I know sigma n, I divide the equation across by sigma n, and now I have a new variable, dependent variable called y star. I have a new expiratory variable, vector, which is all vector just divided across by sigma n. I call it x star, but transpose, because we multiplied by a vector, and they have a new l term, epsilon star. And this epsilon star is homoscedastic. So if I can add a hydration on this line, I get all the efficiency regards Markov and I have the results that before, but they notice a dependent variable is different, so meaning you cannot compare R square between the original regression this regression, if you you need to calculate it. You have to bring the equation, after you estimate it to the original form, and then calculate R square. But anyhow, so, so the question is, is this the same as weighted v square? The answer is yes, because look, if one residual is divided by sigma n, we square the residuals and then sum it. That's our objective function. So it's just the epsilon difference squared divided by sigma n squared. So that's the weighted v squared. So the weighted v squared is the same as doing ordinary square on the transformed equation. So this is an example of that they mentioned to you before. If I know what the variance, if I know it's it's not almost a dusty and I'm told it is heteroskedastic, but I know what the sigmas are, then I can have a new estimator. This is a special case of GMs, a new estimator which is efficient, but I need to, I need to know the sigma. So if I know the sigma, I can regain efficiency as we talk about, what do we know? How do we call the sigma? So we have two methods. We can do ordinary square. I mean, we can, we can do ordinary square on the transformed model. So transform the model and apply the ordinary risk, or keep the model as it is and just could put the weights. It's the same thing. So minimizing this objective function by weighting the original terms or having a sum of square epsilon star, it's exactly the same. It's just that, if you have a program that does already program to do ordinary square, then you can just divide your data, all the y's and all the x's by sigma n, and then you apply all the negative square. So it says, you know, two methods. We kind of said, Maybe I should have not used this, two methods. Why? Because it's the same. It is two calculation approaches. You can calculate it by solving this objective function or transforming the one with the data and applying the OLS estimator, the results is identical, so beta head is identical, so it's not too method, which is two way of calculating. Yes, we want
+
+Unknown Speaker  23:40  
+if you could actually,
+
+Speaker 1  23:47  
+for example, larger area variance. So we're creating two models based on variances. I combine data from California and Massachusetts, I have some data sets in about California, number of accidents by months over many years, and they have the same kind of accident data in Massachusetts. I mean, it says, No, just you that because California is so much bigger that the brilliance of the epsilon will be, will be larger if the dependent variable is number of accidents. So if I want to develop an accident model, and the number of accidents two months is a function of number of miles living sub function of the number of levels, number of guards, whatever the quality of the roads, I would have the weather, I can have a lot of explanatory variable in such a model, but it's likely that the epsilon is going to be Different, distributed with different variants. So that's a practical case. Well. So that's kind of a side effect different data set. These are typical examples, but okay, so And here, this bullet is what they already told you, but it says, If you perform OLS, the R square that is reported is important, because it's an R square on dependent variable is y Star, not y. So if using an OLS program, after transforming the variable, then you have to calculate the output if you want to compare it. So both methods require a sigma square line. The question is, do we know? So two Well, three approaches. One is,
+
+Speaker 1  26:18  
+so number two is we postulate from our knowledge. So you'll see some example. Well, we will take some assumption. We don't need to know it exactly up to the constant vertical so, so you can have some knowledge of prior knowledge about the data that may allow you to say, okay, the variances do vary in a certain way that they can have a model and approach an assumption about the variances value. So going back to if we get even just California and Massachusetts? They say, Oh, I have just two variances, one from Massachusetts, one, but suppose that I have data only from Massachusetts, and have an assumption that resilience is increased with number of 1000, or something like that. And so I postulate how the variants may value, some value. So that's approach two. And approach three is to say, and that's what feasible is first apply ordinary least square. You know that it is on bias, get residuals and then learn from the residuals. So estimate sigma and square using consistent beta at ordinary square. What is the model? So apply the first or less for me make assumption, trying to estimate how the signal value automation and then use it to apply weighted least squares. So this is called feasible. When you do this in two stages, we call it feasible whether these special case feasible, GLS generalized. So I will train our examples. I'm not going to go through the details of all of these examples. I'll pick up one in each case. And so pick up an example where we make a sample based on the process, and then pick up another example where we will apply the two stage approach. So suppose that the mining is the mind model for PCs. When the visual I stay there. So let's assume the behavioral model. So why and I will be maybe to make it continuous, how much individual I spend on computing as an example, an exercise. So I means person and is a state. So that's a behavioral model. And for this behavioral model, we're assuming that it's homoscedastic. No reason to assume these are individuals from different states, individual from California, individual Massachusetts, at the model, at the level of individual the size doesn't matter, right? But the data that we have is per capita, so the data was created somehow and same stocks and so the observation that we have, we don't observe y and I you observe y n. So n is a state. So the data is by knowing the total expenditure. So this transaction data is using this transaction,
+
+Speaker 1  30:26  
+and suppose that the x's are the same, the x's are maybe age or household size or car ownership or income, And you only have averages for the state, and so all the data that we have are kind of per capita. And so if you if we take this original model and calculate an average, so y n will be the average of the model, right, and which means that we have the average of x multiplied by beta plus some average of epsilon. So if the original Epsilon was an everything individual at a constant value in sigma square, the average epsilon here, because all the data, the Y, the x's, are all averages. So the average of epsilon, the variance of it, is one over m n square, where m n is the number of individual, number of transactions, state n. So it's m n square times the valence of epsilon. But the valence of epsilon individual epsilon is the constant, right? So we have but we have m of them, so it's m times sigma square. So 1m m n square cancels out. And so the variance if we instead of using individual data, we use the averages. And averages calculate for different states, big states and small states and with different level transactions in different states. And so it turns out that the variance now changes with the size. The variance in big state, we have more transactions, we have more transactions, we have less variance because we calculate the averages. So so Mn is again number of individuals and number of transactions. So now we know, we know that the variance of epsilon that I use per capita data is going to be go down with the size, not increase, but decrease in the size. So its original model was now the original model at the state level, y, N, equal X, beta plus epsilon. If we we have an epsilon that has this variance. So because we know that the data averages from different states of different size, MN, we now know how this variance changes with m times a constant. So the variance of since we know that the variance of epsilon is this, if we multiply it by mn, right, we get the variance of epsilon. I'm sorry, not multiply well, we just multiply the epsilon n by the square root of MN. We get the constant value. So the transform model, in this case, is to, you know, because, remember, the weight is one divided by sigma squared. So if we divide by by n, multiply by square root of m, and so we multiply the model by square root of m, and this model is homoscedastic, because the variance of that is a constant sigma square. So in other words, if you say, I by the data that I have averages calculated by these units, say, call it state, and I know that some averages were calculated on the large number of transactions, then I can do ls, but I now can do also the GLS away W physics. This is W LS because it's not a F, W L S, because I'm not. I did not do or less. I can do or less, but I can do that without doing any OLS before. I just need to know m so. So here I feel because I knew that these averages are calculated for different number of transaction. I know the number of transaction. I can assume now that the variance is this behavior of epsilon, and I can use it to calculate the weight. And the weights will be just essentially M, so big states will be weighted more than small states, and all the transformer they'll just multiply with the square root. So this I will the group total is the one that I mentioned before. I'll skip it. And here's another example. But, but this example number eight. These are the example, example one, two and three based on assumption on the knowledge of the process generating the data. So this is about example, the state in this example. This example three is airline revenue, and the idea is that some airline the bigger line and smaller. And again, it's a size effect. And so if y is a revenue, then revenue, clearly, for larger lines, there will be more revenue. And so the variance of epsilon is likely to be proportional to the size, the square of the size, because that's a variance. And so the transform model will look something like that, where m is the sequence flown by a line m. So again, it's just like we are making an assumption about that this is the way the variance of this model beings. And now we have examples of where we have F, W and S, so we have two steps. So let us again. Let's think about model of an accident, but the model the different variable at the level of the individual is one or zero, right? And so if person i and state n was in an accident, then it's one and zero. And so in this case, y, we know is, is a Bernoulli random variable. Remember, we talked about, what's the probability random variable? It's like flipping a coin one or zero and and so suppose that the expected value of y is this probability, and assume that this probability is equal to some function of x. Assume a linear function. They don't become a logic model. But for example, assume that it is a function of x, a linear function. Now for the linear random variable, we know that the variance of a of y will be equal to the variance of epsilon is equal to P times one minus p. That's so if we know P, we know the value of y, because p times one minus p, we had this before, and But now suppose that we observe the total number of accidents and so and we have state attributes. So this is at the level of the individual. So at the level of the individual, we know that the variance is cannot be discussed. It has also existed because the variance of epsilon is p times one minus p, but we don't know P, so we cannot calculate the variance. So that's the idea. The idea is, let's calculate P. Let's do all that's calculate p, then we can calculate using this formula to calculate the variance, so we have the field value of p. So that's the idea. I'm going to skip it and and so I just basically, we estimate OLS from the OLS, we estimate P so we we have this variable, and and then we, we do weighted least squares by this using this variable that we created just we take the Y and divide it we have the M because they also calculate included averages here. So it gets more complicated, but anyhow, but that's the idea, and it's finally a very common example multiple data sources, so suppose that they have a less simple, general center for this one. Forget it. Forget example four. This is an example that Evernote is encountering.
+
+Speaker 1  40:18  
+So suppose to me that the data can be divided into subsets that have different variants. So the example would be just two subsets. And
+
+Speaker 1  40:35  
+so this is very common and very simple. So we have a sample that include n1 observation from data set one with variant sigma one square, and then we have n2 observation from data set two, and we arrange the data data set one first and then data set two. So how do we do negative two squares here? We clearly want to give less weight to the data that has larger plans, but we don't know what differences are. So suppose that we do ordinary squares, and we can do it on the entire data or we can even do it on two separate data sets. We take one data, apply reduction, apply it to the other. If the data sets are small, then maybe you can combine it. Then we estimate sigma square, right in the same way that we estimate S square, but we do it for each data set separately. So this is sigma square i hat. So the same as we calculated S squared calculated separately for different sets of the data. That's simple to do, and then you transform an observation by using the corresponding divided by the corresponding sigma hat square for that data and and that's that's feasible weighted V squares. So some comments here. Step one is just ordinary square. Step two is just the calculating of the variants of the residuals, but doing separately for different data sets. And guess you can estimate it together or separately. It doesn't matter. Then you do or less on the transform model or calculate weighted least squares. And then it says here, repeat step two and three of the size, because once you do this step, you get new residuals, and you can repeat the calculation. So you can iterate, and it doesn't, doesn't give you very much, because this is just efficiency. So maybe, so it's usually it's sometimes done. Now standard levels along, because the OLS is used to estimate the weight. So when we do the transform regression, these this, in this step, OLS the usual formula to calculate the standard zero is in coin. So you may have to do bootstrapping if you do this, so FLS can be well said, OLS in small samples evaluation sequence. So suppose that you went slowly and you did F, W, l, s. Are you guaranteed that you are doing better? No, because if you made some incorrect assumption about the variability. Suppose that the difference between sigmas is small, between sigma one sigma two and small, and you estimated some difference because of the small circle. And then the next step, when you supposedly more efficient, you don't really gain efficiency. So if you know the sigma square, you will do better, but if you feel very strong about theories that tells you how it is a function of variable that was less than two, you may be doing better, likely to do better. But when you do this two stage approach, it depends, it depends on how well you think that you've estimated these signals for all this. That's, that's basically the conclusion. And so if, if you have a small degree of Atos capacity, you may not want to do anything about it. If you have a high degree, that's what leads us to talking about testing for Atos do. How do you know? How do we know that so far, I assume that we have some knowledge that tell you that homoscedasticity is violated. And so let's talk we'll talk about testing, and then we'll conclude with the generalized risk square estimator. So the idea of testing is that you start by doing OLS, because it's unbiased, right? So OS is unbiased or consistent, so you get consistent estimates of the residuals. So the idea is, let's, let's look at the residuals. And so the first thing that you may want to do is, in the informal just inspecting those visuals. And so the idea is to visually look at the scatter plot. It's called the scatter plot you put on the horizontal axis variable. You pick up a variable, the variable could be y hat, or any X. Y hat is just a combination of X's like y8 is x beta. So you put on the horizontal axis variables, different levels of my head. On the vertical axis, the absolute heads. And you say, is it like that? It's been out like is my head increase? I get more the cloud became, becomes like a code that fans out. Or is there some pattern, is it more or less stable? So if you find some stability, that's the best test. What I'm going to do now are some additional thing that you can do, but this, what is called Healing, forward, is the best way to look at it, inspect. Look at them. Look at these open heads, rotten. Do this kind of scatter plot. And then you know whether you have a problem or not. And so then are these formal tests. I mean, if you want to more, find more about this test, all in the textbooks. And I'm going to talk about one, one of them that is easy to do and kind of also intuitive. So you did an ordinary square, you got dissociation square it and make use it as a dependent variable in a regulator where you saw on the right hand side, everything that you have an intercept, all the existing variable, all the possible product when you multiply every variable by itself square and every variable by another variable. So it's all the possible products and and in this regression, you want to test out all the coefficients significantly different from zero, meaning not the intercept, if all the effect of effects in this aggression. If you notice the f test, high school test by just taking the Oh square, or you can do an F test and and so that's you can reject the mosquito city, if the test statistic exceeded the chemical value. So basically, if the Islam explanatory power to any of these variables being in the the square of these old residuals, then it means that there is a likely to be a heteroskedasticity. So that's a very simple way just running such a regression to reject homoscedasticity. So in general, this test you do if you apply your reason to suspect it. So use your knowledge of the process to hypothesize the nature of statistic and then test also, you can also test ws results for those basicities supposed to if, if you do the WNS correctly, suppose that you do is based on some theory or based on feasible, you have the oils results, and then you do the WLS, or the fwls,
+
+Speaker 1  50:31  
+and so the WLS itself, you can test it for necessity to make sure that it was correction was done properly. But now let's compare the estimates. We have now two estimates, two competing estimates. We have beta OLS, where we didn't try to regain efficiency, and you have beta hat W and S, where we presumably it's a better estimate, because you corrected for this variance,
+
+Unknown Speaker  51:06  
+for the variance difference, so suppose they are very different, then there's an issue, because this is unbiased. This is unbiased and efficient. So they shouldn't be very different.
+
+Speaker 1  51:27  
+There should be some, I mean, a really big difference, of course. But if there are big differences, then we suspect endogeneity. So we have to then probably is endogeneity, or specification, and that's the situation that you don't want to encounter. You want to have a situation where you apply such a WMS, you get more or less the same results is just the standard levels are smaller and and so it's a more more accurate estimate, but that's it. And if it's low, these are very different, then something maybe the something else going on, because if you use the wrong weights, because you did the ambulance, you didn't use the correct weights, it's okay. It still should be unbiased, but that's the fit. You don't gain efficiency. So you start with O and S, and then you use these weights to gain efficiency. It should not change the value of the parameter above. And if you use the wrong weights, then you may not get you may lose efficiency if it's really bad weighting. So that's why you want to make sure that the weights are okay, that they really, truly gain efficiency when you want to use this. But these are very different than look for the problem as well. Yes,
+
+Speaker 2  53:17  
+that coefficients measured by W, l, s is, yeah, the interpretation of it is the same, as well as
+
+Speaker 1  53:27  
+because our model, the model does not change. This transformation is done only for estimation. I mean, most often the lead don't even do it. It just gives it the weights and it will do it. The model doesn't change. The Transform. Model is just you will do it if you just have ordinary square estimator, but in more sophisticated software, it will now say what's the weight, and the software will be taken off. But it's also a way to understand why ws works, because you obtain homoscedasticity, so that there is a way to get homoscedasticity, but, but the model is about that. The model doesn't change. It's just getting the same beta two different ways. So ordinary square the objective function is the sum of square L and estimator beta hat equal to X, prime x in those x, prime y. This estimator is just estimated differently. It's estimated instead of x, it's x, star, prime x, star, inverse x plus y. Well, the x's and the y's will divide it by like it's sigma. That's it. The same beta, the beta component. And then other questions? Yeah, go ahead. So if that's been related data for well, I'll
+
+Unknown Speaker  55:14  
+ask is very different than that. Can
+
+Unknown Speaker  55:18  
+I only in a way that there are information
+
+Speaker 1  55:25  
+it means that either endogeneity or specification specification error is the model is incorrect. Maybe it should be quadratic in X, not linear index. That's specification and imaginative to become so so to say, Okay, what happened? What happened in this what do you do when this happens? You say, Have I done anything wrong with specifying the model? Did I really explore maybe concavity or convexity or some omit important variables? Can I improve the specifications and such that this will not happen? Big differences. But to deal with endogeneity, you may have to do something more than just changing what you the more than you may have to use instruments and very cover two lectures from now. So to be careful. So finally, I want to many times to say, to put it in the context that I mentioned in the beginning, that if I have information about this, so I know that the valence covariance matrix for some way, I know that the variance covariance matrix of the epsilon is not sigma square i There's no less violation of either homoscedasticity or autocorrelation or both. But I have information. So here's the information. So this is the assumption and but I know it's not true. It's recent V it's an n by n matrix. This i is an n by n matrix. It's an N by N It's an identity matrix of size n, like an n by n with ones on the diagonals. That's this i, and this is a V. Is any it's a non singular symmetric because it's a variance covariance. So it has to be symmetric. So it's a square non singular, meaning positive definite or positive semidefinite. And it's need to be symmetric and so. So the example that we've seen so far is, well, this B have zero of diagonal, and on the diagonal they will vary a little different from one. So some other things, right? So, so if we have information v, then in general, now, whatever is in V, how can I benefit from it? And that's what that's a general entity square. So suppose we know v and in that case, we can have an estimate of all GLS that is blue, so the OLS, the OLS, and if this assumption is not is not blue, it's not efficient. So I can get efficiency by applying this GLS, if we know me, and what I've shown you so far can be generalized. I will show you the same idea of we can transform the model and get the new transform model that satisfy the assumption of slightly older. So suppose that the original model is y equal x, vector plus epsilon, standard model. So let's assume that we have we can create a matrix. We know v, so so we know v positive definite square, we can invert it, and then we can decompose it, or take the square root, so to speak. You know, for square positive definite matrix, one can take it, there's something called the square root. You can find a matrix C, that, when you multiply by itself, give you this original matrix. The original matrix is is the inverse of B, and we can calculate for it, there is that exist, or anything like that, that there exists a matrix C, such as C plus C equal to d, you can calculate it, and we've done it. We've done it for diagonal matrix. So you remember, if in an angular matrix you have sigma one squared and sigma two squared over the diagonal, then the matrix C was essentially one over sigma one and one over sigma two. When you multiply it, you get the inverse v was sigma one sigma 2v inverse is one over sigma one square one over sigma two square. You can if you need to suggest to it. For this simple matrix you'll understand so, so you can calculate just understanding conception. That's what I want to do, to do at this point. So conceptually, such a matrix C. And if I create y star by multiply y by C, pre multiply by c, we can construct x term by pre, multiply by x. So if I multiply this model by C on the left, C on the right, the new epsilon. Epsilon star is the c times epsilon. So that's the transformed model. And now I said, apply OMS to the transformed model and and then it's easy to show that given such a matrix C, given this transformation, this model satisfy all the assumptions. So the original model satisfied the assumption that the rank of x, it satisfies assumption one, of no perfect collinearity. It sets the absolute satisfy. Assumption two, that it is independent of the x or uncorrelated with the x. So it's unbiased. The transformation is also unbiased. But the transformation give us efficient beta L, and so the new model, this transform model, satisfy assumption 123, and we don't worry about normality now. So if we take the transform model and apply the OLS and we call the estimator GLS. So beta GLS, instead of using x, prime, x, etc, you just do it with a star. And then, if you want to know, what am I telling you, you can just substitute for x, star, CX, for y, star, substitute Cy, and you get this formula. This is the GLS estimator. So, so you have two formulas, one, beta hat equal to X, prime x, in those x, prime y, that's or less. That's beta hat or less. And beta hat GLS, if you know the v you get, you do this one in each pattern, because you gain efficiency, But you have to know the V, yes.
+
+Speaker 1  1:03:42  
+And then see what's the variance of the OLS? I mean, if we did OLS, like I took the original data and applied OLS to this model, what's the variance of the beta head OLS? Do you know it's not sigma squared times x minus inverse. It's not but it is what it is, right? I mean, it's possible to calculate it, knowing the v1 can calculate it and but,
+
+Speaker 1  1:04:21  
+but for for GLS, here is a calculation system. So with V at hand, we can directly get estimated some of those. The problem is that we often need to estimate V to do this kind of two step procedure. But if you don't, if you know the V then this is what you should do. Let's apply this formula and you calculate the variance covariance matrix of the beta using this formula.
+
+Speaker 1  1:04:58  
+So you often see this V inverse in between the x's, in between the x and the y, and remember, remember what v is. V is. V is up to the scalar multiple, the variance, covariance of the epsilon, and it's the same. It's just, you know, a conservation. It's like, the the weight, it's like, it's the inverse of these communities. That's the intuition. So now that you know the formula for GMs, so the fgms is, step one, apply ons to get the residuals from ons. Then step two, use this residual to estimate V. Now, how many, how many items are in this matrix? This matrix V, how many distinct elements you have? It's an n by n matrix, but it's symmetric. So, so I think it's n times n minus one divided N on the diagonal, and other elements on the off diagonal. So if I have, say, 10 observation, you can calculate what it is. It's and it's small than the number of observations. So if I have an n observation, right? I mean, oh, here I have it. I'm sorry I said n minus 1n, plus one. So, so if I do eulers, I get how many of these epsilon n do I have N? Well, n is an alpha olation. Now I want to use them to estimate this V and I call it v hat, but this comment is obvious. Step one relies on the exogeneity assumption. May not be strict, but to get to this, epsilon make consistent in step 2v, hat has N times N plus one over two elements, while epsilon hat is only n, so, so you cannot estimate all the different elements of this V it's not practical. I mean, for every you know, you can say, I have, I have this, like if I take in the n, n prime element of this matrix, V i have epsilon n and then epsilon n prime and so on one observation, for each one, there's no way to calculate variance. I mean covariance and variances, because for each of the only minor COVID And so, so the this feasible GLS means that we have to make assumption on the structure of V. The number of estimates parameter in v must be less than n. If we don't do that, if we have too many unknown parameters we had, then we may lose variance may not gain so. So that's what I'm saying. GLS, if V is known, is always better, but fgms is not always known because it's based on v hat. If v hat estimate is bad, then fgms can be worse than OLS. So you look at them, you need to look at the number and decide this is a question of judgment. And so just you have to investigate, yes,
+
+Speaker 3  1:09:32  
+is there any conditions on the off diagonal elements of me? I
+
+Speaker 1  1:09:45  
+I mean, even if you assume that V is a diagonal matrix, it's still too much, because you have n variances and you have n observation, so variance, sigma, one square would be epsilon one head times epsilon square. That's it. That's your estimate. It's you know, so you have to if you assume that actually this V matrix, the off diagonal of zero, and the diagonal one sigma, one square for the first factor, beta, sigma, two square for the next batch of data. Then it forced me to go. So, so that's one of the way that we need this one example that I gave you was to do that. So this is just a general case. What we've done with a special case, we've weighted these quills. So I'm just now ending the lecture by saying, oh, okay, this is a general framework. What we've done with a special case, number
+
+Unknown Speaker  1:11:02  
+of parameters, greater than
+
+Speaker 1  1:11:10  
+the level of distinction in dv is greater than the number of data points necessary. Absolutely always this is always greater than n, correct.
+
+Unknown Speaker  1:11:26  
+But in the situation where you just have those two,
+
+Speaker 1  1:11:29  
+then you estimate two values with V and N is greater than two, so n would be if n is equal to one, there's no model you need to have data right. So in our practical situation, n right will be a number such that if you make an assumption and B is more than n distinct element. If you assume that V is diagonal, you have n distinct element, then you have to make an assumption on the diagonal in order to have something estimated. So therefore, the example that I gave you with two data sets is a special case of making assumptions about the V such that the V now is no matter how big is the data and the V have only two parameters, sigma one square and sigma two square. Yes,
+
+Speaker 3  1:12:32  
+you can find an example on how So in step two, using the estimate we have an example of how to we discussed a special example of the variances, but perhaps the covariances. Are there any consider scenarios where
+
+Speaker 1  1:12:56  
+the next lecture is about the covariances? So that's the way I provided it. I started by saying, let's just look at weighted least squares. Then give you the generalized case a generalized weighted least squares. Special case of the V is the element. And I gave you all kinds of intuitions about our variances. Examples of variances may find next time, we'll talk about covariances, and that we'll talk about, primarily about time series data and observations in all those time well, you have will have auto correlation when the epsilon at time t depends is not uncorrelated with epsilon at T minus one serial correlation so this is standard example. I still have two minutes. I just have a conclusion slide, wow, I'm going to finish your time. I'm going to finish my slides. You know, I'm also stuck to an appendix. So anyhow, so I think it's good to read this in case of non cyclicality violation of assumptions. Three OLS estimated is not blue, but it is unbiased, as long as the whole assumption of in bias or consistent calculate correct COVID matrix so that we can conduct correct hypothesis tests. Yeah, if COVID is not blue, but it's also the standard way of calculating. The formula of calculating the standard errors is not correct.
+
+Speaker 1  1:14:48  
+So in order to calculate the variance covariance matrix, you can do boot slabbing, oh, you again, need to make assumption about the V. I mean, so boot, Boots say, if you want to do hypothesis, then standard, they're all using the standard formula, using information design, COVID to improve efficiency of physical acid, and you talking about WNS, the special case of GLS. And then we talked about the idea of visible GLS, visible WNS, or physical GLS, as a way of fascinating. And as I said, Next time, we'll now talk about examples. From these COVID One minute, left any questions.
+
+Speaker 2  1:15:47  
+So if we use this trapping, we do not need any assumptions.
+
+Speaker 1  1:15:54  
+We still need assumption one. We still need assumption two to need assumption too, but we don't need an assumption about the V, right? So, so, because we are doing OLS, if you are doing OLS, I said to you, it's not you no cost mango, but it is unbiased. But what's the standard bill? I don't have the formula. In order to calculate the standard Delta, I need to know V Oh, two books, if you know me, there's a formula to calculate the standard to collect standard deal. But the way to do it, the simple way to do it, is just so the
+
+Unknown Speaker  1:16:41  
+adoption three, which is typically
+
+Speaker 1  1:16:45  
+So the assumption three is not required. Assumption three is violated. And you know nothing about GMs. You just know how to do or less you do or less, but the sum of those are incorrect. That's it. And then you can report yourselves and be happy. And it's fine if you have large data set, if you have small data set, and somebody says, Why didn't you do GLS? You can do more efficient estimates. So you can do GLS, you may end up in a worse place. That's what they keep calling you, but you can try it. In order to do it, you have to have good idea about the specification, the structure of the V matrix, and then you can do FGS. Okay, see you. Today is Wednesday.
+
+Unknown Speaker  1:21:48  
+Welcome to
+
+Speaker 4  1:21:50  
+You. Thank you. It
+
+Speaker 5  1:22:08  
+looks like register, yeah. 23 are registered for grade and five,
+
+Speaker 1  1:22:17  
+yes, okay, but what is a small credit? Yes. Basically we want, we want to give Angie's nerve and maybe
+
+Angie.H Moon  1:22:38  
+we I think usually Yes, but I think this semester, I'm preparing the exam
+
+Speaker 5  1:22:48  
+formally, so I'm sorry. Yeah, I see if we can get in general, as
+
+Unknown Speaker  1:23:05  
+much as you can help give us money for
+
+Unknown Speaker  1:23:15  
+I sold money for us.
+
+Unknown Speaker  1:23:36  
+So we have 2018
+
+Speaker 5  1:23:37  
+it's a lot more than 10. Did you ask?
+
+Unknown Speaker  1:23:45  
+I had not since,
+
+Unknown Speaker  1:23:49  
+not in a while.
+
+Speaker 1  1:23:51  
+Okay, so what was some Angie saying that takes more than 50%
+
+Unknown Speaker  1:24:03  
+I mean, she says 10 hours,
+
+Unknown Speaker  1:24:05  
+how much is she being paid for?
+
+Unknown Speaker  1:24:08  
+She's been paying 50% yes, yes. So
+
+Unknown Speaker  1:24:16  
+She said, more than that.
+
+Unknown Speaker  1:24:33  
+Yes, yes,
+
+Angie.H Moon  1:24:46  
+one query is, I think the reason why it takes more than 10 hours for me is this is the first time I'm like, I haven't took this class before. So is that a legitimate concern,
+
+Unknown Speaker  1:24:58  
+like argument for me,
+
+Angie.H Moon  1:25:02  
+I don't know what Sarah would think about that, because I don't know
+
+Unknown Speaker  1:25:09  
+if that's okay with you.
+
+Unknown Speaker  1:25:18  
+Mm, bigger
+
+Unknown Speaker  1:25:22  
+class, okay, so he
+
+Unknown Speaker  1:25:37  
+hasn't
+
+Angie.H Moon  1:25:52  
+it's in our Dropbox. Do you want me to
+
+Unknown Speaker  1:25:56  
+share it through mail. Yeah, just
+
+Unknown Speaker  1:25:59  
+send me an email last year, yeah,
+
+Unknown Speaker  1:26:01  
+maybe we can discuss Yeah.
+
+Angie.H Moon  1:26:08  
+And I'm trying to provide students with additional recitation that go through some exercises. Do you by any chance have like, 10 years before midterm exam so that I can distribute,
+
+okay, okay, I'll ask, Was she like? How many years has she done the TA?
+
+Unknown Speaker  1:26:33  
+I didn't remember these two years.
+
+Unknown Speaker  1:26:38  
+I'll ask her, yeah,
+
+Unknown Speaker  1:26:42  
+okay. I assume she did it for two years, and she was here for both she came in and touching me.
+
+Speaker 1  1:27:16  
+And then I also need
+
+Angie.H Moon  1:27:30  
+2223 so I sent you 2023 years midter, and do I have some freedom on the grading policy for the case studies? Like people were asking
+
+Unknown Speaker  1:27:53  
+for extension,
+
+Angie.H Moon  1:27:57  
+there were more males than I expected.
+
+Yes, yes, that's what I shared. I want. I don't want people to get stressed about considering we have a lot of like two tasks
+
+Unknown Speaker  1:28:14  
+and six cases. Now,
+
+Unknown Speaker  1:28:20  
+just, yeah, I'm just trying
+
+Unknown Speaker  1:28:25  
+to see Angie so the only mid
+
+Angie.H Moon  1:28:27  
+past mentors are 18 and yes, yeah, I just want to walk through them.
+
+Unknown Speaker  1:28:31  
+Some example, problems. Oh,
+
+Angie.H Moon  1:28:32  
+okay. Do you want me
+
+Speaker 6  1:28:34  
+to can you mail that to me? Sure, yes. In,
+
+Unknown Speaker  1:28:37  
+do you know what it is in Dropbox, like
+
+Unknown Speaker  1:28:39  
+exam, and then,
+
+Speaker 7  1:28:44  
+okay, okay, okay, yeah, got it. Got it. I can copy some other
+
+Angie.H Moon  1:28:53  
+ones, yeah, as long as it's not too overlapping. I hope Mushi is okay with me on
+
+Unknown Speaker  1:28:57  
+solving this problems, right? Yeah.
+
+Speaker 1  1:29:08  
+Okay, yeah, I will make sure.
+
+Angie.H Moon  1:29:12  
+Okay if you just change a little bit, yes, I'll check 2018 version that I was going to distribute is very Different from 2023 version. Yeah, I will check cool. You.
+
+Speaker 1  1:29:40  
+Still 2324 so if you take seven years before 17 and maybe on somebody
+
+Angie.H Moon  1:30:04  
+do you have 10 minutes to go over the equation? The thing that we discussed last time about how the experiment maps from signal to state and how this
+
+Unknown Speaker  1:30:21  
+graph is derived.
+
+Unknown Speaker  1:30:24  
+You mentioned something is weird here.
+
+Unknown Speaker  1:30:27  
+I'm sorry. This is
+
+Angie.H Moon  1:30:33  
+just to remind you, yeah, yeah, we had the situation where this technology is a new technology, and with mu E, the founder believes this will
+
+Unknown Speaker  1:30:47  
+succeed, and if it succeeds, I
+
+Unknown Speaker  1:30:55  
+thank you.
+
+Angie.H Moon  1:31:08  
+So the theme is, entrepreneurship is an experiment, and depending on what your belief about this new technology is the choice of the experiment changes. So this is the key questions.
+
+Unknown Speaker  1:31:32  
+Does that make sense? I
+
+Unknown Speaker  1:32:13  
+I don't understand why
+
+Speaker 1  1:32:15  
+it's not mu times v minus c.
+
+Angie.H Moon  1:32:24  
+So you're paying for this experiment before things pans out. So whether it succeeds or fails, you pay for the experiment and then
+
+Speaker 1  1:32:35  
+situation, oh, C the cost of the exploit, yeah, yeah.
+
+Unknown Speaker  1:32:39  
+So
+
+Unknown Speaker  1:32:43  
+it's not because exploits,
+
+Unknown Speaker  1:32:47  
+then the cost here,
+
+Unknown Speaker  1:32:49  
+the cost should be here, then,
+
+Speaker 1  1:32:50  
+yeah. Okay, so this is a confusing thing. I agree. Payoff will be v minus c, okay, okay, the P of is V minus c, and if it fails, then I lose C, right?
+
+Unknown Speaker  1:33:08  
+So,
+
+Speaker 1  1:33:12  
+right. So, if I, if I succeed, with probability, mu, I gain
+
+Unknown Speaker  1:33:19  
+V minus c.
+
+Speaker 1  1:33:22  
+If I fail, I lose C, right? And so I lose my payoff is minus c. So the difference is, is is v, because C is like a
+
+Angie.H Moon  1:33:41  
+sunk cost, right? Yeah, for me, I'm thinking this is like cost and benefit analysis, where C
+
+Speaker 1  1:33:48  
+you're paying, I see, so the expected payoff is, is new V, and then that's, yeah, and then they compare it to the cost of conducting the experiment,
+
+Angie.H Moon  1:34:00  
+which is, see, okay, I get it, yeah. So one thing that comes in after is, you are, this is the prior distribution. I have a prior distribution for this probability of success, but with this experiment, I am updating it. So when I say experiment, this has either s equals one or S equals and we have, we can calculate true positive, true negative and false positive and
+
+Speaker 1  1:34:30  
+false negative based on this. So that's the news. You can get good news. And what does it mean, success and failure? What success and failure? You explained before? It's a latent state. I don't understand the dimension. What's the difference between success and s equal to
+
+Angie.H Moon  1:34:52  
+one? So like, do you like TV series? What TV series? Degrees anatomy and always the first episode is pilot, right? So imagine this whole series, success or failure as a latent state. Latent state the probability whether this would be a mega success and oh, good news is just like an experimental result, yeah, yeah, the first but that doesn't mean, doesn't mean that it will
+
+Unknown Speaker  1:35:21  
+succeed Exactly.
+
+Angie.H Moon  1:35:23  
+So you conduct an experiment,
+
+Speaker 1  1:35:25  
+yeah, the pilot, so this is like, you made an investment. I can conduct an investment, yes, exactly, and I can get
+
+Unknown Speaker  1:35:36  
+some you. Is
+
+Angie.H Moon  1:35:38  
+we are updating the mu based on prior to carrier basis,
+
+Speaker 1  1:35:43  
+all we get and lambda one is the probability of success
+
+Unknown Speaker  1:35:51  
+if I get good news.
+
+Speaker 1  1:35:55  
+So it's not a conditional. It's conditional, not clear
+
+Angie.H Moon  1:36:02  
+what's number one. So what they're trying to say is the ultimate probability of this happening depends on how much this column would appear, which is new. So within this column, sorry, sorry. Within this column is lambda one, but depending on, let's say
+
+Speaker 1  1:36:26  
+your investor and I'm a founder, so lambda one is the probability of getting good news when it's going to succeed, and lambda zero is the probability of getting
+
+Angie.H Moon  1:36:37  
+bad news when it's going to fail, yeah, given the latent state.
+
+Unknown Speaker  1:36:41  
+So given,
+
+Unknown Speaker  1:36:44  
+given,
+
+Speaker 1  1:36:48  
+but we don't know the success of failure at the future. We don't know, yeah. And the longer one is the probability that they'll get good news if it's going to succeed. And lambda zero is the probability of getting
+
+Unknown Speaker  1:37:00  
+bad news if I'm going to so
+
+Speaker 1  1:37:04  
+it's a correct, the probability that the experiment is correct, right? Yes, and learn. So lambda zero plus lambda one
+
+Angie.H Moon  1:37:15  
+is kind of Yeah, that's
+
+Speaker 1  1:37:17  
+we are. It's conditional probability. So can you go back? Yeah, okay, so I understand number zero and number one. So what's,
+
+Angie.H Moon  1:37:27  
+what's the question now? So they are updating the prior. So the important thing is, we don't know this, but we can guess about it, we can have some prior distribution about it, and we will write how this prior distribution is
+
+Speaker 1  1:37:42  
+updated based on we get well distribution, how successful and failure it is, and what Is it equal to. It's another notation for the prior. Yeah, what's the prior?
+
+Unknown Speaker  1:38:01  
+Is it lambda?
+
+Unknown Speaker  1:38:06  
+It's about mu, Tilda, good, still, your
+
+Angie.H Moon  1:38:18  
+the remember me? Was originally this one
+
+Unknown Speaker  1:38:23  
+success?
+
+Angie.H Moon  1:38:28  
+So if I originally believe that this whole TV series was successful, and if
+
+Speaker 1  1:38:34  
+the first pilot was successful, notation for the priority.
+
+Unknown Speaker  1:38:38  
+I think they're using just mu, tilde,
+
+Angie.H Moon  1:38:43  
+mu. Mu is just
+
+Unknown Speaker  1:38:45  
+imagine like
+
+Angie.H Moon  1:38:46  
+number. I say, mu, yeah,
+
+Speaker 1  1:38:48  
+mu the probability of success and the posterior after the experiment. That's written as
+
+Unknown Speaker  1:38:57  
+So mu is a pile and
+
+Unknown Speaker  1:39:18  
+put this here next to it.
+
+Unknown Speaker  1:39:28  
+So I think
+
+Angie.H Moon  1:39:32  
+lambda one mu and one minus lambda zero and one minus mu. So given that I got the good news,
+
+Speaker 1  1:39:41  
+this conditional probability, okay, okay, I get it. So mu, mu, one is the probability of the posterior success. Mu zero the probability of failure. Yes, and
+
+Angie.H Moon  1:39:54  
+how is the payoff? Okay, yes, yes, yes,
+
+Unknown Speaker  1:39:57  
+okay, cool.
+
+Angie.H Moon  1:40:00  
+So what they're saying is, for this experiment to be useful, it should be able to change the action. If it is a bad failure, then at this expected return should be larger than zero, and expected return of a bad news is
+
+Unknown Speaker  1:40:23  
+more than zero. That's,
+
+Speaker 1  1:40:27  
+I think, to give you my posterio. What's given my posterio? Okay, I get it.
+
+Angie.H Moon  1:40:35  
+Yeah, fine. So good news lead to decision to launch the venture bad news, decision to abandon venture pilot. One successful, then I should keep making this drama. That's why gray anatomy is in season 20. Does that make sense? Yeah. So if you keep solving this, it leads to lambda one plus lambda zero is larger than one. That's one main result.
+
+Speaker 1  1:41:06  
+So number one is the probability of success is good news, and lambda, pardon me, what you this one? Yeah, lambda zero is a probability of
+
+Unknown Speaker  1:41:22  
+failure given Yes, yes, yes.
+
+Unknown Speaker  1:41:29  
+So it's greater than one. Why
+
+Unknown Speaker  1:41:31  
+is it greater than one?
+
+Angie.H Moon  1:41:34  
+That's the condition for
+
+Unknown Speaker  1:41:36  
+experiment to be useful.
+
+Unknown Speaker  1:41:37  
+I see,
+
+Unknown Speaker  1:41:40  
+I see,
+
+Angie.H Moon  1:41:42  
+ideally it should be two, yes, so
+
+Speaker 1  1:41:45  
+it's between one and two, between one and two, yeah, if it's 5050, yep, I don't do the experiment. Okay, so that's, that's when the experiment is funny,
+
+Angie.H Moon  1:41:56  
+yes, yes. So based on that, one additional thing is now between the people who are optimistic about this new technology, who believe mu is larger than the population mu, and those who are less optimistic. There are ranges of people who want to pay for this experiment. Only for those in this range is this experiment valuable, because if you're really optimistic, then doing this experiment is useful because you're going to exploit anyway, and for them, you won't exploit it, whatever the experiment tells you. So that's
+
+Speaker 1  1:42:44  
+the central figure we have. I see what's always on axis? Mu, yeah, yeah, the trial, it will succeed. And okay, so the experiment is good somewhere in the middle, because you know exactly so that makes sense. It was a willingness to pay, willingness to pay for what for the experiment. I get
+
+Speaker 1  1:43:15  
+it. But why is it? Is it a symmetric
+
+Unknown Speaker  1:43:19  
+diagram? I think so,
+
+Unknown Speaker  1:43:24  
+yeah, yeah, okay,
+
+Angie.H Moon  1:43:27  
+so next time, I'll prepare the next one. But is this interesting to you in general? Like this, I want to get your interest. Yeah,
+
+Speaker 1  1:43:38  
+I'm begging for your interest. So she conducts an experiment,
+
+Unknown Speaker  1:43:43  
+the problem you're solving, and I have the
+
+Speaker 1  1:43:47  
+experimental value. And question is, and
+
+Unknown Speaker  1:43:55  
+and the question is, should
+
+Speaker 1  1:44:00  
+I conduct or not conduct experiments? And the application is for the normal decision, so
+
+Angie.H Moon  1:44:10  
+it's for most decision that it requires experiment, is what I believe. But emphasizing entrepreneurship because that's where
+
+Unknown Speaker  1:44:20  
+entrepreneurs
+
+Angie.H Moon  1:44:24  
+take action to measure something, and that's the experiment
+
+Unknown Speaker  1:44:27  
+of a society.
+
+Unknown Speaker  1:44:33  
+So yeah, it relates to, are you
+
+Unknown Speaker  1:44:35  
+familiar with
+
+Unknown Speaker  1:44:41  
+I think it's called problems. I mean, is this
+
+Angie.H Moon  1:44:47  
+somewhat related then? Yeah, one of the paper I share with you title is sampling bias, or experimental entrepreneur experiments, yeah, so they
+
+Unknown Speaker  1:44:57  
+mentioned AB testing.
+
+Unknown Speaker  1:45:00  
+AB testing, yes, yes.
+
+Speaker 1  1:45:12  
+Liberians between exploration and exploitation, yeah,
+
+Unknown Speaker  1:45:23  
+that's like,
+
+Angie.H Moon  1:45:26  
+exploration Exactly, yeah, exploration so yeah, just one last figure is this is the state of the art, and they're saying there are some irreducible uncertainty. That's this black part. They're calling nation uncertainty,
+
+Unknown Speaker  1:45:43  
+but in statistics,
+
+Angie.H Moon  1:45:47  
+I'll prepare it next time. Thank you.
+
+Did for the
+
+Unknown Speaker  1:46:08  
+Thank you.
+
+Unknown Speaker  1:46:11  
+Can I just show you look?
+
+Unknown Speaker  1:46:18  
+Yeah, there's so many Dropbox
+
+Unknown Speaker  1:46:24  
+I can put in the 2025, folder, like
+
+Speaker 6  1:46:27  
+I know you, yeah, in the previous I added a few passenger terms, okay, yeah,
+
+Angie.H Moon  1:46:35  
+oh, that's That's enough. Are you sure? Yes, yes, that's enough. That's enough.
+
+Unknown Speaker  1:46:41  
+I'm just looking
+
+Speaker 7  1:46:42  
+not all of them have, like, the Got it, got it, solutions that I have other years. Can you also provide the solutions? See, yeah, for 2015 I can't find it.
+
+Angie.H Moon  1:46:57  
+Two years is enough, yeah, I'll first look at the 18th one, and then
+
+Speaker 4  1:47:04  
+it would be one hour recitation. So I think one would be
+
+Angie.H Moon  1:47:14  
+okay, yeah, can we do the
+
+Unknown Speaker  1:47:17  
+great school setting? Yeah?
+
+Unknown Speaker  1:47:31  
+Okay, so
+
+Speaker 6  1:47:34  
+water, yes, of course, yeah, thank you, man, there's, yep, there's room temperature, if you whichever you prefer. Oh,
+
+Unknown Speaker  1:47:44  
+okay, what's like this ice?
+
+Unknown Speaker  1:47:48  
+Have you tasted it? Um, I don't know. I don't think I
+
+Unknown Speaker  1:47:52  
+have. Is it sweet?
+
+Speaker 6  1:47:54  
+Oh, I'm not just say you you haven't tried it yet. Yeah, if you want to sit too, yeah, there's if you hold the chair over.
+
+Speaker 7  1:48:14  
+How long have you been working with moisture a long time, yeah,
+
+Unknown Speaker  1:48:18  
+many years I've never used, yeah, I haven't used grade school before. So
+
+Unknown Speaker  1:48:35  
+I think we should add something
+
+Unknown Speaker  1:48:37  
+there, right. Hold on.
+
+Angie.H Moon  1:48:41  
+Oh, we're setting. I'm YouTube, but since we're recommending to use it for setting.
+
+Unknown Speaker  1:48:51  
+So just just to show you
+
+Angie.H Moon  1:48:55  
+why, I don't know where I can see students submissions. 17 students submitted, but I was expecting it to show up. Oh, here submission. Can you also see the submissions? Oh, yeah, something like this. I think this is okay. Yeah, those are the people who submit
+
+Unknown Speaker  1:49:18  
+it. And let's see.
+
+Angie.H Moon  1:49:23  
+So the kind of the purpose of this is, when students are submitting this, they are, let's say five questions here, and instead of me going through all those, I don't know how many pages there are, but usually 17 pages, right? So instead of me trying to see what each page corresponds to, what questions when students submit, they map it. That's what makes a grading easier. I see. So that's where, why the template is needed for, like, what? How many questions there are in case study, zero. So does
+
+Unknown Speaker  1:50:05  
+that make sense?
+
+Unknown Speaker  1:50:09  
+Yes, yeah.
+
+Angie.H Moon  1:50:12  
+So that I'm asking, because when I was making the first template, I wasn't sure how granular the template should be, meaning that there are a lot of sample sub problems, so I'm just picking up. Well, yeah, yeah, so let's just try to make the template case study one. Do you have the PDF? Yeah?
+
+Unknown Speaker  1:50:42  
+Creek. I
+
+Unknown Speaker  1:51:05  
+There we go.
+
+Angie.H Moon  1:51:07  
+Yeah, that's ours. And let's try to add that to the great scope core setting, is it? I?
+
+Unknown Speaker  1:51:25  
+Oh, here, create assignments.
+
+Unknown Speaker  1:51:27  
+Can you see that on your screen? Is it only me who has this? Can you scroll down? That's weird.
+
+Speaker 7  1:51:42  
+I have this one, but I don't know why you don't have this, considering
+
+Unknown Speaker  1:51:47  
+we're both instructors. I
+
+Angie.H Moon  1:52:07  
+Oh, sorry, now I'm in assignment. So create assignment. Oh, cool, yes, that's it, yeah, and then upload the PDF. I think
+
+Speaker 8  1:52:16  
+no more problems, yeah and next, and then select like case study one.
+
+Unknown Speaker  1:52:35  
+There we go.
+
+Angie.H Moon  1:52:38  
+And you may want to name the assignment
+
+Unknown Speaker  1:52:43  
+just case study one. I
+
+Unknown Speaker  1:52:51  
+don't think we need Anonymous Grading.
+
+Angie.H Moon  1:52:56  
+Yes, real estate, I think we can just put it last week, right, or I don't think it really matters now, yeah,
+
+Unknown Speaker  1:53:06  
+just put any dates. Was it really? Was
+
+Angie.H Moon  1:53:09  
+it last Friday they went out? Or it was two Fridays, two weeks before,
+
+Unknown Speaker  1:53:14  
+yeah, so 21
+
+Unknown Speaker  1:53:18  
+and due date is this Friday, I think. Let
+
+Angie.H Moon  1:53:21  
+me check one more time.
+
+Cool. Now we are going to make an outline, right? Yeah, so let's see how many questions they are in the case study. I
+
+so we have three big questions, right? And for first one,
+
+Unknown Speaker  1:55:09  
+we have six. I don't know what
+
+Unknown Speaker  1:55:16  
+first one
+
+Unknown Speaker  1:55:19  
+data, your
+
+Unknown Speaker  1:55:20  
+tasks give a brief
+
+Angie.H Moon  1:55:24  
+report. Content, do you agree that the 1.4 is the only thing that requires students answer kind of Yeah, yeah. The others are explanations, right? Oh, yeah.
+
+Unknown Speaker  1:55:48  
+10 points
+
+Unknown Speaker  1:55:49  
+for your points.
+
+Angie.H Moon  1:55:58  
+Just 50.0 I see, I see, I see, yeah, so I think the first one is 50 points. So maybe we can start from 123, so a new question, yes, one. And just maybe we can use just the first syllabus. Angie, aggregate
+
+and add 50 points, and then the second one is simulation exercise. So yes,
+
+Unknown Speaker  1:56:42  
+and that's 10 points
+
+Angie.H Moon  1:56:45  
+full, and third one is
+
+Unknown Speaker  1:56:47  
+supplemental problems,
+
+Angie.H Moon  1:56:55  
+40 points cool, and we'll want to add sub problems, which is in number two, we have A, B, C, which breaks the 10 points into 352,
+
+Unknown Speaker  1:57:08  
+and I think we can do this.
+
+Angie.H Moon  1:57:13  
+Cool, yes, and I don't think we have a title for it, so it can just not add anything. But at 3.5
+
+Unknown Speaker  1:57:21  
+points, two points, I
+
+Angie.H Moon  1:57:27  
+think it will add it up.
+
+Unknown Speaker  1:57:28  
+It's quite smart.
+
+Angie.H Moon  1:57:34  
+Two, yes, cool and number three is break, broken up into 1014,
+
+Unknown Speaker  1:57:41  
+and six and 10. Yeah, 1014,
+
+Unknown Speaker  1:57:53  
+six and 10. I
+
+Angie.H Moon  1:57:59  
+Yeah, cool. One last thing is, I don't know whether I should divide number one because it has 1234, right? Why don't we just hold on? I think it's upon my freedom to give what
+
+Unknown Speaker  1:58:14  
+each point is. Yeah.
+
+Speaker 7  1:58:22  
+50 points, select, test different specification. Select,
+
+Angie.H Moon  1:58:27  
+I will just give 1010, 1020 I
+
+Unknown Speaker  1:58:44  
+the last one is 20, yeah, no worries, no worries.
+
+Angie.H Moon  1:58:49  
+Cool. I think that's we're done. Hooray. So that's yeah, okay, that's the outline.
+
+Unknown Speaker  1:58:57  
+Save outline, yeah,
+
+Angie.H Moon  1:59:03  
+yeah, I think we're done. So let's try. I will be a student and update, upload one of the thing and see whether I am facing that
+
+Unknown Speaker  1:59:24  
+submission. So like a student,
+
+Unknown Speaker  1:59:28  
+I don't have
+
+Angie.H Moon  1:59:30  
+do you have any account that I can use? Is not
+
+Speaker 6  1:59:38  
+i Oh, yeah, or I can use Adam. You understand? I
+
+Angie.H Moon  2:00:10  
+so if I submit something, imagine this is my PDF with answers in it. Then students can check this, because this is number one, they can
+
+Unknown Speaker  2:00:25  
+do something like,
+
+Angie.H Moon  2:00:29  
+yeah, 1.1 was here, and also 1.2 was here, and 1.3 was here, and 1.4 was here, right? And number two, we have 2.1 here, and usually that spends 17 pages. So asking for some help for students to map this with their answer is great help for TA I see, yeah, yeah, cool. I think we're done. Okay? Thank you. Is this doable for the next four
+
+Speaker 6  2:01:01  
+so, just like looking at the case study to that, like this, again, like it seems like the first one here, again, is kind of open without a Yeah, breakdown of how the 60 points are distributed. Yeah, and
+
+Angie.H Moon  2:01:17  
+then, to be very, very honest, I don't take great care in how each points are distributed. So when I designed 1010, 1020, it was, I tried to be just equally distributed. So whenever you have like difficulty judging how each point should be distributed, go for the default of equal distribution. But if you have some problems, please let
+
+Unknown Speaker  2:01:39  
+me know so that I can update it.
+
+Speaker 6  2:01:44  
+And then can you do like So for number two, problem one,
+
+Angie.H Moon  2:01:47  
+and then the problem so you can you keep hybrid thing? So that's a good point. So Let's try.
+
+Unknown Speaker  2:01:58  
+Great. Observation,
+
+Unknown Speaker  2:02:04  
+crave assignment two,
+
+Angie.H Moon  2:02:55  
+I think they only allowed two levels.
+
+Unknown Speaker  2:02:57  
+What do you think
+
+Unknown Speaker  2:03:05  
+that is weird?
+
+Angie.H Moon  2:03:15  
+Yeah, we should come up with some ways to
+
+Unknown Speaker  2:03:18  
+model this.
+
+Speaker 6  2:03:21  
+I guess I could just list them as like, two, A, one to a,
+
+Angie.H Moon  2:03:24  
+two to eight to be That's clever. That's genius. Yes, yes, yes. Two, a more and 443,
+
+Speaker 6  2:03:31  
+sure. Cool. So I can, yeah, I might just play around with the future one San
+
+Angie.H Moon  2:03:37  
+Francisco. Yeah. because they don't.
+
+Unknown Speaker  2:03:40  
+because they don't, I know.
+
+Unknown Speaker  3:03:13  
+Hey, Angie, this is Tom
+
+Speaker 9  3:03:19  
+sorry about the timing. I was sort of
+
+Angie.H Moon  3:03:24  
+confused by the whole Sterman no Sterman thing.
+
+Unknown Speaker  3:03:29  
+Yeah, I was a little disappointed by
+
+Unknown Speaker  3:03:31  
+John's reaction, to be honest.
+
+Angie.H Moon  3:03:35  
+Well, he's got a bunch of stuff going on, and I guess I need to leave in 20
+
+Speaker 9  3:03:42  
+minutes, but I hope I can catch up, okay, pretty good. How are you? I cannot see you. Oh,
+
+Angie.H Moon  3:03:55  
+just need to push the button. Got it, and I'll wanna retreat. My
+
+Speaker 9  3:03:59  
+daughter, he ran away after 15 minutes.
+
+Angie.H Moon  3:04:04  
+Does he get bored after 20 minutes? Yeah, 15 minutes to get disappointed. Thomas not coming
+
+Unknown Speaker  3:04:10  
+and he went away. Hold up.
+
+Angie.H Moon  3:04:26  
+Okay? Yeah,
+
+Unknown Speaker  3:04:28  
+thing, it will come soon. Yeah, okay, cool.
+
+Speaker 9  3:04:35  
+So the question for John was the math, first or detail, first? You're in
+
+Angie.H Moon  3:04:47  
+a spot without sort of his answer to that. No, it was mostly about persuasion, but last of getting his information, you know, because have I showed you the reply that he
+
+Speaker 9  3:05:08  
+gave when I asked mask first versus?
+
+Unknown Speaker  3:05:14  
+I think so.
+
+Unknown Speaker  3:05:15  
+I think you copied me or he copied me.
+
+Unknown Speaker  3:05:21  
+Maybe not. I don't know.
+
+Angie.H Moon  3:05:25  
+I think I think I'll take 20 minutes till I find how to record this.
+
+Unknown Speaker  3:05:36  
+Oh, okay, I'm good.
+
+Angie.H Moon  3:05:40  
+I keep moving the buttons. Oh, now it's here. Okay, cool, um,
+
+Unknown Speaker  3:05:46  
+yeah, yesterday's
+
+Angie.H Moon  3:05:48  
+the cautious class was about automating math. There you go. Um, I, I don't have a full PDF yet, but, um, but what like the key takeaway is the automatic differentiation technology enabled the diffusion of a neural network, and they feel that The automatic differentiation of expected value the
+
+Unknown Speaker  3:06:24  
+technology they develop
+
+Angie.H Moon  3:06:30  
+that enables the random the stochastic choices and probability distribution how to take the derivative of that was not straightforward, like the Automatic differentiation was not able to handle that, but they got the idea from a compiler. So compiler has something called continuation progression, something where they are adding dual number to the existing one. So that tells them, the program, the compiler what to do next, but abstract away from that they share some screen just to ingrain some image in your brain. I still don't know. Yeah, this is the overall image was discussed yesterday, and what's, yeah, this image is good probabilistic program. So what Gen can do that stand cannot do is, if you give up probabilistic program, it can give you some density and its gradient. So, okay, let me just try to motivate a little more by showing you this. So gradient expected value and not read on the codium derivative. Don't be basic. You can think it as a basis in an operation space, and the object is a probability distribution or anything that goes in. And if you assemble them, you can get some how the small changes of the parameter of the distribution change the likelihood of a given outcome. So you have a likelihood ratio which is used to propose the next move. And based on that log you heard, is used to accept the proposal. So it's like a Lego block. That's their vision. Uh huh, yeah, so that's, that's how they aim to automate the math. And I am I buy that idea, but they admit that kind of, kind of their desire to be served a role of automatic differentiation for the neural network for the next generation, so that this technology would be the core of the next generation of a probabilistic program
+
+Speaker 8  3:09:09  
+that they think is a little optimistic, but they still are betting on it.
+
+Angie.H Moon  3:09:16  
+Cool, yeah, I just wanted to, of course, get your opinion about this, because I think I'm still on the journey to persuade
+
+Unknown Speaker  3:09:26  
+you that Vensim is another probabilistic program, right? Well, so, yeah, a new strategy for kind of, well, I suppose, in a sense, we still have the problem of having to rewrite the engine or something,
+
+Speaker 9  3:09:49  
+but that's looking more and more inevitable in some ways. Anyway, it's just not clear that we can afford it. So the strategic question is, do we try to adopt this stuff and rewrite the engine, or do we
+
+Unknown Speaker  3:10:15  
+basically become something
+
+Unknown Speaker  3:10:17  
+different by,
+
+Unknown Speaker  3:10:20  
+yeah,
+
+Angie.H Moon  3:10:21  
+creating some kind of layer on top of this stuff that to be, to be very frank and a little brutally honest. I don't, I don't think I can invest a lot of energy into system dynamics right now, because I think my friend is based in entrepreneurship. So I was thinking of communicate like the chat with John as some proposal for some, some like, say, for instance, budget, if system dynamics has some budget, if I persuade, if we persuade, the importance of developing an engine that somehow benchmarks on state of the art. I know there may be some risk to it, but if we persuade the value of it, may there be some that can hire some developers in Vensim and move this forward, because all this fast development in the cautious lab was possible because they got a huge fund from like philanthropists like David Siegel, so they hired a lot of postdocs.
+
+Speaker 8  3:11:33  
+So I'm really surprised how fast they're developing, and I think we need some Yeah, yeah, I agree. Do. Think.
+
+Speaker 9  3:11:48  
+And there's also a problem, you know, there's this problem that's already being noted that when you give people AI tools, they stop thinking.
+
+Angie.H Moon  3:12:03  
+And so
+
+Speaker 9  3:12:04  
+do you like? What's your stance on that? Well, I, you know, I'm not sure. You know, it's not necessarily
+
+Unknown Speaker  3:12:16  
+a bad thing
+
+Speaker 9  3:12:21  
+if they stop thinking about trivial stuff. But if they kind of lose their capacity for critical thinking of any kind, then that's potentially a bad world where you have, you know, you have smart, apparently smart, but hallucinating AI telling people what to do in a way you know that, for evolutionary reasons, would immediately become pretty self serving, I think, from self serving, from the AI's perspective,
+
+Angie.H Moon  3:13:04  
+that's not necessarily a good world, yeah, but to be honest, um, I've been interacted with people from different schools, and I feel people in computing school, even though a lot of their works is automated,
+
+Speaker 9  3:13:20  
+they think more critically. Well, that's what I would hope, is that it gives you time to think more critically, and because you're less, less of your time is consumed with,
+
+Angie.H Moon  3:13:35  
+you know, trivia. Essentially, I don't, I don't think it's like a trivia versus important thing, but it's more like computational thinking, like the way the automation happens is you have some different levels of abstraction. I want to do this thing like, imagine you're writing a paper, and there are different ways of writing a paper. You just write introduction sequentially, whereas computational way to write a paper would be, who is the audience, and what are some skill sets I have? What are some phenomena I want to explain, and what are some models I can build and theory I can do, and assembling them and translate that into some sequence of story is the right way to go, but I don't right. This is the way that people somehow like, what is criticism? Criticism, I think, is only possible if you identify some inconsistency in what you think is kind of some like one assemble and another assemble. They're not consistent with each other. I think that's
+
+Speaker 9  3:14:40  
+where the criticism begins. Yeah, well, so I think that's true. But is it true for people who
+
+Unknown Speaker  3:14:54  
+don't have the capacity to think computationally to begin with?
+
+Speaker 9  3:15:02  
+And that's, that's what I worry about. So you know, if you unleash a eyes that are good at dynamics and uncertainty on a population that is not good at dynamics and uncertainty, yeah, are they able to sort
+
+Angie.H Moon  3:15:22  
+of discriminate between truth and Bs. I mean, isn't that, from a system dynamics
+
+Speaker 9  3:15:29  
+perspective, a good sell for system dynamics education?
+
+Angie.H Moon  3:15:32  
+Yes, yeah, absolutely. So yeah, but in terms of making some proposal to John. Do you
+
+Speaker 8  3:15:45  
+think it is viable? Like, What's your stance on it?
+
+Speaker 9  3:15:53  
+You know, I'm not sure, but we're actually, I don't know when you'll talk to him next, but just coincidentally, we have a conversation with him set up on Monday, and I was going to raise some issues like this. Actually, this is a great timing for this conversation,
+
+Unknown Speaker  3:16:17  
+so I don't know how he'll react
+
+Speaker 9  3:16:20  
+today, but on Monday I will Okay, or at least I'll have a better idea. So I'd be happy to talk with you, you know, before two weeks
+
+Angie.H Moon  3:16:31  
+in order to, yeah, reflect on that. Did you get the chance to read what Andrew wrote about the simulation
+
+Speaker 9  3:16:40  
+than math? Or I sent you the link?
+
+Angie.H Moon  3:16:45  
+I don't think I did. Was it in GitHub? No, I sent you a mail to you, to John, and you replying that I asked you, Andrew. It was around
+
+Unknown Speaker  3:17:02  
+last Saturday.
+
+Speaker 6  3:17:06  
+Which was, what? 20
+
+Speaker 8  3:17:09  
+No, the first, yeah, I think
+
+Unknown Speaker  3:17:19  
+around I can pull it up again. I
+
+Speaker 9  3:17:33  
+let me share the screen. Yeah, I did you find
+
+Speaker 8  3:17:37  
+I was just looking through my mail and I don't see it. Oh,
+
+Unknown Speaker  3:17:46  
+oh, oh,
+
+Angie.H Moon  3:17:48  
+you know, I read the mail and I missed the link.
+
+Speaker 9  3:17:54  
+How does it appear in your screen? I'm just curious. Oh, it it
+
+Speaker 8  3:18:00  
+looks Can you show me pretty much like yours? I um,
+
+Angie.H Moon  3:18:09  
+yeah, because I want to learn a less
+
+Speaker 9  3:18:12  
+a bad way, not not easy, the link, oh, you know it, it's not that it wasn't obvious or anything.
+
+Angie.H Moon  3:18:25  
+Just somehow I didn't, yeah, but Andrew, I said, I'm surrounded by a scholar who thinks math should come before simulation, and what are some strategies that you use to persuade them? And rental. That was one link that he gave, and he said, I think the motivation for social scientists to learn
+
+Unknown Speaker  3:18:54  
+it is when existing menu
+
+Angie.H Moon  3:18:56  
+based approaches don't solve their problems. Yeah,
+
+Speaker 9  3:19:05  
+yeah, yeah. See, this is interesting because Recommendation one consider measurements that address the underlying construct interest is almost the opposite of the advice Jay Forrester would give you. I think you know, because the classic SD advice would not be think about measurements, but think operationally or mechanistically about how the underlying construct works, you know, and what
+
+Angie.H Moon  3:19:46  
+changes the flows and so on. And yes, but John mentioned that, I think it was last year that the measurement system should also be part
+
+Speaker 9  3:19:57  
+of the system dynamics model. So I think John would agree with this. It's well, yeah, I would definitely agree that it's a good recommendation. Yeah, it's just interesting that measurements are first on his list, and
+
+Angie.H Moon  3:20:15  
+sorry, you know they wouldn't be last on my list, but they'd be. I mean, it's second or third, it's statistics, right?
+
+Speaker 9  3:20:23  
+So, yeah, it's recommendation three that
+
+Angie.H Moon  3:20:26  
+he pointed me to. Ah, similarly, yeah, yeah. And what I chatted with Charlie yesterday was, after Scott recommended to focus on math, I did that and cut the output. And I told Charlie the reason, and he Charlie asked me, how was your experience of doing this math? And I said, I don't know, and it's like the reason why this is okay in entrepreneurship itself is a problem, because every other field where empirical work is emphasized only concentrating on math doesn't make sense at all. And the fact that in entrepreneurship, concentrating on math and this becomes some form of paper itself a problem because that indicates the gap between theory and empirics, which shouldn't be
+
+Speaker 9  3:21:18  
+right, yeah, yeah. So yeah. And actually, I guess, in a way, my my worry about AI kind of destroying critical thinking instead of enhancing it,
+
+Speaker 8  3:21:37  
+is also related to that gap that
+
+Speaker 9  3:21:45  
+you know, if what people are doing is kind of a theoretical and superstitious, and you have some, even if you have some great theory, it may be hard to get people to take it up. You know, especially if kind of the payoff is delayed and
+
+Angie.H Moon  3:22:09  
+uncertain and so forth.
+
+Speaker 9  3:22:14  
+So you're saying, well, it's uh, so I think there's a there's an important piece of the problem, which is
+
+Speaker 8  3:22:27  
+communicating to the users how things work,
+
+Speaker 9  3:22:37  
+both to motivate them to pick up the better tool and
+
+Angie.H Moon  3:22:44  
+use the better tool intelligently. And why do you think that is relevant
+
+Speaker 9  3:22:51  
+with the empirics and theory? Just Just out of curiosity? Oh, just because there's a if there's a big gap between empirics and theory, that sort of big gap between theory and seed of the pants conventional wisdom, what seed of the pants? Yeah, meaning, you know, gut feeling, or other sort of folk wisdom that people might be using to manage something for which they didn't previously have a theory base.
+
+Transcribed by https://otter.ai
