@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT Demand Modeling (1.202) Course Survey</title>
+    <style>
+        :root {
+            --option1-color: #3498db;
+            --option2-color: #9b59b6;
+            --option3-color: #e74c3c;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --mit-red: #a31f34;
+            --body-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--mit-red);
+            padding-bottom: 15px;
+        }
+        
+        h1 {
+            color: var(--mit-red);
+            margin-bottom: 10px;
+        }
+        
+        .context {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .option {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .option-header {
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .option1 .option-header {
+            background-color: var(--option1-color);
+        }
+        
+        .option2 .option-header {
+            background-color: var(--option2-color);
+        }
+        
+        .option3 .option-header {
+            background-color: var(--option3-color);
+        }
+        
+        .option-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .utility-function {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
+        
+        .timeline {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .timeline h4 {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .timeline-visualization {
+            position: relative;
+            height: 60px;
+            margin: 15px 0;
+        }
+        
+        .timeline-bar {
+            position: absolute;
+            height: 10px;
+            top: 25px;
+            background-color: #eee;
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        .timeline-event {
+            position: absolute;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 60px;
+        }
+        
+        .timeline-event .marker {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #666;
+            margin: 0 auto 5px;
+        }
+        
+        .timeline-event.current .marker {
+            background-color: var(--mit-red);
+        }
+        
+        .timeline-event p {
+            font-size: 0.7rem;
+            line-height: 1.2;
+        }
+        
+        .how-it-works {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .student-profiles {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .student-profiles ul {
+            padding-left: 20px;
+        }
+        
+        .mastery-impact {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .mastery-bar {
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+            width: 100%;
+        }
+        
+        .mastery-fill {
+            height: 100%;
+        }
+        
+        .option1 .mastery-fill {
+            background-color: var(--option1-color);
+            width: 85%;
+        }
+        
+        .option2 .mastery-fill {
+            background-color: var(--option2-color);
+            width: 70%;
+        }
+        
+        .option3 .mastery-fill {
+            background-color: var(--option3-color);
+            width: 100%;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--dark-gray);
+            color: white;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: bold;
+        }
+        
+        .option1-column {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .option2-column {
+            background-color: rgba(155, 89, 182, 0.1);
+        }
+        
+        .option3-column {
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .survey-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .options-container {
+                flex-direction: column;
+            }
+            
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MIT Demand Modeling (1.202)</h1>
+        <h2>Choose Your Own Adventure: Case Study Edition</h2>
+        <p>March 2025</p>
+    </header>
+    
+    <section class="context">
+        <h3>Pick Your Path! 🎮</h3>
+        <p>Welcome to the Choose Your Own Adventure: Case Study Edition! You've conquered 2 case studies already, and now it's time to decide how you'll tackle the remaining 3. Each option offers a different balance of work, flexibility, and learning—choose the path that matches your style and situation!</p>
+        
+        <div style="margin-bottom: 20px; padding: 10px; background-color: #eaf2f8; border-radius: 5px; border-left: 5px solid #3498db;"> 
+            <p>Given the feedback about workload and timing (especially with spring break), I'd like to get your preferences on potential adjustments to our case study requirements. Each option offers different benefits depending on your learning goals and time constraints.</p> 
+            <p>For your reference, upcoming case studies: 
+                <ul> 
+                    <li><a href="https://www.dropbox.com/scl/fi/65hvqhqsadcs6rrcykw8o/CS3_25.pdf?rlkey=2pgxt6wsketbup98bkgi5d2qm&dl=0" target="_blank">Case Study 3: Multinomial Choice Models (MNL)</a></li> 
+                    <li><a href="https://www.dropbox.com/scl/fi/vpgc999wo76v0ln86bp35/CaseStudy4_23.pdf?rlkey=sarv7qznytayp2ox55u7294v4&dl=0" target="_blank">Case Study 4: Specification Testing for MNL and MEV Models</a></li> 
+                    <li><a href="https://www.dropbox.com/scl/fi/ufa0erfpl3b5f38u1qte4/CaseStudy5_23.pdf?rlkey=rfcsihti01afgezfv8bgbrckc&dl=0" target="_blank">Case Study 5: Mixtures of Logit and MEV Models</a></li> 
+                </ul> 
+            </p> 
+        </div>
+        
+        <h3>Statistical Efficiency Considerations</h3>
+        <p>These three options create meaningful trade-offs that enhance the statistical efficiency of our survey by:</p>
+        <ol>
+            <li><strong>Orthogonality in attribute levels:</strong> Each option presents distinct and uncorrelated combinations of workload, timing flexibility, and content mastery, allowing us to isolate the individual utility of each attribute.</li>
+            <li><strong>Balanced utility range:</strong> The options span from high-flexibility/moderate-learning to low-flexibility/complete-learning, creating sufficient variance to estimate preference parameters.</li>
+            <li><strong>Realistic choice scenarios:</strong> The options represent genuinely viable alternatives with clear differences in the utility components (βᵢ), which improves the precision of our demand model parameter estimates.</li>
+            <li><strong>Capturing heterogeneity:</strong> The diverse options allow us to quantify preference heterogeneity across different student segments, enhancing model robustness.</li>
+        </ol>
+    </section>
+    
+    <div class="options-container">
+        <!-- Option 1 -->
+        <div class="option option1">
+            <div class="option-header">Option 1: The Strategic Slacker 🧠</div>
+            <div class="option-content">
+                <div class="utility-function">
+                    <h4>Utility Function</h4>
+                    <p>U = β₁(Learning) + β₂(Time) + β₃(Research Integration)</p>
+                    <p>where β₂ reflects high value on time flexibility</p>
+                </div>
+                
+                <div class="timeline">
+                    <h4>Timeline Visualization</h4>
+                    <div class="timeline-visualization">
+                        <div class="timeline-bar"></div>
+                        <div class="timeline-event current" style="left: 15%;">
+                            <div class="marker"></div>
+                            <p>Now</p>
+                        </div>
+                        <div class="timeline-event" style="left: 40%;">
+                            <div class="marker"></div>
+                            <p>CS3</p>
+                        </div>
+                        <div class="timeline-event" style="left: 65%;">
+                            <div class="marker"></div>
+                            <p>CS4</p>
+                        </div>
+                        <div class="timeline-event" style="left: 90%;">
+                            <div class="marker"></div>
+                            <p>CS5</p>
+                        </div>
+                    </div>
+                    <p>Complete all case studies, but your lowest score will be dropped from the final grade calculation.</p>
+                </div>
+                
+                <div class="how-it-works">
+                    <h4>How This Option Works</h4>
+                    <p>Do all the work but with a safety net! Complete all 5 case studies, but your lowest score vanishes like it never happened. It's like having a "get out of jail free" card for that week when you just can't even. 🤯</p>
+                </div>
+                
+                <div class="student-profiles">
+                    <h4>Who Are You, Really?</h4>
+                    <ul>
+                        <li><strong>"I'm playing 4D chess with my schedule"</strong> - You know exactly which week you'll need to slack off</li>
+                        <li><strong>"I want it all, but reality exists"</strong> - You value both learning and having time for other things</li>
+                        <li><strong>"Work smarter, not harder"</strong> - You understand that some case study topics may be less relevant to your specific interests, and appreciate the teaching team giving you the flexibility to prioritize what matters most for your learning goals</li>
+                    </ul>
+                </div>
+                
+                <div class="mastery-impact">
+                    <div style="width: 100%;">
+                        <h4>Course Content Mastery: 85%</h4>
+                        <div class="mastery-bar">
+                            <div class="mastery-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Option 2 -->
+        <div class="option option2">
+            <div class="option-header">Option 2: The Mixture Dodger 🏃</div>
+            <div class="option-content">
+                <div class="utility-function">
+                    <h4>Utility Function</h4>
+                    <p>U = β₁(Learning) + β₂(Time) + β₃(Research Integration)</p>
+                    <p>where β₁ < β₂ (valuing time over complete learning)</p>
+                </div>
+                
+                <div class="timeline">
+                    <h4>Timeline Visualization</h4>
+                    <div class="timeline-visualization">
+                        <div class="timeline-bar"></div>
+                        <div class="timeline-event current" style="left: 15%;">
+                            <div class="marker"></div>
+                            <p>Now</p>
+                        </div>
+                        <div class="timeline-event" style="left: 40%;">
+                            <div class="marker"></div>
+                            <p>CS3</p>
+                        </div>
+                        <div class="timeline-event" style="left: 65%;">
+                            <div class="marker"></div>
+                            <p>CS4</p>
+                        </div>
+                        <div class="timeline-event" style="left: 90%;">
+                            <div class="marker"></div>
+                            <p>CS5 (Optional)</p>
+                        </div>
+                    </div>
+                    <p>First 4 case studies required, Case Study 5 optional.</p>
+                </div>
+                
+                <div class="how-it-works">
+                    <h4>How This Option Works</h4>
+                    <p>Four case studies and you're outta here! CS1-4 required, but CS5 becomes your choice. Warning: CS5 covers mixture models (55% of exam). Skip at your own risk! Freedom comes at a price... 📚➡️🔥</p>
+                </div>
+                
+                <div class="student-profiles">
+                    <h4>Who Are You, Really?</h4>
+                    <ul>
+                        <li><strong>"The end of semester is my danger zone"</strong> - You know you'll be drowning by the time CS5 rolls around</li>
+                        <li><strong>"I learn what I need, when I need it"</strong> - You recognize that CS5 covers mixture models (55% of the final exam), so you'll need to master this material either through the case study or intensive exam prep</li>
+                        <li><strong>"I know when to fold 'em"</strong> - Sometimes, strategic retreat is the best battle plan</li>
+                    </ul>
+                </div>
+                
+                <div class="mastery-impact">
+                    <div style="width: 100%;">
+                        <h4>Course Content Mastery: 70%</h4>
+                        <div class="mastery-bar">
+                            <div class="mastery-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Option 3 -->
+        <div class="option option3">
+            <div class="option-header">Option 3: The Default Warrior 🤖</div>
+            <div class="option-content">
+                <div class="utility-function">
+                    <h4>Utility Function</h4>
+                    <p>U = β₁(Learning) + β₂(Time) + β₃(Research Integration)</p>
+                    <p>where β₁ > β₂ (prioritizing complete learning)</p>
+                </div>
+                
+                <div class="timeline">
+                    <h4>Timeline Visualization</h4>
+                    <div class="timeline-visualization">
+                        <div class="timeline-bar"></div>
+                        <div class="timeline-event current" style="left: 15%;">
+                            <div class="marker"></div>
+                            <p>Now</p>
+                        </div>
+                        <div class="timeline-event" style="left: 40%;">
+                            <div class="marker"></div>
+                            <p>CS3</p>
+                        </div>
+                        <div class="timeline-event" style="left: 65%;">
+                            <div class="marker"></div>
+                            <p>CS4</p>
+                        </div>
+                        <div class="timeline-event" style="left: 90%;">
+                            <div class="marker"></div>
+                            <p>CS5</p>
+                        </div>
+                    </div>
+                    <p>All 5 case studies required as originally assigned. Requires working during spring break.</p>
+                </div>
+                
+                <div class="how-it-works">
+                    <h4>How This Option Works</h4>
+                    <p>The path of least resistance! Do everything exactly as planned in the syllabus. Your TAs will love you (zero extra work for them!), but your social life might not. 🤷‍♂️</p>
+                </div>
+                
+                <div class="student-profiles">
+                    <h4>Who Are You, Really?</h4>
+                    <ul>
+                        <li><strong>"Just tell me what to do"</strong> - You prefer clear expectations and no special cases</li>
+                        <li><strong>"I've already put it in my calendar"</strong> - You planned your life around the syllabus from day one</li>
+                        <li><strong>"I like making TAs happy"</strong> - No extra work for them means possibly no special attention for you either</li>
+                    </ul>
+                </div>
+                
+                <div class="mastery-impact">
+                    <div style="width: 100%;">
+                        <h4>Course Content Mastery: 100%</h4>
+                        <div class="mastery-bar">
+                            <div class="mastery-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Side-by-Side Comparison</h3>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Key Factors</th>
+                <th class="option1-column">Option 1: The Strategic Slacker 🧠</th>
+                <th class="option2-column">Option 2: The Mixture Dodger 🏃</th>
+                <th class="option3-column">Option 3: The Default Warrior 🤖</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>What You Do</td>
+                <td class="option1-column">Complete all 5 case studies, lowest score dropped</td>
+                <td class="option2-column">Complete CS1-4, CS5 optional</td>
+                <td class="option3-column">Complete all 5 case studies</td>
+            </tr>
+            <tr>
+                <td>Flexibility</td>
+                <td class="option1-column">Choose which CS to put less effort into</td>
+                <td class="option2-column">Skip CS5 if needed</td>
+                <td class="option3-column">Standard schedule</td>
+            </tr>
+            <tr>
+                <td>Content Coverage</td>
+                <td class="option1-column">All topics, one with less depth</td>
+                <td class="option2-column">Missing mixture models (55% of exam)</td>
+                <td class="option3-column">Complete coverage</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="survey-footer">
+        <p>MIT Department of Civil and Environmental Engineering | Demand Modeling (1.202) | March 2025</p>
+        <p>Please submit your selection through class communication channel's voting system by Sunday 11:59pm.</p>
+    </div>
+</body>
+</html>
